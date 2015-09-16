@@ -29,6 +29,9 @@ public class MapGenerator : MonoBehaviour {
         {
             SmoothMap(); //Iteration count can be modified to produce different looking caves.
         }
+
+        MeshGenerator meshGen = GetComponent<MeshGenerator>();
+        meshGen.GenerateMesh(map, 1);
     }
 
     void Update()
@@ -109,6 +112,7 @@ public class MapGenerator : MonoBehaviour {
 
     void OnDrawGizmos()
     {
+        /*
         if (map != null)
         {
             for (int x = 0; x < width; x++)
@@ -121,6 +125,7 @@ public class MapGenerator : MonoBehaviour {
                 }
             }
         }
+        */
     }
 
 }
