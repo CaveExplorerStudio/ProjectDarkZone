@@ -1,17 +1,277 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MeshGenerator : MonoBehaviour {
 
     public SquareGrid squareGrid;
+    public MeshFilter walls;
+    List<Vector3> vertices;
+    List<int> triangles;
+
+    Dictionary<int, List<Triangle>> triangleDictionary = new Dictionary<int, List<Triangle>>(); //Given a index representing a vertice, it will return all triangles that contain that vertice (purpose)
+    List<List<int>> outlines = new List<List<int>>(); //Going to have multiple outlines, each defined by a list of ints for vertices. Thus, a list, in a list. 
+    HashSet<int> checkedVertices = new HashSet<int>(); //Quicker to do "contains" checks on HashSet's versus lists, so to make sure we don't check a vertice twice, this will be useful.
 
     public void GenerateMesh(int[,] map, float squareSize)
     {
+        outlines.Clear(); //Reset these variables with each new mesh
+        checkedVertices.Clear();
+        triangleDictionary.Clear();
+
         squareGrid = new SquareGrid(map, squareSize);
+
+        vertices = new List<Vector3>();
+        triangles = new List<int>();
+
+        for (int x = 0; x < squareGrid.squares.GetLength(0); x++)
+        {
+            for (int y = 0; y < squareGrid.squares.GetLength(1); y++)
+            {
+                TriangulateSquare(squareGrid.squares[x, y]);
+            }
+        }
+
+        Mesh mesh = new Mesh();
+        GetComponent<MeshFilter>().mesh = mesh;
+
+        mesh.vertices = vertices.ToArray();
+        mesh.triangles = triangles.ToArray();
+        mesh.RecalculateNormals();
+
+        CreateWallMesh();
     }
 
-    void OnDrawGizmos()
+    void CreateWallMesh()
     {
+        CalculateMeshOutlines();
+
+        List<Vector3> wallVertices = new List<Vector3>();
+        List<int> wallTriangles = new List<int>();
+        Mesh wallMesh = new Mesh();
+        float wallHeight = 5; //Could change for 2D?
+
+        foreach (List<int> outline in outlines)
+        {
+            for (int i = 0; i < outline.Count -1; i++)
+            {
+                int startIndex = wallVertices.Count;
+                wallVertices.Add(vertices[outline[i]]); //Left vertex
+                wallVertices.Add(vertices[outline[i+1]]); //Right vertex
+                wallVertices.Add(vertices[outline[i]] - Vector3.up * wallHeight); //Bottom left vertex
+                wallVertices.Add(vertices[outline[i + 1]] - Vector3.up * wallHeight); //Bottom right vertex
+
+                wallTriangles.Add(startIndex + 0);
+                wallTriangles.Add(startIndex + 2);
+                wallTriangles.Add(startIndex + 3); //^^First triangle
+                                                    //Both have anti-clockwise winding
+                wallTriangles.Add(startIndex + 3);
+                wallTriangles.Add(startIndex + 1);
+                wallTriangles.Add(startIndex + 0); //^^Second Triangle
+            }
+        }
+        wallMesh.vertices = wallVertices.ToArray();
+        wallMesh.triangles = wallTriangles.ToArray();
+        walls.mesh = wallMesh;
+    }
+
+    void TriangulateSquare(Square square)
+    {
+        switch (square.configuration)
+        {
+            case 0:
+                break;
+
+            // 1 points:
+            case 1:
+                MeshFromPoints(square.centerLeft, square.centerBottom, square.bottomLeft);
+                break;
+            case 2:
+                MeshFromPoints(square.bottomRight, square.centerBottom, square.centerRight);
+                break;
+            case 4:
+                MeshFromPoints(square.topRight, square.centerRight, square.centerTop);
+                break;
+            case 8:
+                MeshFromPoints(square.topLeft, square.centerTop, square.centerLeft);
+                break;
+
+            // 2 points:
+            case 3:
+                MeshFromPoints(square.centerRight, square.bottomRight, square.bottomLeft, square.centerLeft);
+                break;
+            case 6:
+                MeshFromPoints(square.centerTop, square.topRight, square.bottomRight, square.centerBottom);
+                break;
+            case 9:
+                MeshFromPoints(square.topLeft, square.centerTop, square.centerBottom, square.bottomLeft);
+                break;
+            case 12:
+                MeshFromPoints(square.topLeft, square.topRight, square.centerRight, square.centerLeft);
+                break;
+            case 5:
+                MeshFromPoints(square.centerTop, square.topRight, square.centerRight, square.centerBottom, square.bottomLeft, square.centerLeft);
+                break;
+            case 10:
+                MeshFromPoints(square.topLeft, square.centerTop, square.centerRight, square.bottomRight, square.centerBottom, square.centerLeft);
+                break;
+
+            // 3 point:
+            case 7:
+                MeshFromPoints(square.centerTop, square.topRight, square.bottomRight, square.bottomLeft, square.centerLeft);
+                break;
+            case 11:
+                MeshFromPoints(square.topLeft, square.centerTop, square.centerRight, square.bottomRight, square.bottomLeft);
+                break;
+            case 13:
+                MeshFromPoints(square.topLeft, square.topRight, square.centerRight, square.centerBottom, square.bottomLeft);
+                break;
+            case 14:
+                MeshFromPoints(square.topLeft, square.topRight, square.bottomRight, square.centerBottom, square.centerLeft);
+                break;
+
+            // 4 point:
+            case 15:
+                MeshFromPoints(square.topLeft, square.topRight, square.bottomRight, square.bottomLeft); //If all four are activated, it can't be an edge, so don't check the vertices for edges.
+                checkedVertices.Add(square.topLeft.vertexIndex); 
+                checkedVertices.Add(square.topRight.vertexIndex);
+                checkedVertices.Add(square.bottomRight.vertexIndex);
+                checkedVertices.Add(square.bottomLeft.vertexIndex);
+                break;
+
+        }
+    }
+
+    void MeshFromPoints(params Node[] points)
+    {
+        AssignVertices(points);
+
+        if (points.Length >= 3)
+            CreateTriangle(points[0], points[1], points[2]);
+        if (points.Length >= 4)
+            CreateTriangle(points[0], points[2], points[3]);
+        if (points.Length >= 5)
+            CreateTriangle(points[0], points[3], points[4]);
+        if (points.Length >= 6)
+            CreateTriangle(points[0], points[4], points[5]); //All create different triangles to fill in the mesh
+
+    }
+
+    void AssignVertices(Node[] points)
+    {
+        for(int i = 0; i < points.Length; i++)
+        {
+            if (points[i].vertexIndex == -1)
+            {
+                points[i].vertexIndex = vertices.Count; //Each will incrementally be assigned a new number for a vertex, depending on how many are in the list.
+                vertices.Add(points[i].position);
+            }
+        }
+    }
+
+    void CreateTriangle(Node a, Node b, Node c)
+    {
+        triangles.Add(a.vertexIndex);
+        triangles.Add(b.vertexIndex);
+        triangles.Add(c.vertexIndex);
+
+        Triangle triangle = new Triangle(a.vertexIndex, b.vertexIndex, c.vertexIndex);
+        AddTriangleToDictionary(triangle.vertexIndexA, triangle); //Add the triangle to each of the vertex lists of triangles
+        AddTriangleToDictionary(triangle.vertexIndexB, triangle);
+        AddTriangleToDictionary(triangle.vertexIndexC, triangle);
+    }
+
+    void AddTriangleToDictionary(int vertexIndexKey, Triangle triangle)
+    {
+        if (triangleDictionary.ContainsKey(vertexIndexKey)) //If the dictionary already has the vertex key, store the triangle there. 
+        {
+            triangleDictionary[vertexIndexKey].Add(triangle);
+        }
+        else //If not, create a list of triangles to then store at that vertex key
+        {
+            List<Triangle> triangleList = new List<Triangle>();
+            triangleList.Add(triangle);
+            triangleDictionary.Add(vertexIndexKey, triangleList);
+        }
+    }
+
+    void CalculateMeshOutlines() //Go through all vertices and check if it is outline, and if it, follow outline until meets up, and then add to the outline list.
+    {
+        for (int vertexIndex = 0; vertexIndex< vertices.Count; vertexIndex++)
+        {
+            if (!checkedVertices.Contains(vertexIndex))
+            {
+                int newOutlineVertex = GetConnectedOutlineVertex(vertexIndex);
+
+                if (newOutlineVertex != -1) // If there IS a connected outline vertex, add it to the checked HashSet, then create the new outline to add to the outlines.
+                {
+                    checkedVertices.Add(vertexIndex);
+
+                    List<int> newOutline = new List<int>();
+                    newOutline.Add(vertexIndex);
+                    outlines.Add(newOutline);
+                    FollowOutline(newOutlineVertex, outlines.Count - 1);
+                    outlines[outlines.Count - 1].Add(vertexIndex);
+                }
+            }
+        }
+    }
+
+    void FollowOutline(int vertexIndex, int outlineIndex) //This will follow the trace of the outline, and add the vertices to the checked vertices
+    {
+        outlines[outlineIndex].Add(vertexIndex);
+        checkedVertices.Add(vertexIndex);
+        int nextVertexIndex = GetConnectedOutlineVertex(vertexIndex); 
+
+        if (nextVertexIndex != -1)
+        {
+            FollowOutline(nextVertexIndex, outlineIndex); //Calls itself to continue the trace, assuming it hasn't reached its tail
+        }
+    }
+
+    int GetConnectedOutlineVertex(int vertexIndex) //Get a list of triangles at that index to determine what next index to go to.
+    {
+        List<Triangle> trianglesContainingVertex = triangleDictionary[vertexIndex];
+
+        for (int i = 0; i < trianglesContainingVertex.Count; i++)
+        {
+            Triangle triangle = trianglesContainingVertex[i];
+
+            for (int j = 0; j < 3; j++)
+            {
+                int vertexB = triangle[j];
+                if (IsOutlineEdge(vertexIndex, vertexB) && vertexB != vertexIndex && !checkedVertices.Contains(vertexB)) //Don't want to check it against itself
+                {
+                    return vertexB; //Will return a new vertex that is an outline edge with the first.
+                }
+            }
+        }
+        return -1;
+    }
+
+    bool IsOutlineEdge(int vertexA, int vertexB) //If vertex A and vertex B share ONLY 1 triangle, then the edge between them must be an outline edge
+    {
+        List<Triangle> trianglesContainingVertexA = triangleDictionary[vertexA];
+        int sharedTriangleCount = 0;
+
+        for (int i = 0; i < trianglesContainingVertexA.Count; i++)
+        {
+            if (trianglesContainingVertexA[i].Contains(vertexB)) //ERROR
+            {
+                sharedTriangleCount++;
+                if (sharedTriangleCount > 1)
+                {
+                    break;
+                }
+            }
+        }
+        return sharedTriangleCount == 1;
+    }
+
+    //For reference only, early visualization of map.
+    /*
+    void OnDrawGizmos() //Simply the visualization of the map
+    { 
         if (squareGrid != null)
         {
             for (int x = 0; x < squareGrid.squares.GetLength(0); x++)
@@ -37,6 +297,40 @@ public class MeshGenerator : MonoBehaviour {
                     Gizmos.DrawCube(squareGrid.squares[x, y].centerLeft.position, Vector3.one * .15f);
                 }
             }
+        } 
+    }
+    */
+
+    struct Triangle 
+    {
+        public int vertexIndexA;
+        public int vertexIndexB;
+        public int vertexIndexC;
+        int[] vertices;
+
+        public Triangle (int a, int b, int c)
+        {
+            vertexIndexA = a;
+            vertexIndexB = b;
+            vertexIndexC = c;
+
+            vertices = new int[3];
+            vertices[0] = a;
+            vertices[1] = b;
+            vertices[2] = c;
+        }
+
+        public int this[int i] //Indexer allows retrieval of vertices using array notation. Nifty, right?
+        {
+            get
+            {
+                return vertices[i];
+            }
+        }
+
+        public bool Contains(int vertexIndex) //Easy way of determining if the triangle contains a certain vertex, good for IsOutlineEdge method
+        {
+            return vertexIndex == vertexIndexA || vertexIndex == vertexIndexB || vertexIndex == vertexIndexC;
         }
     }
 
@@ -78,8 +372,9 @@ public class MeshGenerator : MonoBehaviour {
     {
         public ControlNode topLeft, topRight, bottomRight, bottomLeft;
         public Node centerTop, centerRight, centerBottom, centerLeft;
+        public int configuration; //Remember, 16 configuration of control node on/off (2^4, you know, as each one is on or off)
 
-        public Square (ControlNode _topLeft, ControlNode _topRight, ControlNode _bottomRight, ControlNode _bottomLeft)
+        public Square (ControlNode _topLeft, ControlNode _topRight, ControlNode _bottomRight, ControlNode _bottomLeft) //Defines a new square for marching squares, consisting of the control nodes and nodes
         {
             topLeft = _topLeft;
             topRight = _topRight;
@@ -90,10 +385,19 @@ public class MeshGenerator : MonoBehaviour {
             centerRight = bottomRight.above;
             centerBottom = bottomLeft.right;
             centerLeft = bottomLeft.above;
+
+            if (topLeft.active) //First node, starting top left and then going clockwise
+                configuration += 8;
+            if (topRight.active) //Second node
+                configuration += 4;
+            if (bottomRight.active) //Third node
+                configuration += 2;
+            if (bottomLeft.active) //Fourth node
+                configuration += 1;
         }
     }
 
-    public class Node
+    public class Node //Creates a new node, or item in our map grid (representing position, at least)
     {
         public Vector3 position;
         public int vertexIndex = -1;

@@ -30,8 +30,27 @@ public class MapGenerator : MonoBehaviour {
             SmoothMap(); //Iteration count can be modified to produce different looking caves.
         }
 
+        int borderSize = 1;
+        int[,] borderedMap = new int[width + borderSize * 2, height + borderSize * 2]; //Creates boarder around map (MIGHT NEED TO CHANGE TO CREATE MANY MAPS)
+
+        for (int x = 0; x < borderedMap.GetLength(0); x++) //Creates a boarder, might need MODIFICATION
+        {
+            for (int y = 0; y < borderedMap.GetLength(1); y++)
+            {
+                if (x >= borderSize && x < width + borderSize && y >= borderSize && y < height + borderSize)
+                {
+                    borderedMap[x, y] = map[x - borderSize, y - borderSize];
+                }
+                else
+                {
+                    borderedMap[x, y] = 1;
+                }
+            }
+        }
+
+
         MeshGenerator meshGen = GetComponent<MeshGenerator>();
-        meshGen.GenerateMesh(map, 1);
+        meshGen.GenerateMesh(borderedMap, 1); //(Originally used "map" instead of boardered map)
     }
 
     void Update()
