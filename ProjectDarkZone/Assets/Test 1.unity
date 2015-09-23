@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ce4e5058db5964ebccb354f868f2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 128
-  height: 72
+  width: 300
+  height: 200
   seed: Cygnus
   useRandomSeed: 1
   randomFillPercent: 48

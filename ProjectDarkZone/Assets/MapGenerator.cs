@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class MapGenerator : MonoBehaviour {
@@ -30,6 +31,8 @@ public class MapGenerator : MonoBehaviour {
             SmoothMap(); //Iteration count can be modified to produce different looking caves.
         }
 
+        ProcessMap();
+
         int borderSize = 1;
         int[,] borderedMap = new int[width + borderSize * 2, height + borderSize * 2]; //Creates boarder around map (MIGHT NEED TO CHANGE TO CREATE MANY MAPS)
 
@@ -51,6 +54,100 @@ public class MapGenerator : MonoBehaviour {
 
         MeshGenerator meshGen = GetComponent<MeshGenerator>();
         meshGen.GenerateMesh(borderedMap, 1); //(Originally used "map" instead of boardered map)
+    }
+
+    void ProcessMap()
+    {
+        List<List<Coord>> wallRegions = GetRegions(1);
+        int wallThresholdSize = 50; //MODIFY ME CAPTAIN
+
+        foreach(List<Coord> wallRegion in wallRegions)
+        {
+            if (wallRegion.Count < wallThresholdSize) //Remove all regions of walls with less than 50 coordinate tiles
+            {
+                foreach (Coord tile in wallRegion)
+                {
+                    map[tile.tileX, tile.tileY] = 0;
+                }
+            }
+        }
+
+        List<List<Coord>> roomRegions = GetRegions(0);
+        int roomThresholdSize = 50; //MODIFY ME CAPTAIN
+
+        foreach (List<Coord> roomRegion in roomRegions)
+        {
+            if (roomRegion.Count < roomThresholdSize) //Remove all regions of walls with less than 50 coordinate tiles
+            {
+                foreach (Coord tile in roomRegion)
+                {
+                    map[tile.tileX, tile.tileY] = 1;
+                }
+            }
+        }
+    }
+
+    List<List<Coord>> GetRegions(int tileType)
+    {
+        List<List<Coord>> regions = new List<List<Coord>>();
+        int[,] mapFlags = new int[width, height]; //If checked tile or not.
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (mapFlags[x,y] == 0 && map[x,y] == tileType)
+                {
+                    List<Coord> newRegion = GetRegionTiles(x, y); //Get a new region of tiles
+                    regions.Add(newRegion);
+                    foreach (Coord tile in newRegion)
+                    {
+                        mapFlags[tile.tileX, tile.tileY] = 1; //Mark each tile as "looked at"
+                    }
+                }
+            }
+        }
+        return regions;
+    }
+
+
+    List<Coord> GetRegionTiles(int startX, int startY) //Get the tiles that make up a certain region/open space on the map.
+    {
+        List<Coord> tiles = new List<Coord>();
+        int[,] mapFlags = new int[width, height];
+        int tileType = map[startX, startY];
+
+        Queue<Coord> queue = new Queue<Coord>();
+        queue.Enqueue(new Coord(startX, startY));
+        mapFlags[startX, startY] = 1;
+
+        while (queue.Count > 0) //Check all tiles next to, above, and below for wall vs room
+        {
+            Coord tile = queue.Dequeue();
+            tiles.Add(tile);
+
+            for (int x = tile.tileX -1; x <= tile.tileX + 1; x++) // Check side to side
+            {
+                for (int y = tile.tileY -1; y <= tile.tileY + 1; y++) //Check up and down
+                {
+                    if (IsInMapRange(x, y) && (y == tile.tileY || x == tile.tileX))
+                    {
+                        if (mapFlags[x, y] == 0 && map[x, y] == tileType)
+                        {
+                            mapFlags[x, y] = 1;
+                            queue.Enqueue(new Coord(x, y));
+                        }
+                    }
+                }
+            }
+                
+        }
+        return tiles;
+    }
+
+    bool IsInMapRange(int x, int y)
+    {
+        return x >= 0 && x < width && y >= 0 && y < height;
     }
 
     void Update()
@@ -112,7 +209,7 @@ public class MapGenerator : MonoBehaviour {
         {
             for (int neighborY = gridY - 1; neighborY <= gridY + 1; neighborY++) //Iterate through a 3x3 grid of neighbors
             {
-                if (neighborX >= 0 && neighborX < width && neighborY >= 0 && neighborY < height) //Ensure that the neighbors are in the maps, so as to catch errors of edge cases
+                if (IsInMapRange(neighborX, neighborY)) //Ensure that the neighbors are in the maps, so as to catch errors of edge cases
                 {
                     if (neighborX != gridX || neighborY != gridY)
                     {
@@ -127,6 +224,18 @@ public class MapGenerator : MonoBehaviour {
         }
 
         return wallCount;
+    }
+
+    struct Coord
+    {
+        public int tileX;
+        public int tileY;
+
+        public Coord(int x, int y)
+        {
+            tileX = x;
+            tileY = y;
+        }
     }
 
     void OnDrawGizmos()
