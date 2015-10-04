@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player2D : MonoBehaviour {
+public class Player2DCube : MonoBehaviour {
 
     Rigidbody2D rigidbody;
     Vector2 velocity;
