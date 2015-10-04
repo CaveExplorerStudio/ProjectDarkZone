@@ -7,6 +7,7 @@ public class MeshGenerator : MonoBehaviour {
     public SquareGrid squareGrid;
     public MeshFilter walls;
     public MeshFilter cave;
+	public int tileAmount = 1;
 
     public bool is2D;
 
@@ -28,13 +29,21 @@ public class MeshGenerator : MonoBehaviour {
         vertices = new List<Vector3>();
         triangles = new List<int>();
 
-        for (int x = 0; x < squareGrid.squares.GetLength(0); x++)
-        {
-            for (int y = 0; y < squareGrid.squares.GetLength(1); y++)
-            {
-                TriangulateSquare(squareGrid.squares[x, y]);
-            }
-        }
+//        for (int x = 0; x < squareGrid.squares.GetLength(0); x++)
+//        {
+//            for (int y = 0; y < squareGrid.squares.GetLength(1); y++)
+//            {
+//                TriangulateSquare(squareGrid.squares[x, y]);
+//            }
+//        }
+
+		for (int y = 0; y < squareGrid.squares.GetLength(1); y++)
+		{
+			for (int x = 0; x < squareGrid.squares.GetLength(0); x++)
+			{
+				TriangulateSquare(squareGrid.squares[x, y]);
+			}
+		}
 
         Mesh mesh = new Mesh();
         cave.mesh = mesh;
@@ -43,12 +52,13 @@ public class MeshGenerator : MonoBehaviour {
         mesh.triangles = triangles.ToArray();
         mesh.RecalculateNormals();
 
-        int tileAmount = 10; //Should be able to multiple the percentages by this, but it doesn't seem to be working. HMMMM... BUG.
         Vector2[] uvs = new Vector2[vertices.Count];
         for (int i = 0; i < vertices.Count; i++)
         {
-            float percentX = Mathf.InverseLerp(-map.GetLength(0) / 2 * squareSize, map.GetLength(0) / 2 * squareSize, vertices[i].x);
-            float percentY = Mathf.InverseLerp(-map.GetLength(0) / 2 * squareSize, map.GetLength(0) / 2 * squareSize, vertices[i].z);
+
+			float percentX = Mathf.InverseLerp(-map.GetLength(0) / 2 * squareSize, map.GetLength(0) / 2 * squareSize, vertices[i].x)*tileAmount;
+			float percentY = Mathf.InverseLerp(-map.GetLength(0) / 2 * squareSize, map.GetLength(0) / 2 * squareSize, vertices[i].z)*tileAmount;
+
             uvs[i] = new Vector2(percentX, percentY);
         }
         mesh.uv = uvs;
@@ -100,13 +110,35 @@ public class MeshGenerator : MonoBehaviour {
         wallCollider.sharedMesh = wallMesh;
     }
 
-    void Generate2DColliders()
+	public void Destroy2DColliders() {
+		EdgeCollider2D[] currentColliders = gameObject.GetComponents<EdgeCollider2D>();
+		for (int i = 0; i < currentColliders.Length; i++)
+		{
+			if (Application.isPlaying) {
+				Destroy(currentColliders[i]);
+				Debug.Log ("Destroying Old 2D Collider");
+			}
+			else if (Application.isEditor) {
+				DestroyImmediate(currentColliders[i]);
+			}
+		}
+	}
+	
+	void Generate2DColliders()
     {
-        EdgeCollider2D[] currentColliders = gameObject.GetComponents<EdgeCollider2D>();
-        for (int i = 0; i < currentColliders.Length; i++)
-        {
-            Destroy(currentColliders[i]);
-        }
+//        EdgeCollider2D[] currentColliders = gameObject.GetComponents<EdgeCollider2D>();
+//        for (int i = 0; i < currentColliders.Length; i++)
+//        {
+//			if (Application.isPlaying) {
+//				Destroy(currentColliders[i]);
+//				Debug.Log ("Destroying Old 2D Collider");
+//			}
+//			else if (Application.isEditor) {
+//				DestroyImmediate(currentColliders[i]);
+//			}
+//        }
+
+		Destroy2DColliders();
 
         CalculateMeshOutlines();
 
@@ -315,6 +347,12 @@ public class MeshGenerator : MonoBehaviour {
         }
         return sharedTriangleCount == 1;
     }
+
+	public void DestroyMeshAndCollider() {
+		Destroy2DColliders();
+		cave.mesh = null;
+
+	}
 
     //For reference only, early visualization of map.
     /*
