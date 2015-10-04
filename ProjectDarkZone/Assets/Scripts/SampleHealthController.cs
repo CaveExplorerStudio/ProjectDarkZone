@@ -57,16 +57,6 @@ public class SampleHealthController : MonoBehaviour {
         }
 	}
 
-    private void addHealth()
-    {
-        hearts[heartIndex].sprite = Resources.Load<Sprite>("sampleFull");
-    }
-
-    private void removeHealth()
-    {
-        hearts[heartIndex].sprite = Resources.Load<Sprite>("sampleEmpty");
-    }
-
     private void updateHealth()
     {
         for (int i = 0; i <= heartIndex; i++)
@@ -82,7 +72,7 @@ public class SampleHealthController : MonoBehaviour {
 
     private void addHeart()
     {
-        if (hearts.Length < 10)
+        if (hearts.Length < 5)
         {
             GameObject newHeart = Instantiate(HeartImage);
             newHeart.transform.SetParent(HeartHolder.transform, false);
