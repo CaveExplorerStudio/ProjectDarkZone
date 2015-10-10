@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    Rigidbody rigidbody;
-    Vector3 velocity;
+    Rigidbody2D rigidbody;
+    Vector2 velocity;
 
 	// Use this for initialization
 	void Start () {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
