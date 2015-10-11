@@ -16,6 +16,7 @@ public class GraplingHook : MonoBehaviour {
     private DistanceJoint2D tempHinge;
     private int newStartIndex = 0;
     private float damper = 1;
+    public int frameSpacing = 12;
 
 	// Use this for initialization
 	void Start () {
@@ -31,14 +32,14 @@ public class GraplingHook : MonoBehaviour {
       
         
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && creatingRope == false)
         {
             CreateGraplingHook();
             frameCounter = 0;
             creatingRope = true;
         }
 
-        if (creatingRope && frameCounter % 4 == 0 && frameCounter != 0 && segmentsCreated < maxSegments)
+        if (creatingRope && frameCounter % frameSpacing == 0 && frameCounter != 0 && segmentsCreated < maxSegments)
         {
             CreateGraplingHook();
             segmentsCreated++;
@@ -48,6 +49,7 @@ public class GraplingHook : MonoBehaviour {
             tempHinge.connectedBody = ropeSegments[segmentsCreated + newStartIndex].GetComponent<Rigidbody2D>();
             tempHinge.anchor = new Vector2(1f, 0f);
             tempHinge.distance = 0.01f;
+            tempHinge.enableCollision = true;
 
 
         }
@@ -73,7 +75,7 @@ public class GraplingHook : MonoBehaviour {
         projectile.transform.position = GameObject.Find("FirePoint").transform.position;
         projectile.transform.rotation = GameObject.Find("FirePoint").transform.rotation;
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(1, 4) * (12.0f * damper));
+        rb.AddForce(new Vector2(1, 4) * (1.5f * damper));
         ropeSegments.Add(projectile);
     }
 }

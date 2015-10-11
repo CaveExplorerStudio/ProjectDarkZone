@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSegments: 50
+  frameSpacing: 2
 --- !u!114 &484955150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,8 +230,9 @@ GameObject:
   - 4: {fileID: 514343164}
   - 33: {fileID: 514343163}
   - 23: {fileID: 514343161}
-  - 54: {fileID: 514343165}
-  - 65: {fileID: 514343162}
+  - 50: {fileID: 514343165}
+  - 61: {fileID: 514343162}
+  - 233: {fileID: 514343166}
   m_Layer: 8
   m_Name: RopeSegment
   m_TagString: Untagged
@@ -262,18 +264,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &514343162
-BoxCollider:
+--- !u!61 &514343162
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 514343160}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -7.62939453e-06, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
 --- !u!33 &514343163
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -293,21 +296,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!54 &514343165
-Rigidbody:
+--- !u!50 &514343165
+Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 514343160}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: .00999999978
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_GravityScale: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!233 &514343166
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 514343160}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
 --- !u!1 &932689670
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +529,7 @@ GameObject:
   - 4: {fileID: 1904844248}
   - 33: {fileID: 1904844247}
   - 23: {fileID: 1904844245}
-  - 65: {fileID: 1904844246}
+  - 61: {fileID: 1904844246}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -537,18 +561,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &1904844246
-BoxCollider:
+--- !u!61 &1904844246
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1904844244}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
 --- !u!33 &1904844247
 MeshFilter:
   m_ObjectHideFlags: 0
