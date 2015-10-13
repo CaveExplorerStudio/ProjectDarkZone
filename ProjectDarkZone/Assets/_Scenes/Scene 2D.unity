@@ -20394,9 +20394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
+  crouch: 0
   moveForce: 350
   maxSpeed: 4
-  jumpForce: 600
+  jumpForce: 400
 --- !u!1 &1887418149
 GameObject:
   m_ObjectHideFlags: 0
