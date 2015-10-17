@@ -69,6 +69,7 @@ public class GraplingHook : MonoBehaviour {
 
     void CreateGraplingHook(bool firstSegment)
     {
+        Material newMat = Resources.Load("Rope", typeof(Material)) as Material;
         GameObject projectile = Instantiate(prefab) as GameObject;
         projectile.transform.position = GameObject.Find("FirePoint").transform.position;
         projectile.transform.rotation = GameObject.Find("FirePoint").transform.rotation;
@@ -76,7 +77,9 @@ public class GraplingHook : MonoBehaviour {
         rb.AddForce(new Vector2(1, 4) * (1.2f * damper));
         projectile.AddComponent<LineRenderer>();
         projectile.GetComponent<LineRenderer>().SetWidth(.1f, .1f);
-            
+        projectile.GetComponent<LineRenderer>().material = newMat;
+        projectile.GetComponent<BoxCollider2D>().isTrigger = false;
+
         ropeSegments.Add(projectile);
 
         if (firstSegment)
@@ -91,9 +94,9 @@ public class GraplingHook : MonoBehaviour {
     {
         for (int i = 1; i < ropeSegments.Count; i++)
         {
-            if (i + 1 % maxSegments == 0)
+            if ((i-1) % maxSegments == 0)
                 i++;
-            if (i < ropeSegments.Count)
+            else if (i < ropeSegments.Count)
             {
                 ropeSegments[i].GetComponent<LineRenderer>().SetPosition(1, new Vector3(ropeSegments[i - 1].transform.position.x,
                                                                                     ropeSegments[i - 1].transform.position.y,
