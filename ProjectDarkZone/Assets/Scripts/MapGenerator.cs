@@ -579,15 +579,25 @@ public class MapGenerator : MonoBehaviour {
 
 	}
 
+	public Coord Vector3ToCoord(Vector3 vector) {
+		return new Coord ((int)(vector.x/tileSize + (width-1)/2), (int)(vector.y/tileSize - (width/2) + 1/2 + 2));
+	}
+
+	public Vector3 CoordToVector3(Coord coord) {
+		return new Vector3(	(coord.tileX - (width/2) + 1/2)*tileSize,
+							(coord.tileY - (width/2) + 1/2 + 2)*tileSize,
+		                	(0));
+	}
+
 	public void SpawnPlayer() {
 		Coord closestTile = GetTileClosestToTile(new Coord(0,height-1), floorTiles); //Find the floor tile closest to the upper left corner
-
-		//Adjust the tile coordinates to Unity coordinates
-		float x = closestTile.tileX * tileSize - (width/2)*tileSize + tileSize/2;
-		float y = closestTile.tileY*tileSize- (width/2)*tileSize + tileSize/2 + tileSize*2;
-
 		GameObject player = GameObject.Find ("Player");
-		player.transform.position = new Vector2(x,y);
+		player.transform.position = CoordToVector3 (closestTile);
+	}
+
+	public Coord LeftTileClosestToPlayer(Coord playerCoord)
+	{
+		return GetTileClosestToTile(playerCoord, rightWallTiles);
 	}
 
 	public void AddScenery() {
@@ -725,10 +735,12 @@ public class MapGenerator : MonoBehaviour {
 		return maxTile;
 	}
 
-	Coord GetTileClosestToTile(Coord tile, List<Coord> tiles) {
+	public Coord GetTileClosestToTile(Coord tile, List<Coord> tiles) {
 		//Finds the closest tile in the list "tiles" to another tile.
 		//This is being used it spawn the player near the upper left corner.
 
+		if(tiles == null)
+			return tile;
 		Coord closestTile = tiles[0];
 		float closestDistance = Distance(tile,closestTile);
 
