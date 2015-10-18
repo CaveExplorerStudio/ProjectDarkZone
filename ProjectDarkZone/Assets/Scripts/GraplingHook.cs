@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class GraplingHook : MonoBehaviour {
     public List<GameObject> ropeSegments = new List<GameObject>();
+    private List<int> ropeSegmentCodes = new List<int>();
     private GameObject playerPosition;
     private GameObject prefab;
     private int frameCounter = 0;
@@ -14,9 +15,14 @@ public class GraplingHook : MonoBehaviour {
     private int newStartIndex = 0;
     private float damper = 1;
     public int frameSpacing = 12;
+    public LayerMask rope_layers;
+    private int ropesCreated = 0;
 
-	// Use this for initialization
-	void Start () {
+    private bool freeze = false;
+    private int freezeTimer = 120;
+
+    // Use this for initialization
+    void Start () {
         playerPosition = GameObject.Find("FirePoint");
 
         prefab = GameObject.Find("RopeSegment") as GameObject;
@@ -27,7 +33,7 @@ public class GraplingHook : MonoBehaviour {
         playerPosition = GameObject.Find("FirePoint");
         GameObject part = GameObject.Find("RopeSegment");
       
-        if (Input.GetMouseButtonDown(0) && creatingRope == false)
+        if (Input.GetMouseButtonDown(0) && creatingRope == false) //Remove the first false pls
         {
             CreateGraplingHook(true);
             frameCounter = 0;
@@ -58,12 +64,25 @@ public class GraplingHook : MonoBehaviour {
             newStartIndex += segmentsCreated;
             segmentsCreated = 0;
             damper = 1;
+            ropeSegmentCodes.Add(0);
+            freeze = true;
+            ropesCreated++;
+            //FreezeRope();
+        }
+
+        if (freeze)
+        {
+            if (freezeTimer != 0)
+                freezeTimer--;
+            else
+                FreezeRope();
         }
 
         if (ropeSegments.Count >= 2)
         {
             UpdateTraces();
         }
+
      
     }
 
@@ -78,23 +97,28 @@ public class GraplingHook : MonoBehaviour {
         projectile.AddComponent<LineRenderer>();
         projectile.GetComponent<LineRenderer>().SetWidth(.1f, .1f);
         projectile.GetComponent<LineRenderer>().material = newMat;
-        projectile.GetComponent<BoxCollider2D>().isTrigger = false;
+        if (!firstSegment)
+            projectile.GetComponent<BoxCollider2D>().isTrigger = false;
 
         ropeSegments.Add(projectile);
+        ropeSegmentCodes.Add(1);
 
         if (firstSegment)
         {
             ropeSegments[ropeSegments.IndexOf(projectile)].AddComponent<CheckCollide>();
             ropeSegments[ropeSegments.IndexOf(projectile)].GetComponent<CheckCollide>().segmentIndex = ropeSegments.IndexOf(projectile);
+            ropeSegments[ropeSegments.IndexOf(projectile)].name = "head";
+            //ropeSegments[ropeSegments.IndexOf(projectile)].GetComponent<BoxCollider2D>().isTrigger = true;
         }
 
     }
 
     void UpdateTraces()
     {
+        bool foundOnCurrentIteration = false;
         for (int i = 1; i < ropeSegments.Count; i++)
         {
-            if ((i-1) % maxSegments == 0)
+            if (ropeSegmentCodes[i] == 0) //(i-1) % maxSegments == 0
                 i++;
             else if (i < ropeSegments.Count)
             {
@@ -105,10 +129,38 @@ public class GraplingHook : MonoBehaviour {
                 ropeSegments[i].GetComponent<LineRenderer>().SetPosition(0, new Vector3(ropeSegments[i].transform.position.x,
                                                                                         ropeSegments[i].transform.position.y,
                                                                                         ropeSegments[i].transform.position.z));
+                
+                if (!(Physics2D.OverlapArea(new Vector2(ropeSegments[i - 1].transform.position.x, ropeSegments[i - 1].transform.position.y), 
+                                            new Vector2(ropeSegments[i].transform.position.x, ropeSegments[i].transform.position.y), 
+                                            rope_layers) == null) && !creatingRope) //Rope or player??
+                {
+                    this.gameObject.GetComponent<Climbing>().isClimbing = true;
+                    foundOnCurrentIteration = true;
+                    Debug.Log("I got to the thing boss.");
+                }
+
+                //if (!(Physics2D.OverlapCircle(ropeSegments[i].transform.position, 1) == null) && !creatingRope)
+                //{
+                //    Debug.Log("Circle collided!!!");
+                //}
+
+                //if (this.gameObject.GetComponent<Climbing>().isClimbing)
+
             }
             
         }
-        
+        if (!foundOnCurrentIteration)
+            this.gameObject.GetComponent<Climbing>().isClimbing = false;
+    }
+
+    void FreezeRope()
+    {
+        int maxIndex = ropesCreated * maxSegments;
+        for (int i = 0; i < maxIndex; i++)
+        {
+            ropeSegments[i].GetComponent<Rigidbody2D>().isKinematic = true;
+            ropeSegments[i].GetComponent<BoxCollider2D>().isTrigger = true;
+        }
     }
    
 }
