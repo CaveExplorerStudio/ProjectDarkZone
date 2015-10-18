@@ -579,11 +579,11 @@ public class MapGenerator : MonoBehaviour {
 
 	}
 
-	static public Coord Vector3ToCoord(Vector3 vector) {
+	public Coord Vector3ToCoord(Vector3 vector) {
 		return new Coord ((int)(vector.x/tileSize + (width-1)/2), (int)(vector.y/tileSize - (width/2) + 1/2 + 2));
 	}
 
-	static public Vector3 CoordToVector3(Coord coord) {
+	public Vector3 CoordToVector3(Coord coord) {
 		return new Vector3(	(coord.tileX - (width/2) + 1/2)*tileSize,
 							(coord.tileY - (width/2) + 1/2 + 2)*tileSize,
 		                	(0));

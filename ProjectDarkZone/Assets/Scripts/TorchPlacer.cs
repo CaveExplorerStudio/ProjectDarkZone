@@ -35,21 +35,24 @@ public class TorchPlacer : MonoBehaviour
 			else
 				directionMult = -1;
 
-			GameObject torch = new GameObject("Torch");
-			torch.transform.parent = torches.transform;
-			SpriteRenderer torchSpriteRenderer = torch.AddComponent<SpriteRenderer>();
-			torchSpriteRenderer.sprite = torchSprite;
-			torch.transform.position = new Vector3(transform.position.x + 1*directionMult, transform.position.y + 0.40f, transform.position.z - 1);
-			torch.transform.rotation = transform.rotation;
-			
-			torch.transform.localScale = new Vector3(10*directionMult,10,10);
+			Vector3 torchPosition = new Vector3(transform.position.x + 1*directionMult, transform.position.y + 0.40f, transform.position.z - 1);
+			if(true) //torch is not in wall
+			{
+				GameObject torch = new GameObject("Torch");
+				torch.transform.parent = torches.transform;
+				SpriteRenderer torchSpriteRenderer = torch.AddComponent<SpriteRenderer>();
+				torchSpriteRenderer.sprite = torchSprite;
+				torch.transform.position = torchPosition;
+				torch.transform.rotation = transform.rotation;
+				
+				torch.transform.localScale = new Vector3(10*directionMult,10,10);
 
 
-			torch.AddComponent<Light>();	
-			Light light = torch.GetComponent<Light>();
-			light.intensity = 8;
-			light.renderMode = LightRenderMode.ForcePixel;
-
+				torch.AddComponent<Light>();	
+				Light light = torch.GetComponent<Light>();
+				light.intensity = 8;
+				light.renderMode = LightRenderMode.ForcePixel;
+			}
 		}
 	}
 }
