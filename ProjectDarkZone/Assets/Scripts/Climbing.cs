@@ -46,7 +46,7 @@ public class Climbing : MonoBehaviour {
     {
         if (isClimbing)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow))
             {
                 if (rigidbody.velocity.y < maxSpeed)
                     rigidbody.AddForce(Vector2.up * moveForce);

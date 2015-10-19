@@ -136,7 +136,7 @@ public class GraplingHook : MonoBehaviour {
                 {
                     this.gameObject.GetComponent<Climbing>().isClimbing = true;
                     foundOnCurrentIteration = true;
-                    Debug.Log("I got to the thing boss.");
+                    //Debug.Log("I got to the thing boss.");
                 }
 
                 //if (!(Physics2D.OverlapCircle(ropeSegments[i].transform.position, 1) == null) && !creatingRope)

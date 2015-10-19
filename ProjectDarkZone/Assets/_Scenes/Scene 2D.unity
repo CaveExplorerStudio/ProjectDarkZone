@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4393269}
   - 212: {fileID: 4393270}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 12646584}
   - 212: {fileID: 12646585}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 31941238}
   - 212: {fileID: 31941239}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 48120849}
   - 212: {fileID: 48120850}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 48275532}
   - 212: {fileID: 48275533}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 53645569}
   - 212: {fileID: 53645570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 54789863}
   - 212: {fileID: 54789864}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 54921072}
   - 212: {fileID: 54921073}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 60892931}
   - 212: {fileID: 60892932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 83682190}
   - 212: {fileID: 83682191}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 84558782}
   - 212: {fileID: 84558783}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderWeb(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,7 +755,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 94459981}
   - 212: {fileID: 94459982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -809,7 +809,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 101922522}
   - 212: {fileID: 101922523}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   - 95: {fileID: 121319221}
   - 114: {fileID: 121319220}
   - 82: {fileID: 121319219}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1021,7 +1021,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 127063754}
   - 212: {fileID: 127063755}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1075,7 +1075,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 129164413}
   - 212: {fileID: 129164414}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1129,7 +1129,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 148374359}
   - 212: {fileID: 148374360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1183,7 +1183,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 151846300}
   - 212: {fileID: 151846301}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1237,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 155114216}
   - 212: {fileID: 155114217}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1291,7 +1291,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 157046705}
   - 212: {fileID: 157046706}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1345,7 +1345,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 164702556}
   - 212: {fileID: 164702557}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1399,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 165851625}
   - 212: {fileID: 165851626}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1453,7 +1453,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 167253476}
   - 212: {fileID: 167253477}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1507,7 +1507,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 179746905}
   - 212: {fileID: 179746906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1561,7 +1561,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 183581804}
   - 212: {fileID: 183581805}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1615,7 +1615,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 186554523}
   - 212: {fileID: 186554524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1669,7 +1669,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 187834818}
   - 212: {fileID: 187834819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1723,7 +1723,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 189680499}
   - 212: {fileID: 189680500}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1777,7 +1777,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 200434958}
   - 212: {fileID: 200434959}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1834,7 +1834,7 @@ GameObject:
   - 95: {fileID: 203765444}
   - 114: {fileID: 203765443}
   - 82: {fileID: 203765442}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1989,7 +1989,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 205461424}
   - 212: {fileID: 205461425}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2043,7 +2043,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 218167467}
   - 212: {fileID: 218167468}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2097,7 +2097,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 220450406}
   - 212: {fileID: 220450407}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2151,7 +2151,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 223290450}
   - 212: {fileID: 223290451}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,7 +2205,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 225018147}
   - 212: {fileID: 225018148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2259,7 +2259,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 228038917}
   - 212: {fileID: 228038918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2313,7 +2313,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 229773120}
   - 212: {fileID: 229773121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2367,7 +2367,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 234202912}
   - 212: {fileID: 234202913}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2424,7 +2424,7 @@ GameObject:
   - 95: {fileID: 239041054}
   - 114: {fileID: 239041053}
   - 82: {fileID: 239041052}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2582,7 +2582,7 @@ GameObject:
   - 95: {fileID: 241175801}
   - 114: {fileID: 241175800}
   - 82: {fileID: 241175799}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2742,7 +2742,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 253068352}
   - 212: {fileID: 253068353}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2796,7 +2796,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 255554489}
   - 212: {fileID: 255554490}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2851,7 +2851,7 @@ GameObject:
   - 4: {fileID: 257507611}
   - 33: {fileID: 257507610}
   - 23: {fileID: 257507609}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cave Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2910,7 +2910,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 259646498}
   - 212: {fileID: 259646499}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2964,7 +2964,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 262146294}
   - 212: {fileID: 262146295}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderWeb(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3018,7 +3018,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 267387244}
   - 212: {fileID: 267387245}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3072,7 +3072,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 267856534}
   - 212: {fileID: 267856535}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3126,7 +3126,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 271170452}
   - 212: {fileID: 271170453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3180,7 +3180,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 281971578}
   - 212: {fileID: 281971579}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3239,7 +3239,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 290468456}
   - 212: {fileID: 290468457}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3293,7 +3293,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 290883881}
   - 212: {fileID: 290883882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3347,7 +3347,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 295898725}
   - 212: {fileID: 295898726}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3401,7 +3401,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 298662439}
   - 212: {fileID: 298662440}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3455,7 +3455,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 299757025}
   - 212: {fileID: 299757026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3509,7 +3509,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 308186722}
   - 212: {fileID: 308186723}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3566,7 +3566,7 @@ GameObject:
   - 95: {fileID: 308760555}
   - 114: {fileID: 308760554}
   - 82: {fileID: 308760553}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3721,7 +3721,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 315187622}
   - 212: {fileID: 315187623}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3777,7 +3777,7 @@ GameObject:
   - 33: {fileID: 325692248}
   - 64: {fileID: 325692247}
   - 23: {fileID: 325692246}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3848,7 +3848,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 334687772}
   - 212: {fileID: 334687773}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3902,7 +3902,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 337953082}
   - 212: {fileID: 337953083}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3956,7 +3956,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 358604839}
   - 212: {fileID: 358604840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4013,7 +4013,7 @@ GameObject:
   - 114: {fileID: 363265811}
   - 68: {fileID: 363265813}
   - 68: {fileID: 363265812}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Map Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5613,7 +5613,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 369300700}
   - 212: {fileID: 369300701}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5667,7 +5667,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 377509719}
   - 212: {fileID: 377509720}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5721,7 +5721,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 391695602}
   - 212: {fileID: 391695603}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5775,7 +5775,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 395205186}
   - 212: {fileID: 395205187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5829,7 +5829,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 395931582}
   - 212: {fileID: 395931583}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5883,7 +5883,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402641773}
   - 212: {fileID: 402641774}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5937,7 +5937,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 403817225}
   - 212: {fileID: 403817226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5991,7 +5991,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 408905343}
   - 212: {fileID: 408905344}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6048,7 +6048,7 @@ GameObject:
   - 95: {fileID: 411792293}
   - 114: {fileID: 411792292}
   - 82: {fileID: 411792291}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6203,7 +6203,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 415370553}
   - 212: {fileID: 415370554}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6257,7 +6257,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 426138968}
   - 212: {fileID: 426138969}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6311,7 +6311,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 428873255}
   - 212: {fileID: 428873256}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6365,7 +6365,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 442717890}
   - 212: {fileID: 442717891}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6589,7 +6589,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 455275668}
   - 212: {fileID: 455275669}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6643,7 +6643,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 472553191}
   - 212: {fileID: 472553192}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6697,7 +6697,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 479946831}
   - 212: {fileID: 479946832}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6751,7 +6751,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 482087623}
   - 212: {fileID: 482087624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderWeb(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6805,7 +6805,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 484703079}
   - 212: {fileID: 484703080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6859,7 +6859,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 524311512}
   - 212: {fileID: 524311513}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6913,7 +6913,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 532693695}
   - 212: {fileID: 532693696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6967,7 +6967,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 534854301}
   - 212: {fileID: 534854302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7021,7 +7021,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 556145967}
   - 212: {fileID: 556145968}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7075,7 +7075,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 556491345}
   - 212: {fileID: 556491346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7129,7 +7129,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 557649737}
   - 212: {fileID: 557649738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7183,7 +7183,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 559076604}
   - 212: {fileID: 559076605}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7237,7 +7237,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 560777545}
   - 212: {fileID: 560777546}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7361,7 +7361,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 570794295}
   - 212: {fileID: 570794296}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7415,7 +7415,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 591531766}
   - 212: {fileID: 591531767}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7469,7 +7469,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 599533665}
   - 212: {fileID: 599533666}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7526,7 +7526,7 @@ GameObject:
   - 95: {fileID: 600119035}
   - 114: {fileID: 600119034}
   - 82: {fileID: 600119033}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7681,7 +7681,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 601310453}
   - 212: {fileID: 601310454}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7735,7 +7735,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 602556996}
   - 212: {fileID: 602556997}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7789,7 +7789,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 623559902}
   - 212: {fileID: 623559903}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7843,7 +7843,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 626039389}
   - 212: {fileID: 626039390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7964,7 +7964,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 631231868}
   - 212: {fileID: 631231869}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8021,7 +8021,7 @@ GameObject:
   - 95: {fileID: 639902230}
   - 114: {fileID: 639902229}
   - 82: {fileID: 639902228}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8176,7 +8176,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 644229929}
   - 212: {fileID: 644229930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8230,7 +8230,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 648084006}
   - 212: {fileID: 648084007}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8284,7 +8284,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 651916221}
   - 212: {fileID: 651916222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8338,7 +8338,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 652708951}
   - 212: {fileID: 652708952}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderWeb(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8392,7 +8392,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 658041194}
   - 212: {fileID: 658041195}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8446,7 +8446,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 665114325}
   - 212: {fileID: 665114326}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8500,7 +8500,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 665466404}
   - 212: {fileID: 665466405}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8554,7 +8554,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 689620477}
   - 212: {fileID: 689620478}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8608,7 +8608,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 693462660}
   - 212: {fileID: 693462661}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8694,19 +8694,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.x
@@ -8714,7 +8714,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.x
@@ -8722,7 +8722,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_Pivot.x
@@ -8744,7 +8744,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 704388131}
   - 212: {fileID: 704388132}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8798,7 +8798,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 715843348}
   - 212: {fileID: 715843349}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8855,7 +8855,7 @@ GameObject:
   - 95: {fileID: 717229480}
   - 114: {fileID: 717229479}
   - 82: {fileID: 717229478}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9010,7 +9010,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 720159883}
   - 212: {fileID: 720159884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9064,7 +9064,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 720763032}
   - 212: {fileID: 720763033}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9121,7 +9121,7 @@ GameObject:
   - 95: {fileID: 732535861}
   - 114: {fileID: 732535860}
   - 82: {fileID: 732535859}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9276,7 +9276,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 733280601}
   - 212: {fileID: 733280602}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9330,7 +9330,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 739510886}
   - 212: {fileID: 739510887}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderWeb(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9389,7 +9389,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 751413290}
   - 212: {fileID: 751413291}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9443,7 +9443,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 753520389}
   - 212: {fileID: 753520390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9497,7 +9497,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 759885826}
   - 212: {fileID: 759885827}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9551,7 +9551,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 768604186}
   - 212: {fileID: 768604187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9608,7 +9608,7 @@ GameObject:
   - 95: {fileID: 770327372}
   - 114: {fileID: 770327371}
   - 82: {fileID: 770327370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9766,7 +9766,7 @@ GameObject:
   - 95: {fileID: 787679097}
   - 114: {fileID: 787679096}
   - 82: {fileID: 787679095}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9921,7 +9921,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 794736288}
   - 212: {fileID: 794736289}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9975,7 +9975,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 808261196}
   - 212: {fileID: 808261197}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10029,7 +10029,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 809264277}
   - 212: {fileID: 809264278}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10086,7 +10086,7 @@ GameObject:
   - 95: {fileID: 809465517}
   - 114: {fileID: 809465516}
   - 82: {fileID: 809465515}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10241,7 +10241,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 811949048}
   - 212: {fileID: 811949049}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10295,7 +10295,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 815607528}
   - 212: {fileID: 815607529}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10349,7 +10349,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 816319916}
   - 212: {fileID: 816319917}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10403,7 +10403,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 822636609}
   - 212: {fileID: 822636610}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10457,7 +10457,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 824225347}
   - 212: {fileID: 824225348}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10511,7 +10511,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 861607734}
   - 212: {fileID: 861607735}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10565,7 +10565,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 867696221}
   - 212: {fileID: 867696222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10610,6 +10610,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 1, b: .0896551609, a: 1}
+--- !u!1 &871739876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 871739877}
+  m_Layer: 10
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &871739877
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871739876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.19999814, y: 1.49230957, z: 0}
+  m_LocalScale: {x: 1.53846157, y: 1.53846157, z: 1.53846157}
+  m_Children: []
+  m_Father: {fileID: 1886826710}
+  m_RootOrder: 0
 --- !u!1 &908379168
 GameObject:
   m_ObjectHideFlags: 0
@@ -10619,7 +10646,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 908379169}
   - 212: {fileID: 908379170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10673,7 +10700,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 910002910}
   - 212: {fileID: 910002911}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10727,7 +10754,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 912550004}
   - 212: {fileID: 912550005}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10781,7 +10808,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 912822742}
   - 212: {fileID: 912822743}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10835,7 +10862,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 915415295}
   - 212: {fileID: 915415296}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10889,7 +10916,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 917632289}
   - 212: {fileID: 917632290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10943,7 +10970,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 918998894}
   - 212: {fileID: 918998895}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10997,7 +11024,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 930000903}
   - 212: {fileID: 930000904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11051,7 +11078,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 941804808}
   - 212: {fileID: 941804809}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11105,7 +11132,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 942182808}
   - 212: {fileID: 942182809}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11223,7 +11250,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 957348028}
   - 212: {fileID: 957348029}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11280,7 +11307,7 @@ GameObject:
   - 95: {fileID: 979014866}
   - 114: {fileID: 979014865}
   - 82: {fileID: 979014864}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11435,7 +11462,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 993129574}
   - 212: {fileID: 993129575}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11489,7 +11516,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 994428956}
   - 212: {fileID: 994428957}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11543,7 +11570,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 997393786}
   - 212: {fileID: 997393787}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderWeb(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11600,7 +11627,7 @@ GameObject:
   - 95: {fileID: 1005151551}
   - 114: {fileID: 1005151550}
   - 82: {fileID: 1005151549}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11755,7 +11782,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1010701565}
   - 212: {fileID: 1010701566}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11809,7 +11836,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1012931438}
   - 212: {fileID: 1012931439}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11863,7 +11890,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1018044976}
   - 212: {fileID: 1018044977}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11999,7 +12026,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1032813665}
   - 212: {fileID: 1032813666}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12053,7 +12080,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1041069444}
   - 212: {fileID: 1041069445}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12107,7 +12134,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1042635923}
   - 212: {fileID: 1042635924}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12161,7 +12188,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1049451686}
   - 212: {fileID: 1049451687}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12218,7 +12245,7 @@ GameObject:
   - 95: {fileID: 1052616604}
   - 114: {fileID: 1052616603}
   - 82: {fileID: 1052616602}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12373,7 +12400,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1059006149}
   - 212: {fileID: 1059006150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12427,7 +12454,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1087304871}
   - 212: {fileID: 1087304872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12481,7 +12508,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1090919306}
   - 212: {fileID: 1090919307}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12535,7 +12562,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1098221228}
   - 212: {fileID: 1098221229}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12589,7 +12616,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1100044715}
   - 212: {fileID: 1100044716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12646,7 +12673,7 @@ GameObject:
   - 95: {fileID: 1118249669}
   - 114: {fileID: 1118249668}
   - 82: {fileID: 1118249667}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12801,7 +12828,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1123926744}
   - 212: {fileID: 1123926745}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12855,7 +12882,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1133627844}
   - 212: {fileID: 1133627845}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12909,7 +12936,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1133877085}
   - 212: {fileID: 1133877086}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12963,7 +12990,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1137384656}
   - 212: {fileID: 1137384657}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13017,7 +13044,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1142532121}
   - 212: {fileID: 1142532122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13071,7 +13098,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1143906630}
   - 212: {fileID: 1143906631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13125,7 +13152,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1145651309}
   - 212: {fileID: 1145651310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13179,7 +13206,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1153433284}
   - 212: {fileID: 1153433285}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13300,7 +13327,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1166175839}
   - 212: {fileID: 1166175840}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13421,7 +13448,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1169266678}
   - 212: {fileID: 1169266679}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13478,7 +13505,7 @@ GameObject:
   - 95: {fileID: 1178791941}
   - 114: {fileID: 1178791940}
   - 82: {fileID: 1178791939}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13633,7 +13660,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1178988356}
   - 212: {fileID: 1178988357}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13687,7 +13714,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1184460496}
   - 212: {fileID: 1184460497}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13741,7 +13768,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1195287120}
   - 212: {fileID: 1195287121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13936,7 +13963,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1247853937}
   - 212: {fileID: 1247853938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13990,7 +14017,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1266097126}
   - 212: {fileID: 1266097127}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14044,7 +14071,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1278302064}
   - 212: {fileID: 1278302065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14098,7 +14125,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1280597799}
   - 212: {fileID: 1280597800}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14152,7 +14179,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1280875204}
   - 212: {fileID: 1280875205}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14206,7 +14233,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1285436512}
   - 212: {fileID: 1285436513}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14263,7 +14290,7 @@ GameObject:
   - 95: {fileID: 1300820804}
   - 114: {fileID: 1300820803}
   - 82: {fileID: 1300820802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14418,7 +14445,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1302210331}
   - 212: {fileID: 1302210332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14472,7 +14499,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1310285568}
   - 212: {fileID: 1310285569}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14526,7 +14553,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1314185224}
   - 212: {fileID: 1314185225}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14580,7 +14607,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1342381161}
   - 212: {fileID: 1342381162}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14634,7 +14661,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1346358760}
   - 212: {fileID: 1346358761}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14687,7 +14714,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1348214211}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Scenery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14999,7 +15026,7 @@ GameObject:
   - 95: {fileID: 1374701126}
   - 114: {fileID: 1374701125}
   - 82: {fileID: 1374701124}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15157,7 +15184,7 @@ GameObject:
   - 95: {fileID: 1375229467}
   - 114: {fileID: 1375229466}
   - 82: {fileID: 1375229465}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15312,7 +15339,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1385823198}
   - 212: {fileID: 1385823199}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15366,7 +15393,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1386918571}
   - 212: {fileID: 1386918572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15420,7 +15447,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1392266737}
   - 212: {fileID: 1392266738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15474,7 +15501,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1393713158}
   - 212: {fileID: 1393713159}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15528,7 +15555,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1393904199}
   - 212: {fileID: 1393904200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15582,7 +15609,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1406185347}
   - 212: {fileID: 1406185348}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15636,7 +15663,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1421444595}
   - 212: {fileID: 1421444596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15690,7 +15717,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1428019201}
   - 212: {fileID: 1428019202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15747,7 +15774,7 @@ GameObject:
   - 95: {fileID: 1429346650}
   - 114: {fileID: 1429346649}
   - 82: {fileID: 1429346648}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15902,7 +15929,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1431303239}
   - 212: {fileID: 1431303240}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderWeb(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15956,7 +15983,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1431323308}
   - 212: {fileID: 1431323309}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16144,7 +16171,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1460414221}
   - 212: {fileID: 1460414222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16198,7 +16225,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1481595585}
   - 212: {fileID: 1481595586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16252,7 +16279,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1489752753}
   - 212: {fileID: 1489752754}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16309,7 +16336,7 @@ GameObject:
   - 95: {fileID: 1495724120}
   - 114: {fileID: 1495724119}
   - 82: {fileID: 1495724118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16464,7 +16491,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1495745856}
   - 212: {fileID: 1495745857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16518,7 +16545,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1511079322}
   - 212: {fileID: 1511079323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16575,7 +16602,7 @@ GameObject:
   - 95: {fileID: 1529525509}
   - 114: {fileID: 1529525508}
   - 82: {fileID: 1529525507}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16730,7 +16757,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1534238964}
   - 212: {fileID: 1534238965}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16784,7 +16811,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1537355226}
   - 212: {fileID: 1537355227}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16838,7 +16865,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1545191110}
   - 212: {fileID: 1545191111}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16892,7 +16919,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1553114122}
   - 212: {fileID: 1553114123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16946,7 +16973,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1563176146}
   - 212: {fileID: 1563176147}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17000,7 +17027,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1563727831}
   - 212: {fileID: 1563727832}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17054,7 +17081,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1567112736}
   - 212: {fileID: 1567112737}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17108,7 +17135,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1586502526}
   - 212: {fileID: 1586502527}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17163,7 +17190,7 @@ GameObject:
   - 4: {fileID: 1590191632}
   - 33: {fileID: 1590191631}
   - 23: {fileID: 1590191630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17222,7 +17249,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1596299777}
   - 212: {fileID: 1596299778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17276,7 +17303,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1600354280}
   - 212: {fileID: 1600354281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpiderWeb(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17330,7 +17357,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1600472429}
   - 212: {fileID: 1600472430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17421,19 +17448,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 36.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.x
@@ -17441,7 +17468,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.x
@@ -17449,7 +17476,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_Pivot.x
@@ -17475,7 +17502,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1636270118}
   - 212: {fileID: 1636270119}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17532,7 +17559,7 @@ GameObject:
   - 95: {fileID: 1636748029}
   - 114: {fileID: 1636748028}
   - 82: {fileID: 1636748027}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17687,7 +17714,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1642497943}
   - 212: {fileID: 1642497944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17741,7 +17768,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1645364447}
   - 212: {fileID: 1645364448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17795,7 +17822,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1649743473}
   - 212: {fileID: 1649743474}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17849,7 +17876,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1657858793}
   - 212: {fileID: 1657858794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17903,7 +17930,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1660747013}
   - 212: {fileID: 1660747014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17957,7 +17984,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1662606601}
   - 212: {fileID: 1662606602}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18011,7 +18038,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1670967093}
   - 212: {fileID: 1670967094}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18065,7 +18092,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1678920720}
   - 212: {fileID: 1678920721}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18119,7 +18146,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1701999167}
   - 212: {fileID: 1701999168}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18301,7 +18328,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1703787745}
   - 212: {fileID: 1703787746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18355,7 +18382,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1714197137}
   - 212: {fileID: 1714197138}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18441,19 +18468,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 89.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.x
@@ -18461,7 +18488,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.x
@@ -18469,7 +18496,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_Pivot.x
@@ -18495,7 +18522,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1718038807}
   - 212: {fileID: 1718038808}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18619,7 +18646,7 @@ GameObject:
   - 95: {fileID: 1734865887}
   - 114: {fileID: 1734865886}
   - 82: {fileID: 1734865885}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18774,7 +18801,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1742140623}
   - 212: {fileID: 1742140624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18819,6 +18846,48 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
+--- !u!1001 &1750344247
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 467288, guid: 1ce5cbf98558c5e4b824b60304ed803f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -38.4700012
+      objectReference: {fileID: 0}
+    - target: {fileID: 467288, guid: 1ce5cbf98558c5e4b824b60304ed803f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 41.4440002
+      objectReference: {fileID: 0}
+    - target: {fileID: 467288, guid: 1ce5cbf98558c5e4b824b60304ed803f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467288, guid: 1ce5cbf98558c5e4b824b60304ed803f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467288, guid: 1ce5cbf98558c5e4b824b60304ed803f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467288, guid: 1ce5cbf98558c5e4b824b60304ed803f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467288, guid: 1ce5cbf98558c5e4b824b60304ed803f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467288, guid: 1ce5cbf98558c5e4b824b60304ed803f, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1ce5cbf98558c5e4b824b60304ed803f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1752080202
 GameObject:
   m_ObjectHideFlags: 0
@@ -18828,7 +18897,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1752080203}
   - 212: {fileID: 1752080204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18882,7 +18951,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1757017882}
   - 212: {fileID: 1757017883}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18936,7 +19005,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1757121713}
   - 212: {fileID: 1757121714}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18990,7 +19059,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1761570402}
   - 212: {fileID: 1761570403}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19044,7 +19113,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1764031278}
   - 212: {fileID: 1764031279}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19098,7 +19167,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1767007745}
   - 212: {fileID: 1767007746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19152,7 +19221,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1767148391}
   - 212: {fileID: 1767148392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19206,7 +19275,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1769528117}
   - 212: {fileID: 1769528118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19260,7 +19329,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1798882449}
   - 212: {fileID: 1798882450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19314,7 +19383,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1802743838}
   - 212: {fileID: 1802743839}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19470,7 +19539,7 @@ GameObject:
   - 95: {fileID: 1827213172}
   - 114: {fileID: 1827213171}
   - 82: {fileID: 1827213170}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19692,7 +19761,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1842743022}
   - 212: {fileID: 1842743023}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19746,7 +19815,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1846964085}
   - 212: {fileID: 1846964086}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19800,7 +19869,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1849635670}
   - 212: {fileID: 1849635671}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19857,7 +19926,7 @@ GameObject:
   - 95: {fileID: 1850388115}
   - 114: {fileID: 1850388114}
   - 82: {fileID: 1850388113}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20012,7 +20081,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1870875888}
   - 212: {fileID: 1870875889}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20066,7 +20135,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1871237859}
   - 212: {fileID: 1871237860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20152,19 +20221,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 63
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.x
@@ -20172,7 +20241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.x
@@ -20180,7 +20249,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_Pivot.x
@@ -20206,7 +20275,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1879935632}
   - 212: {fileID: 1879935633}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20265,7 +20334,9 @@ GameObject:
   - 60: {fileID: 1886826712}
   - 50: {fileID: 1886826711}
   - 95: {fileID: 1886826708}
-  m_Layer: 0
+  - 114: {fileID: 1886826715}
+  - 114: {fileID: 1886826716}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20324,7 +20395,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -41.5, y: 39.5, z: 0}
   m_LocalScale: {x: .649999976, y: .649999976, z: .649999976}
-  m_Children: []
+  m_Children:
+  - {fileID: 871739877}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!50 &1886826711
@@ -20398,6 +20470,41 @@ MonoBehaviour:
   moveForce: 350
   maxSpeed: 4
   jumpForce: 400
+--- !u!114 &1886826715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886826707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d266e227f9ba004985d74a6cde6c259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ropeSegments: []
+  maxSegments: 50
+  frameSpacing: 3
+  rope_layers:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &1886826716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886826707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9f03f86057a644dadaa5df680240d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClimbing: 0
+  facingRight: 1
+  jump: 0
+  crouch: 0
+  moveForce: 350
+  maxSpeed: 4
+  jumpForce: 800
 --- !u!1 &1887418149
 GameObject:
   m_ObjectHideFlags: 0
@@ -20407,7 +20514,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1887418150}
   - 212: {fileID: 1887418151}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20461,7 +20568,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1895003323}
   - 212: {fileID: 1895003324}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20582,7 +20689,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1900072307}
   - 212: {fileID: 1900072308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20636,7 +20743,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1913364888}
   - 212: {fileID: 1913364889}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20690,7 +20797,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1916634064}
   - 212: {fileID: 1916634065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20744,7 +20851,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1919803188}
   - 212: {fileID: 1919803189}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20798,7 +20905,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1930428409}
   - 212: {fileID: 1930428410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20852,7 +20959,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1938879540}
   - 212: {fileID: 1938879541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20996,7 +21103,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1959043569}
   - 212: {fileID: 1959043570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21050,7 +21157,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1962610430}
   - 212: {fileID: 1962610431}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21104,7 +21211,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1967674908}
   - 212: {fileID: 1967674909}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21158,7 +21265,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1968363253}
   - 212: {fileID: 1968363254}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21212,7 +21319,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1971991603}
   - 212: {fileID: 1971991604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21266,7 +21373,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1980976325}
   - 212: {fileID: 1980976326}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21320,7 +21427,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1988661986}
   - 212: {fileID: 1988661987}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21374,7 +21481,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1989565912}
   - 212: {fileID: 1989565913}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21431,7 +21538,7 @@ GameObject:
   - 95: {fileID: 1998356607}
   - 114: {fileID: 1998356606}
   - 82: {fileID: 1998356605}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21586,7 +21693,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2020974946}
   - 212: {fileID: 2020974947}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21640,7 +21747,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2021354781}
   - 212: {fileID: 2021354782}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21694,7 +21801,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2024608111}
   - 212: {fileID: 2024608112}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21815,7 +21922,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2046870781}
   - 212: {fileID: 2046870782}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21869,7 +21976,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2047107598}
   - 212: {fileID: 2047107599}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21923,7 +22030,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2049497128}
   - 212: {fileID: 2049497129}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CeilingSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21977,7 +22084,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2057992519}
   - 212: {fileID: 2057992520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22114,7 +22221,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2081442337}
   - 212: {fileID: 2081442338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22201,7 +22308,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2110755499}
   - 212: {fileID: 2110755500}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22255,7 +22362,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2114542575}
   - 212: {fileID: 2114542576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22309,7 +22416,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2117365867}
   - 212: {fileID: 2117365868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22363,7 +22470,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2123714120}
   - 212: {fileID: 2123714121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22417,7 +22524,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2146008273}
   - 212: {fileID: 2146008274}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftWallSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22471,7 +22578,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2146292906}
   - 212: {fileID: 2146292907}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorSprite(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
