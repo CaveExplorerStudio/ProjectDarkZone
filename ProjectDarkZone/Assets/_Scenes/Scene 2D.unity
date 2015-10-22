@@ -20334,8 +20334,8 @@ GameObject:
   - 60: {fileID: 1886826712}
   - 50: {fileID: 1886826711}
   - 95: {fileID: 1886826708}
-  - 114: {fileID: 1886826715}
   - 114: {fileID: 1886826716}
+  - 114: {fileID: 1886826715}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -20478,15 +20478,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1886826707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d266e227f9ba004985d74a6cde6c259, type: 3}
+  m_Script: {fileID: 11500000, guid: c85419dc40b908441a6a96918e95c5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ropeSegments: []
-  maxSegments: 50
-  frameSpacing: 3
-  rope_layers:
-    serializedVersion: 2
-    m_Bits: 1024
+  numOfGrapplingHooks: 0
 --- !u!114 &1886826716
 MonoBehaviour:
   m_ObjectHideFlags: 0
