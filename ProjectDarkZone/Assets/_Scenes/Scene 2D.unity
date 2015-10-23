@@ -21154,7 +21154,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
-  m_AnchoredPosition: {x: -9.05990601e-06, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 402.5, y: 50}
   m_Pivot: {x: .5, y: 0}
 --- !u!114 &1943823231
@@ -21170,6 +21170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selector: {fileID: 1160854689}
   actionBar: {fileID: 1943823229}
+  framesBeforeActionBarHide: 99
 --- !u!114 &1943823232
 MonoBehaviour:
   m_ObjectHideFlags: 0
