@@ -63,7 +63,7 @@ public class MapGeneratorEditor : EditorWindow {
 		if (GUILayout.Button ("Clear", GUILayout.Height(buttonHeight))) {
 			MeshGenerator meshGenScript = GameObject.Find ("Map Generator").GetComponent<MeshGenerator>();
 			MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
-			mapGenScript.CreateNecessaryGameObjectParents();
+			mapGenScript.CreateNecessaryGameObject();
 			meshGenScript.DestroyMeshAndCollider();
 			mapGenScript.DestroyScenery();
 			mapGenScript.DestroyEntities();
@@ -73,7 +73,7 @@ public class MapGeneratorEditor : EditorWindow {
 		
 		if (GUILayout.Button ( "New", GUILayout.Height(buttonHeight))) {
 			MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
-			mapGenScript.CreateNecessaryGameObjectParents();
+			mapGenScript.CreateNecessaryGameObject();
 			mapGenScript.setNewParameters(randomFillPercent, useRandomSeed, width, height, seed, tileAmount, wallThresholdSize, roomThresholdSize, batSpawnRate, regenerateMapOnLaunch);
 			mapGenScript.DestroyScenery();
 			mapGenScript.DestroyEntities();
@@ -89,7 +89,7 @@ public class MapGeneratorEditor : EditorWindow {
 				//				mapGenScript.GetTileTypes();
 				mapGenScript.SetPlayerSpawn();
 				mapGenScript.MakeTreeGraph();
-				mapGenScript.PlaceGems();
+				mapGenScript.PlaceItemsAndGems();
 			}
 			mapGenScript.SpawnPlayer();
 		}
@@ -207,7 +207,7 @@ public class MapGeneratorEditor : EditorWindow {
 				mapGenScript.GetTileTypes();
 				mapGenScript.SetPlayerSpawn();
 				mapGenScript.MakeTreeGraph();
-				mapGenScript.PlaceGems();
+				mapGenScript.PlaceItemsAndGems();
 			}
 		}
 		
@@ -252,10 +252,10 @@ public class MapGeneratorEditor : EditorWindow {
 				
 			}
 			
-			if (GUILayout.Button ("Find Furthest Endpoint", GUILayout.Height(buttonHeightSmall))) {
-				MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
-				mapGenScript.ShowFurthestEndpointFromPlayer();
-			}
+//			if (GUILayout.Button ("Find Furthest Endpoint", GUILayout.Height(buttonHeightSmall))) {
+//				MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
+//				mapGenScript.ShowFurthestEndpointFromPlayer();
+//			}
 			
 			
 		}

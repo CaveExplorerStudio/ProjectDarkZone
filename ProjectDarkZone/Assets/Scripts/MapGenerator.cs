@@ -7,6 +7,8 @@ public class MapGenerator : MonoBehaviour {
 	
 	int[,] map;
 	
+	private GameObject player;
+	
 	public bool regenerateMapOnLaunch = true;
 	
 	// Base Map Parameters
@@ -23,7 +25,7 @@ public class MapGenerator : MonoBehaviour {
 	
 	public float tileSize = 1.0f; //Conversion from Coord units to Unity Scene units.
 	
-	
+
 	// Graph (used for analyzing map)
 	public Graph graph;
 	
@@ -36,17 +38,18 @@ public class MapGenerator : MonoBehaviour {
 	public List<Coord> openTiles; // 3x3 of empty tiles
 	public List<Coord> emptyTiles; // 1x1 of empty tiles
 	
-	//Scenery - Sprites to place at the different tile types
+	//Scenery - Prefabs to place at the different tile types
 	public GameObject ceilingScenery;
 	public GameObject floorScenery;
 	public GameObject rightWallScenery;
 	public GameObject leftWallScenery;
 	
+	//Other Prefabs
+	public GameObject[] gemPrefabs;
+	public GameObject[] itemPrefabs;
+	public GameObject playerPrefab;
 	public GameObject spiderWed;
 	public GameObject bat;
-	
-	//Gems
-	public GameObject[] gemPrefabs;
 	
 	//Spawn Rates
 	public float spiderWebSpawnRate = 5.0f;	
@@ -64,23 +67,7 @@ public class MapGenerator : MonoBehaviour {
 	
 	
 	void Start()
-	{
-		//		if (scenery == null) {
-		//			scenery =  GameObject.Find("Scenery").transform;
-		//		}
-		//		if (entities == null) {
-		//			entities =  GameObject.Find("Entities").transform;
-		//		}
-		//		if (bats == null) {
-		//			bats =  GameObject.Find("Bats").transform;
-		//		}
-		//		if (gems == null) {
-		//			gems =  GameObject.Find("Gems").transform;
-		//		}
-		//		if (items == null) {
-		//			items =  GameObject.Find("Items").transform;
-		//		}
-		
+	{	
 		if (this.regenerateMapOnLaunch) {
 			GenerateMap();
 			GetTileTypes();
@@ -88,7 +75,7 @@ public class MapGenerator : MonoBehaviour {
 		
 	}
 	
-	public void CreateNecessaryGameObjectParents() {
+	public void CreateNecessaryGameObject() {
 		
 		if (scenery == null) {
 			this.scenery = FindOrCreateGameObject("Scenery",this.gameObject);
@@ -105,7 +92,8 @@ public class MapGenerator : MonoBehaviour {
 		if (items == null) {
 			this.items = FindOrCreateGameObject("Items",this.gameObject);
 		}
-		
+
+		FindOrCreatePlayer();
 	}
 	
 	GameObject FindOrCreateGameObject(string name, GameObject parent) {
@@ -115,6 +103,17 @@ public class MapGenerator : MonoBehaviour {
 			gameObject.transform.parent = parent.transform;
 		}
 		return gameObject;
+	}
+
+	void FindOrCreatePlayer() {
+		GameObject _player = GameObject.Find ("Player");
+		if (_player == null) {
+			this.player = Instantiate(this.playerPrefab, GetTilePositionInScene(new Coord(0,0)), Quaternion.identity) as GameObject;
+			this.player.name = "Player";
+		}
+		else {
+			this.player = _player;
+		}
 	}
 	
 	public void SetPlayerSpawn() {
@@ -650,17 +649,13 @@ public class MapGenerator : MonoBehaviour {
 		DestroyChildren(gems);
 	}
 	
-	public void SpawnPlayer() { //Will change to instantiate new player prefab once we make one.
-		//Coord closestTile = GetTileClosestToTile(new Coord(0,height-1), floorTiles); //Find the floor tile closest to the upper left corner
+	public void SpawnPlayer() {
 		SetPlayerSpawn();
 		//Adjust the tile coordinates to Unity coordinates
 		float x = playerSpawn.tileX * tileSize - (width/2)*tileSize + tileSize/2;
 		float y = playerSpawn.tileY*tileSize- (width/2)*tileSize + tileSize/2+ tileSize/2;
-		
-		GameObject player = GameObject.Find ("Player");
 		player.transform.position = new Vector2(x,y);
 	}
-	
 	
 	public void AddBats() {
 		//Add bats randomly in tiles of type "opentile" based on batSpawnRate
@@ -712,7 +707,7 @@ public class MapGenerator : MonoBehaviour {
 		
 	}
 	
-	Vector2 GetTilePositionInScene(Coord tile) {
+	public Vector2 GetTilePositionInScene(Coord tile) {
 		Vector2 relativePos = new Vector2(tile.tileX * tileSize - (width/2)*tileSize + tileSize/2, tile.tileY*tileSize- (width/2)*tileSize + tileSize/2);
 		return relativePos;
 	}
@@ -786,11 +781,11 @@ public class MapGenerator : MonoBehaviour {
 		float y = relativePosition.y;
 		GameObject tileMarker = Instantiate(obj, new Vector3(x,y,0.0f), Quaternion.identity) as GameObject;
 		
-		tileMarker.transform.parent = parent.transform; //Set as child of scenery object
+		tileMarker.transform.parent = parent.transform; //Set as child parent object
 		
 		tileMarker.transform.position = new Vector3(tileMarker.transform.position.x,tileMarker.transform.position.y,-1.0f);
 	}
-	
+
 	public void DrawSquareAt(Coord tile, float radius, Color color) {
 		List<float[]> squareVertices = new List<float[]>();
 		
@@ -1008,24 +1003,24 @@ public class MapGenerator : MonoBehaviour {
 		graph.DisplayTree();
 	}
 	
-	public void ShowFurthestEndpointFromPlayer() {
-		GenerateGraph();
-		
-		graph.MakeTreeFromGraph(playerSpawn);
-		
-		List<Coord> filteredEndPoints = graph.GetFileteredEndpointsFromArray(100,this.floorTiles);
-		Coord furthestEndPoint = filteredEndPoints[0];
-		int maxDistance = graph.tree.Distance(playerSpawn,furthestEndPoint);
-		foreach (Coord endpoint in filteredEndPoints) {
-			int distance = graph.tree.Distance(playerSpawn,endpoint);
-			if (distance > maxDistance) {
-				maxDistance = distance;
-				furthestEndPoint = endpoint;
-			}
-		}
-		Debug.Log ("Max Distance From Player: " + maxDistance.ToString());
-		DrawSquareAt(furthestEndPoint, 0.8f,Color.green);
-	}
+//	public void ShowFurthestEndpointFromPlayer() {
+//		GenerateGraph();
+//		
+//		graph.MakeTreeFromGraph(playerSpawn);
+//		
+//		List<Coord> filteredEndPoints = graph.GetFileteredEndpointsFromArray(100,this.floorTiles);
+//		Coord furthestEndPoint = filteredEndPoints[0];
+//		int maxDistance = graph.tree.Distance(playerSpawn,furthestEndPoint);
+//		foreach (Coord endpoint in filteredEndPoints) {
+//			int distance = graph.tree.Distance(playerSpawn,endpoint);
+//			if (distance > maxDistance) {
+//				maxDistance = distance;
+//				furthestEndPoint = endpoint;
+//			}
+//		}
+//		Debug.Log ("Max Distance From Player: " + maxDistance.ToString());
+//		DrawSquareAt(furthestEndPoint, 0.8f,Color.green);
+//	}
 	
 	public void ShowAllEndpoints() {
 		GenerateGraph();
@@ -1037,47 +1032,63 @@ public class MapGenerator : MonoBehaviour {
 		Debug.Log ("Endpoints: " + endpoints.Count.ToString());
 	}
 	
-	public void ShowFilteredEndpoints() {
-		GenerateGraph();
-		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(20,this.floorTiles);
-		foreach(Coord endpoint in endpoints) {
-			DrawSquareAt(endpoint, 0.8f,Color.white);
-		}
-		Debug.Log ("Endpoints: " + endpoints.Count.ToString());
-	}
+//	public void ShowFilteredEndpoints() {
+//		GenerateGraph();
+//		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(20,this.floorTiles);
+//		foreach(Coord endpoint in endpoints) {
+//			DrawSquareAt(endpoint, 0.8f,Color.white);
+//		}
+//		Debug.Log ("Endpoints: " + endpoints.Count.ToString());
+//	}
 	
 	
-	public void PlaceItemsAtEndpoints() {
-		GenerateGraph();
-		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(20,this.floorTiles);
-		foreach(Coord endpoint in endpoints) {
-			AddObjectAt(endpoint,ceilingScenery,scenery);
-		}
-	}
-	
-	
-	//	bool NodeIsEndpoint(Coord node, List<Coord>[,] _graph) {
-	//		if (_graph[node.tileX,node.tileY].Count == 1) {
-	//			return true;
-	//		}
-	//		else {
-	//			return false;
-	//		}
-	//	}
-	
-	public void PlaceGems() {
-		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(gemPrefabs.Length,this.floorTiles);
+//	public void PlaceItemsAtEndpoints() {
+//		GenerateGraph();
+//		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(20,this.floorTiles);
+//		foreach(Coord endpoint in endpoints) {
+//			AddObjectAt(endpoint,ceilingScenery,scenery);
+//		}
+//	}
+
+	public void PlaceItemsAndGems() {
+		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray();
 		Coord[] sortedPoints = SortEndpointsByDistance(endpoints);
+
+		List<Coord> gemPositions = GetSpacedOutEndpoints(this.gemPrefabs.Length,sortedPoints);
 		for (int i = 0; i<this.gemPrefabs.Length;i++) {
-			if (i < sortedPoints.Length) {
-				AddObjectAt(sortedPoints[i],this.gemPrefabs[i],this.gems);
+			if (i < gemPositions.Count) {
+				AddObjectAt(gemPositions[i],this.gemPrefabs[i],this.gems);
 			}
 		}
 	}
+
+	List<Coord> GetSpacedOutEndpoints(int amount, Coord[] sortedEndpoints) {
+		int interval = Mathf.RoundToInt(sortedEndpoints.Length / (amount-1));
+		List<Coord> newEndpoints = new List<Coord>();
+		for (int i = 0; i < amount; i++) {
+			int newIndex = interval*i;
+			if (newIndex > 0) {
+				newIndex --;
+			}
+//			Debug.Log ("New Index: " + newIndex.ToString());
+			newEndpoints.Add (sortedEndpoints[newIndex]);
+		}
+		return newEndpoints;
+	}
+
+//	public void PlaceGems() {
+//		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(gemPrefabs.Length,this.floorTiles);
+//		Coord[] sortedPoints = SortEndpointsByDistance(endpoints);
+//		for (int i = 0; i<this.gemPrefabs.Length;i++) {
+//			if (i < sortedPoints.Length) {
+//				AddObjectAt(sortedPoints[i],this.gemPrefabs[i],this.gems);
+//			}
+//		}
+//	}
 	
 	public Coord[] SortEndpointsByDistance(List<Coord> endpoints) {
-		SetPlayerSpawn();
-		graph.MakeTreeFromGraph(this.playerSpawn);
+//		SetPlayerSpawn();
+//		graph.MakeTreeFromGraph(this.playerSpawn);
 		Coord[] sortedEndPoints = new Coord[endpoints.Count];
 		for (int i = 0;i<endpoints.Count;i++) {
 			sortedEndPoints[i] = endpoints[i];

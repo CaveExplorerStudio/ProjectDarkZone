@@ -419,7 +419,7 @@ public class Graph {
 		return endpoints;
 	}
 
-	public List<Coord> GetFileteredEndpointsFromArray(int amount,List<Coord> floorTiles) {
+	public List<Coord> GetFileteredEndpointsFromArray() {
 		
 		List<List<Coord>> rows = GetRows();
 		List<List<Coord>> columns = GetColumns();
@@ -441,9 +441,7 @@ public class Graph {
 			}
 		}
 
-		Debug.Log (endpoints.Count.ToString());
-
-		return MergeEndpoints(endpoints,amount,floorTiles);
+		return endpoints;
 	}
 
 	
@@ -497,7 +495,7 @@ public class Graph {
 								mergedEndpoints.Add (mergedEndpoint);
 								didContainFloorTile = true;
 
-								Debug.Log ("Setting FloorTile During Merge");
+//								Debug.Log ("Setting FloorTile During Merge");
 								break;
 							}
 						}
@@ -894,8 +892,8 @@ public struct Tree
 	}
 
 	public int Distance(Coord start, Coord end) {
-		Debug.Log ("Chain Start: " + start.ToString());
-		Debug.Log ("Chain End: " + end.ToString());
+//		Debug.Log ("Chain Start: " + start.ToString());
+//		Debug.Log ("Chain End: " + end.ToString());
 
 		return GetChain(start,end).Count;
 	}

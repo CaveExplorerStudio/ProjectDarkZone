@@ -9,6 +9,15 @@ public class BatController : MonoBehaviour {
 	bool shouldFly = false;
 	bool isLanded = false;
 	bool isInWall = false;
+	bool shouldDisperse = false;
+	bool shouldSwarmPoint = false;
+	bool shouldDisperseAfterSwarm;
+
+	//Timing
+	float swarmStartTime;
+	float swarmDuration;
+	float disperseStartTime;
+	float disperseDuration;
 
 	//Radi
 	float neighborRadius = 4.0f; // Bats that affect this bat's behvior are within this radius
@@ -25,6 +34,7 @@ public class BatController : MonoBehaviour {
 	float wallAvoidanceScale = 6.0f;
 	float playerAvoidanceScale = 2.0f;
 	float individualismScale = 5.0f;
+	float swarmForceScale = 20.0f;
 
 	//Sounds
 	private AudioSource audioSource;
@@ -39,7 +49,7 @@ public class BatController : MonoBehaviour {
 	
 	Vector2 defaultForce; //Used in calculating the bat's individualism force. 
 	Vector2 landingSpot; //Where the bat should try to land when its far from the player
-	
+	Vector2 swarmPoint;
 
 	
 
@@ -276,6 +286,19 @@ public class BatController : MonoBehaviour {
 
 	void Update() {
 		TrySqueak();
+
+		if (this.shouldSwarmPoint) {
+			if (Time.time - this.swarmStartTime >= swarmDuration) {
+				EndSwarm();
+			}
+		}
+
+		if (this.shouldDisperse) {
+			if (Time.time - this.disperseStartTime >= disperseDuration) {
+				EndDisperse();
+			}
+		}
+
 	}
 
 	void FixedUpdate() {
@@ -287,8 +310,15 @@ public class BatController : MonoBehaviour {
 			shouldFly = false;
 			FindClosestLandingSpot();
 		}
-		
-		if (shouldFly) {
+
+		if (shouldSwarmPoint) {
+			List<Vector2> forces = new List<Vector2>();
+			forces.Add(GetSwarmForce());
+			forces.Add(GetNewForce());
+			DrawForceVector(forces[1],new Color(150/255.0f,20/255.0f,230/255.0f,1.0f));
+			rigidBody2D.AddForce(AverageVectors(forces));
+		}
+		else if (shouldFly) {
 			Vector2 force = GetNewForce();
 			rigidBody2D.AddForce(force);
 		}
@@ -306,5 +336,56 @@ public class BatController : MonoBehaviour {
 		
 		
 	}
+
+	public void StartSwarm(Vector2 point, float duration, bool shouldDisperseAfter, float dispersionDuration) {
+		this.swarmStartTime = Time.time;
+		this.shouldDisperseAfterSwarm = shouldDisperseAfter;
+		this.swarmDuration = duration;
+		this.shouldSwarmPoint = true;
+		this.swarmPoint = point;
+		this.alignmentScale = alignmentScale/100;
+		this.individualismScale = individualismScale*3;
+		this.totalForceScale = totalForceScale*6;
+		this.disperseDuration = dispersionDuration;
+	}
+
+	void EndSwarm() {
+		this.shouldSwarmPoint = false;
+		this.alignmentScale = alignmentScale*100;
+		this.totalForceScale = totalForceScale/6;
+		this.individualismScale = individualismScale/3;
+
+		if (this.shouldDisperseAfterSwarm) {
+			StartDisperse(this.disperseDuration);
+		}
+	}
+
+	public void StartDisperse(float duration) {
+		this.disperseStartTime = Time.time;
+		this.disperseDuration = duration;
+		this.shouldDisperse = true;
+
+		this.cohesionScale = cohesionScale/100;
+		this.alignmentScale = alignmentScale/2;
+//		this.separationScale = separationScale;
+		this.individualismScale = individualismScale * 3;
+		this.desiredSeparationRadius = desiredSeparationRadius*5;
+	}
+
+	void EndDisperse() {
+		this.shouldDisperse = false;
+		this.cohesionScale = cohesionScale*100;
+		this.alignmentScale = alignmentScale*2;
+		this.individualismScale = individualismScale / 3;
+//		this.separationScale = separationScale;
+		this.desiredSeparationRadius = desiredSeparationRadius/5;
+	}
+
+
+	Vector2 GetSwarmForce() {
+		return (this.swarmPoint - (Vector2)this.transform.position)*this.swarmForceScale;
+	}
+
+
 
 }
