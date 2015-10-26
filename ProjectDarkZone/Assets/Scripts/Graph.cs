@@ -25,14 +25,7 @@ public class Graph {
 	public void SetArray2D(int[,] array) {
 		this.array2D = array;
 	}
-
-//		     _   __   _   _   _____   _       ___   _       _   ______  _____  
-//	  		| | |  \ | | | | |_   _| | |     /   | | |     | | |___  / | ____| 
-//			| | |   \| | | |   | |   | |    / /| | | |     | |    / /  | |__   
-//			| | | |\   | | |   | |   | |   / / | | | |     | |   / /   |  __|  
-//			| | | | \  | | |   | |   | |  / /  | | | |___  | |  / /__  | |___  
-//			|_| |_|  \_| |_|   |_|   |_| /_/   |_| |_____| |_| /_____| |_____| 
-
+	
 	public Graph() {
 
 	}
@@ -651,12 +644,7 @@ public class Graph {
 //		Debug.Log ("Making Tree, Unconnected Count = " + unconnectedNodes.Count.ToString());
 //	}
 
-//			 _     _   _   _____   _   _       ___   _       _____  
-//			| |   / / | | /  ___/ | | | |     /   | | |     /  ___/ 
-//			| |  / /  | | | |___  | | | |    / /| | | |     | |___  
-//			| | / /   | | \___  \ | | | |   / / | | | |     \___  \ 
-//			| |/ /    | |  ___| | | |_| |  / /  | | | |___   ___| | 
-//			|___/     |_| /_____/ \_____/ /_/   |_| |_____| /_____/ 
+
 
 	public Vector2 GetPositionInScene(Coord tile) {
 		Vector2 relativePos = new Vector2(tile.tileX * tileSize - (width/2)*tileSize + tileSize/2, tile.tileY*tileSize- (width/2)*tileSize + tileSize/2);
@@ -797,12 +785,7 @@ public class Graph {
 
 }
 
-//	   _____   _____    _____   _____   _____  
-//	  |_   _| |  _  \  | ____| | ____| /  ___/ 
-//		| |   | |_| |  | |__   | |__   | |___  
-//		| |   |  _  /  |  __|  |  __|  \___  \ 
-//		| |   | | \ \  | |___  | |___   ___| | 
-//		|_|   |_|  \_\ |_____| |_____| /_____/ 
+
 
 public struct TreeNode {
 	

@@ -4,15 +4,20 @@ using System.Collections;
 
 public class TorchPlacer : MonoBehaviour
 {
-	public Sprite torchSprite;
+	public GameObject torch;
 	public GameObject torches;
+	MapGenerator mapGenScript;
 	/*
 	GameObject Generator;
 	MapGenerator mapGen;
 	*/
 	void Start ()
 	{
+		if (this.torches == null) {
+			this.torches = GameObject.Find("Torches");
+		}
 
+		mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
 	}
 
 	// Update is called once per frame
@@ -29,29 +34,37 @@ public class TorchPlacer : MonoBehaviour
 			Debug.Log("Player Tile: " + playerCoord.tileX.ToString() + playerCoord.tileY.ToString ());
 			*/
 
-			int directionMult = 1;
-			if(GetComponent<PlayerController>().facingRight)
-				directionMult = 1;
-			else
-				directionMult = -1;
+			float Xoffset = 0.6f;
+			float YOffset = 0.1f;
+			if(GetComponent<PlayerController>().facingRight == false){
+				Xoffset = -Xoffset;
+			}
+			Vector3 torchPosition = new Vector3(transform.position.x + Xoffset, transform.position.y + YOffset, -1.0f);
 
-			Vector3 torchPosition = new Vector3(transform.position.x + 1*directionMult, transform.position.y + 0.40f, transform.position.z - 1);
-			if(true) //torch is not in wall
+			if(mapGenScript.IsInWall((Vector2)torchPosition) == false) //torch is not in wall
 			{
-				GameObject torch = new GameObject("Torch");
-				torch.transform.parent = torches.transform;
-				SpriteRenderer torchSpriteRenderer = torch.AddComponent<SpriteRenderer>();
-				torchSpriteRenderer.sprite = torchSprite;
-				torch.transform.position = torchPosition;
-				torch.transform.rotation = transform.rotation;
-				
-				torch.transform.localScale = new Vector3(10*directionMult,10,10);
+				GameObject newTorch = Instantiate(this.torch, torchPosition, Quaternion.identity) as GameObject;
 
+				if(GetComponent<PlayerController>().facingRight == false) {
+					Vector3 newScale = new Vector3(newTorch.transform.localScale.x * -1, newTorch.transform.localScale.y, newTorch.transform.localScale.z);
+					newTorch.transform.localScale = newScale;
+				}
+	
+				newTorch.transform.parent = this.torches.transform; //Set as child parent object	
+			}
+			else {
+				Coord wallTile = mapGenScript.GetTileFromScenePosition((Vector2)torchPosition);
+				Vector2 wallScenePos = mapGenScript.GetTilePositionInScene(wallTile);
+				Vector3 newTorchPosition = new Vector3(wallScenePos.x - Mathf.Sign(Xoffset)*mapGenScript.tileSize/1.5f,wallScenePos.y, -1.0f);
 
-				torch.AddComponent<Light>();	
-				Light light = torch.GetComponent<Light>();
-				light.intensity = 8;
-				light.renderMode = LightRenderMode.ForcePixel;
+				GameObject newTorch = Instantiate(this.torch, newTorchPosition, Quaternion.identity) as GameObject;
+
+				if(GetComponent<PlayerController>().facingRight) {
+					Vector3 newScale = new Vector3(newTorch.transform.localScale.x * -1, newTorch.transform.localScale.y, newTorch.transform.localScale.z);
+					newTorch.transform.localScale = newScale;
+				}
+
+				newTorch.transform.parent = this.torches.transform; //Set as child parent object	
 			}
 		}
 	}
