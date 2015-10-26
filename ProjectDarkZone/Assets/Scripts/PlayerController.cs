@@ -5,30 +5,32 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
     public bool facingRight = true;
-    [HideInInspector]
-    public bool jump = false;
-    [HideInInspector]
-    public bool crouch = false;
 
-    public float moveForce = 350f;
-    public float maxSpeed = 4f;
-    public float jumpForce = 800f;
+    public Component mapGenerator;
+    public float moveSpeed = 6f;
+    public float jumpForce = 750f;
     
-    private bool grounded = false;
-    private Animator anim;
+    private bool grounded, jump, crouch, upSlope, downSlope, onWall;
+    private int direction;
     private new Rigidbody2D rigidbody;
     private PolygonCollider2D body;
-    private Vector2[] standing;
-    private Vector2[] crouched;
+    private CircleCollider2D feet;
+    private Vector2[] standing, crouched;
+    private Health health;
 
 
     void Awake()
     {
-        anim = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         body = GetComponent<PolygonCollider2D>();
+        feet = GetComponent<CircleCollider2D>();
+        health = GetComponent<Health>();
         standing = body.points;
         crouched = new Vector2[standing.Length];
+        grounded = false;
+        onWall = false;
+        upSlope = false;
+        downSlope = false;
 
         int min = 0;
         for (int i = 0; i < standing.Length; i++)
@@ -46,21 +48,33 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKey(KeyCode.Space) && grounded)
             jump = true;
-        if (Input.GetKeyDown(KeyCode.LeftControl) && grounded) {
+
+        if (Input.GetKey(KeyCode.LeftControl) && grounded)
             crouch = true;
-        }
         else if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
             crouch = false;
-        }
+
+        direction = 0;
+        if (Input.GetKey(KeyCode.RightArrow))
+            direction = 1;
+        else if (Input.GetKey(KeyCode.LeftArrow))
+            direction = -1;
     }
 
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        grounded = true;
+        if(feet.IsTouching(collision.collider))
+        {
+            grounded = true;
+            float velocity = Mathf.Abs(collision.relativeVelocity.magnitude);
+            if(velocity > 16)
+            {
+                health.AddHealth((int)((16 - velocity) * 0.5));
+            }
+        }
     }
 
 
@@ -69,37 +83,59 @@ public class PlayerController : MonoBehaviour
         grounded = false;
     }
 
+    public void SetUpSlope(bool value)
+    {
+        upSlope = value;
+    }
+
+    public void SetDownSlope(bool value)
+    {
+        downSlope = value;
+    }
+
+    public void SetOnWall(bool value)
+    {
+        onWall = value;
+    }
 
     void FixedUpdate()
     {
-        float h = Input.GetAxis("Horizontal");
-        if (h * rigidbody.velocity.x < maxSpeed)
-            rigidbody.AddForce(Vector2.right * h * moveForce);
-        
-        if (Mathf.Abs(rigidbody.velocity.x) > maxSpeed)
-            rigidbody.velocity = new Vector2(Mathf.Sign(rigidbody.velocity.x) * maxSpeed, rigidbody.velocity.y);
-        
-        if (h > 0 && !facingRight)
+        rigidbody.velocity = new Vector2(direction * (onWall ? 0 : 1) * moveSpeed, rigidbody.velocity.y);
+
+        if (direction == 1 && !facingRight)
             Flip();
-        else if (h < 0 && facingRight)
+        else if (direction == -1 && facingRight)
             Flip();
         
         if (jump)
         {
+            jump = false;
+            grounded = false;
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
             rigidbody.AddForce(new Vector2(0f, jumpForce));
-            jump = false;
         }
         if (crouch)
             body.SetPath(0, crouched);
         else
             body.SetPath(0, standing);
+
+        if (grounded && (upSlope || downSlope))
+            NormalizeSlope();
     }
 
+    private void NormalizeSlope()
+    {
+        float friction = (upSlope ? 1 : -1) * (facingRight ? 1 : -1) * 0.4f;
+        float yVel = rigidbody.velocity.x == 0 ? 0 : rigidbody.velocity.y;
+        rigidbody.velocity = new Vector2(rigidbody.velocity.x + friction, yVel);
+    }
 
-    void Flip()
+    private void Flip()
     {
         facingRight = !facingRight;
+        bool temp = upSlope;
+        upSlope = downSlope;
+        downSlope = temp;
         
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
