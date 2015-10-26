@@ -64,7 +64,10 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject bats;
 	public GameObject gems;
 	public GameObject items;
-	
+	public GameObject torches;
+
+
+	public GameObject background;
 	
 	void Start()
 	{	
@@ -91,6 +94,9 @@ public class MapGenerator : MonoBehaviour {
 		}
 		if (items == null) {
 			this.items = FindOrCreateGameObject("Items",this.gameObject);
+		}
+		if (torches == null) {
+			this.torches = FindOrCreateGameObject("Torches",this.gameObject);
 		}
 
 		FindOrCreatePlayer();
@@ -122,10 +128,30 @@ public class MapGenerator : MonoBehaviour {
 		this.playerSpawn = spawnPoint;
 	}
 	
-	
+	void ResizeBackground() {
+
+		//TODO: Fix the offset when the width and height are different.
+
+		Vector3 backgroundScale = new Vector3(this.width/10.0f,1.0f,this.height/10.0f);
+		background.transform.localScale = backgroundScale;
+
+		if (width > height) {
+			float yOffset = -width/4;
+			background.transform.position = new Vector2(0f,yOffset);
+		}
+		else if (height > width) {
+			float xOffset = height/4;
+			background.transform.position = new Vector2(0f, xOffset);
+		}
+		else {
+			background.transform.position = new Vector2(0.0f,0.0f);
+		}
+	}
+
 	public void GenerateMap()
 	{
-		
+		ResizeBackground();
+
 		map = new int[width, height];
 		RandomFillMap();
 		
@@ -775,7 +801,7 @@ public class MapGenerator : MonoBehaviour {
 		return relativePos;
 	}
 	
-	void AddObjectAt(Coord tile, GameObject obj, GameObject parent) {
+	public void AddObjectAt(Coord tile, GameObject obj, GameObject parent) {
 		Vector2 relativePosition = GetTilePositionInScene(tile);
 		float x = relativePosition.x;
 		float y = relativePosition.y;
