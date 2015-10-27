@@ -21,7 +21,7 @@ public class GrapplingHookController : MonoBehaviour {
 
         if(numOfGrapplingHooks == 0)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 grapplingHooks.Add(new GraplingHook(thePlayer, numOfGrapplingHooks));
                 grapplingHooks[numOfGrapplingHooks].SetFrameSpacing(4);
@@ -31,7 +31,7 @@ public class GrapplingHookController : MonoBehaviour {
                 numOfGrapplingHooks++;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.F) && !grapplingHooks[numOfGrapplingHooks - 1].isCreatingRope())
+        else if (Input.GetKeyDown(KeyCode.E) && !grapplingHooks[numOfGrapplingHooks - 1].isCreatingRope())
         {
             grapplingHooks.Add(new GraplingHook(this.gameObject, numOfGrapplingHooks));
             grapplingHooks[numOfGrapplingHooks].SetFrameSpacing(4);
