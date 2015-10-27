@@ -11,7 +11,7 @@ public class GraplingHook{
     private int frameCounter = 0;
     private bool creatingRope;
     private int segmentsCreated = 0;
-    public int maxSegments = 20;
+    public int maxSegments = 40;
     private DistanceJoint2D tempHinge;
     private int newStartIndex = 0;
     private float damper = 1;
@@ -67,7 +67,7 @@ public class GraplingHook{
         {
             CreateGraplingHook(false);
             segmentsCreated++;
-            damper -= .01f;
+            damper -= .02f;
 
             tempHinge = ropeSegments[segmentsCreated - 1 + newStartIndex].AddComponent<DistanceJoint2D>();
             tempHinge.connectedBody = ropeSegments[segmentsCreated + newStartIndex].GetComponent<Rigidbody2D>();
@@ -131,9 +131,9 @@ public class GraplingHook{
         projectile.transform.rotation = GameObject.Find("FirePoint").transform.rotation;
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (facingRight)
-            rb.AddForce(new Vector2(1, 4) * (1.2f * damper));
+            rb.AddForce(new Vector2(1.2f, 4.5f) * (1.2f * damper));
         else
-            rb.AddForce(new Vector2(-1, 4) * (1.2f * damper));
+            rb.AddForce(new Vector2(-1.2f, 4.5f) * (1.2f * damper));
         projectile.AddComponent<LineRenderer>();
         projectile.GetComponent<LineRenderer>().SetWidth(.1f, .1f);
         projectile.GetComponent<LineRenderer>().material = newMat;
