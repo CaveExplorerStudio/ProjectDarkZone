@@ -98,7 +98,7 @@ GameObject:
   - 114: {fileID: 578028}
   - 82: {fileID: 578027}
   - 50: {fileID: 578026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - 114: {fileID: 41834271}
   - 82: {fileID: 41834270}
   - 50: {fileID: 41834269}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   - 114: {fileID: 48346631}
   - 82: {fileID: 48346630}
   - 50: {fileID: 48346629}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +623,7 @@ GameObject:
   - 114: {fileID: 94834781}
   - 82: {fileID: 94834780}
   - 50: {fileID: 94834779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,7 +798,7 @@ GameObject:
   - 114: {fileID: 97166127}
   - 82: {fileID: 97166126}
   - 50: {fileID: 97166125}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -973,7 +973,7 @@ GameObject:
   - 114: {fileID: 99503698}
   - 82: {fileID: 99503697}
   - 50: {fileID: 99503696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1339,7 +1339,7 @@ GameObject:
   - 4: {fileID: 257507611}
   - 33: {fileID: 257507610}
   - 23: {fileID: 257507609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cave Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1508,7 +1508,7 @@ GameObject:
   - 33: {fileID: 325692248}
   - 64: {fileID: 325692247}
   - 23: {fileID: 325692246}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1583,7 +1583,7 @@ GameObject:
   - 68: {fileID: 363265814}
   - 68: {fileID: 363265813}
   - 68: {fileID: 363265812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Map Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5456,7 +5456,10 @@ GameObject:
   - 95: {fileID: 365608305}
   - 114: {fileID: 365608304}
   - 81: {fileID: 365608313}
-  m_Layer: 0
+  - 114: {fileID: 365608316}
+  - 114: {fileID: 365608315}
+  - 114: {fileID: 365608314}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5602,6 +5605,7 @@ Transform:
   - {fileID: 1352769513}
   - {fileID: 1638382816}
   - {fileID: 450995334}
+  - {fileID: 921796230}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!114 &365608312
@@ -5626,6 +5630,47 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 365608303}
   m_Enabled: 1
+--- !u!114 &365608314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 365608303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0a460f2bf1ba349a730f11bf68c2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &365608315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 365608303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85419dc40b908441a6a96918e95c5fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfGrapplingHooks: 0
+--- !u!114 &365608316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 365608303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9f03f86057a644dadaa5df680240d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClimbing: 0
+  facingRight: 1
+  jump: 0
+  crouch: 0
+  moveForce: 350
+  maxSpeed: 4
+  jumpForce: 800
 --- !u!1 &368516120
 GameObject:
   m_ObjectHideFlags: 0
@@ -5732,7 +5777,7 @@ GameObject:
   - 114: {fileID: 391642931}
   - 82: {fileID: 391642930}
   - 50: {fileID: 391642929}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5907,7 +5952,7 @@ GameObject:
   - 114: {fileID: 404957495}
   - 82: {fileID: 404957494}
   - 50: {fileID: 404957493}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6079,7 +6124,7 @@ GameObject:
   - 4: {fileID: 450995334}
   - 61: {fileID: 450995333}
   - 114: {fileID: 450995332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slope Detector_Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6305,7 +6350,7 @@ GameObject:
   - 114: {fileID: 490085391}
   - 82: {fileID: 490085390}
   - 50: {fileID: 490085389}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6480,7 +6525,7 @@ GameObject:
   - 114: {fileID: 498368293}
   - 82: {fileID: 498368292}
   - 50: {fileID: 498368291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6660,7 +6705,7 @@ GameObject:
   - 114: {fileID: 583160786}
   - 82: {fileID: 583160785}
   - 50: {fileID: 583160784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6835,7 +6880,7 @@ GameObject:
   - 114: {fileID: 585962911}
   - 82: {fileID: 585962910}
   - 50: {fileID: 585962909}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7010,7 +7055,7 @@ GameObject:
   - 114: {fileID: 599220363}
   - 82: {fileID: 599220362}
   - 50: {fileID: 599220361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7185,7 +7230,7 @@ GameObject:
   - 114: {fileID: 606951156}
   - 82: {fileID: 606951155}
   - 50: {fileID: 606951154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7360,7 +7405,7 @@ GameObject:
   - 114: {fileID: 638557617}
   - 82: {fileID: 638557616}
   - 50: {fileID: 638557615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7638,7 +7683,7 @@ GameObject:
   - 114: {fileID: 644927083}
   - 82: {fileID: 644927082}
   - 50: {fileID: 644927081}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7813,7 +7858,7 @@ GameObject:
   - 114: {fileID: 673661980}
   - 82: {fileID: 673661979}
   - 50: {fileID: 673661978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7988,7 +8033,7 @@ GameObject:
   - 114: {fileID: 691755705}
   - 82: {fileID: 691755704}
   - 50: {fileID: 691755703}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8191,19 +8236,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.x
@@ -8211,7 +8256,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.x
@@ -8219,7 +8264,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_Pivot.x
@@ -8245,7 +8290,7 @@ GameObject:
   - 114: {fileID: 715333214}
   - 82: {fileID: 715333213}
   - 50: {fileID: 715333212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8511,7 +8556,7 @@ GameObject:
   - 114: {fileID: 761930991}
   - 82: {fileID: 761930990}
   - 50: {fileID: 761930989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8686,7 +8731,7 @@ GameObject:
   - 114: {fileID: 771145661}
   - 82: {fileID: 771145660}
   - 50: {fileID: 771145659}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8856,7 +8901,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 776377820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Items
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8888,7 +8933,7 @@ GameObject:
   - 114: {fileID: 800003340}
   - 82: {fileID: 800003339}
   - 50: {fileID: 800003338}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9063,7 +9108,7 @@ GameObject:
   - 114: {fileID: 809372856}
   - 82: {fileID: 809372855}
   - 50: {fileID: 809372854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9238,7 +9283,7 @@ GameObject:
   - 114: {fileID: 900484353}
   - 82: {fileID: 900484352}
   - 50: {fileID: 900484351}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9413,7 +9458,7 @@ GameObject:
   - 114: {fileID: 902659288}
   - 82: {fileID: 902659287}
   - 50: {fileID: 902659286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9588,7 +9633,7 @@ GameObject:
   - 114: {fileID: 912677329}
   - 82: {fileID: 912677328}
   - 50: {fileID: 912677327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9763,7 +9808,7 @@ GameObject:
   - 114: {fileID: 914032980}
   - 82: {fileID: 914032979}
   - 50: {fileID: 914032978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9933,7 +9978,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 914877293}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torches
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9965,7 +10010,7 @@ GameObject:
   - 114: {fileID: 918082495}
   - 82: {fileID: 918082494}
   - 50: {fileID: 918082493}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10127,6 +10172,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7735c3ee667a4f16a88a787ecd00951, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &921796229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 921796230}
+  m_Layer: 9
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &921796230
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 921796229}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .779999971, y: 1.27999997, z: 0}
+  m_LocalScale: {x: 1.53846157, y: 1.53846157, z: 1.53846157}
+  m_Children: []
+  m_Father: {fileID: 365608311}
+  m_RootOrder: 3
 --- !u!1 &943589269
 GameObject:
   m_ObjectHideFlags: 0
@@ -10307,7 +10379,7 @@ GameObject:
   - 114: {fileID: 1040130964}
   - 82: {fileID: 1040130963}
   - 50: {fileID: 1040130962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10482,7 +10554,7 @@ GameObject:
   - 114: {fileID: 1103567899}
   - 82: {fileID: 1103567898}
   - 50: {fileID: 1103567897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10758,7 +10830,7 @@ GameObject:
   - 33: {fileID: 1128667892}
   - 64: {fileID: 1128667891}
   - 23: {fileID: 1128667890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10833,7 +10905,7 @@ GameObject:
   - 114: {fileID: 1150469815}
   - 82: {fileID: 1150469814}
   - 50: {fileID: 1150469813}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11142,7 +11214,7 @@ GameObject:
   - 114: {fileID: 1168496460}
   - 82: {fileID: 1168496459}
   - 50: {fileID: 1168496458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11391,7 +11463,7 @@ GameObject:
   - 114: {fileID: 1255632538}
   - 82: {fileID: 1255632537}
   - 50: {fileID: 1255632536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11566,7 +11638,7 @@ GameObject:
   - 114: {fileID: 1286777123}
   - 82: {fileID: 1286777122}
   - 50: {fileID: 1286777121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11741,7 +11813,7 @@ GameObject:
   - 114: {fileID: 1309186076}
   - 82: {fileID: 1309186075}
   - 50: {fileID: 1309186074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11916,7 +11988,7 @@ GameObject:
   - 114: {fileID: 1344139864}
   - 82: {fileID: 1344139863}
   - 50: {fileID: 1344139862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12086,7 +12158,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1348214211}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scenery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12115,7 +12187,7 @@ GameObject:
   - 4: {fileID: 1352769513}
   - 61: {fileID: 1352769515}
   - 114: {fileID: 1352769514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12171,7 +12243,7 @@ GameObject:
   - 114: {fileID: 1373186146}
   - 82: {fileID: 1373186145}
   - 50: {fileID: 1373186144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12341,7 +12413,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1383286995}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Entities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12374,7 +12446,7 @@ GameObject:
   - 114: {fileID: 1399945616}
   - 82: {fileID: 1399945615}
   - 50: {fileID: 1399945614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12549,7 +12621,7 @@ GameObject:
   - 114: {fileID: 1442696194}
   - 82: {fileID: 1442696193}
   - 50: {fileID: 1442696192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12724,7 +12796,7 @@ GameObject:
   - 114: {fileID: 1474161186}
   - 82: {fileID: 1474161185}
   - 50: {fileID: 1474161184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12899,7 +12971,7 @@ GameObject:
   - 114: {fileID: 1511851662}
   - 82: {fileID: 1511851661}
   - 50: {fileID: 1511851660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13074,7 +13146,7 @@ GameObject:
   - 114: {fileID: 1516934923}
   - 82: {fileID: 1516934922}
   - 50: {fileID: 1516934921}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13249,7 +13321,7 @@ GameObject:
   - 114: {fileID: 1528537641}
   - 82: {fileID: 1528537640}
   - 50: {fileID: 1528537639}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13424,7 +13496,7 @@ GameObject:
   - 114: {fileID: 1544658347}
   - 82: {fileID: 1544658346}
   - 50: {fileID: 1544658345}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13599,7 +13671,7 @@ GameObject:
   - 114: {fileID: 1548729645}
   - 82: {fileID: 1548729644}
   - 50: {fileID: 1548729643}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13774,7 +13846,7 @@ GameObject:
   - 114: {fileID: 1553238165}
   - 82: {fileID: 1553238164}
   - 50: {fileID: 1553238163}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13949,7 +14021,7 @@ GameObject:
   - 114: {fileID: 1581351992}
   - 82: {fileID: 1581351991}
   - 50: {fileID: 1581351990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14119,7 +14191,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1585726183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14148,7 +14220,7 @@ GameObject:
   - 4: {fileID: 1590191632}
   - 33: {fileID: 1590191631}
   - 23: {fileID: 1590191630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14314,7 +14386,7 @@ GameObject:
   - 114: {fileID: 1601352910}
   - 82: {fileID: 1601352909}
   - 50: {fileID: 1601352908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14522,19 +14594,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 36.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.x
@@ -14542,7 +14614,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.x
@@ -14550,7 +14622,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_Pivot.x
@@ -14580,7 +14652,7 @@ GameObject:
   - 114: {fileID: 1625202440}
   - 82: {fileID: 1625202439}
   - 50: {fileID: 1625202438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14755,7 +14827,7 @@ GameObject:
   - 114: {fileID: 1634932115}
   - 82: {fileID: 1634932114}
   - 50: {fileID: 1634932113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15030,7 +15102,7 @@ GameObject:
   - 4: {fileID: 1638382816}
   - 61: {fileID: 1638382818}
   - 114: {fileID: 1638382817}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slope Detector_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15086,7 +15158,7 @@ GameObject:
   - 114: {fileID: 1704627130}
   - 82: {fileID: 1704627129}
   - 50: {fileID: 1704627128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15289,19 +15361,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 89.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.x
@@ -15309,7 +15381,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.x
@@ -15317,7 +15389,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_Pivot.x
@@ -15347,7 +15419,7 @@ GameObject:
   - 114: {fileID: 1734456405}
   - 82: {fileID: 1734456404}
   - 50: {fileID: 1734456403}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15517,7 +15589,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1794754485}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15914,7 +15986,7 @@ GameObject:
   - 114: {fileID: 1843605793}
   - 82: {fileID: 1843605792}
   - 50: {fileID: 1843605791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16089,7 +16161,7 @@ GameObject:
   - 114: {fileID: 1845773229}
   - 82: {fileID: 1845773228}
   - 50: {fileID: 1845773227}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16264,7 +16336,7 @@ GameObject:
   - 114: {fileID: 1856890384}
   - 82: {fileID: 1856890383}
   - 50: {fileID: 1856890382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16467,19 +16539,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 63
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.x
@@ -16487,7 +16559,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.x
@@ -16495,7 +16567,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488342, guid: 5385392c0813ec44d9399b25e336254e, type: 2}
       propertyPath: m_Pivot.x
@@ -16525,7 +16597,7 @@ GameObject:
   - 114: {fileID: 1891238210}
   - 82: {fileID: 1891238209}
   - 50: {fileID: 1891238208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16700,7 +16772,7 @@ GameObject:
   - 114: {fileID: 1901188250}
   - 82: {fileID: 1901188249}
   - 50: {fileID: 1901188248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16875,7 +16947,7 @@ GameObject:
   - 114: {fileID: 1920349218}
   - 82: {fileID: 1920349217}
   - 50: {fileID: 1920349216}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17142,7 +17214,7 @@ GameObject:
   - 114: {fileID: 1950980620}
   - 82: {fileID: 1950980619}
   - 50: {fileID: 1950980618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17317,7 +17389,7 @@ GameObject:
   - 114: {fileID: 1968610681}
   - 82: {fileID: 1968610680}
   - 50: {fileID: 1968610679}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17492,7 +17564,7 @@ GameObject:
   - 114: {fileID: 1992460816}
   - 82: {fileID: 1992460815}
   - 50: {fileID: 1992460814}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17734,7 +17806,7 @@ GameObject:
   - 114: {fileID: 2044088926}
   - 82: {fileID: 2044088925}
   - 50: {fileID: 2044088924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17909,7 +17981,7 @@ GameObject:
   - 114: {fileID: 2048202000}
   - 82: {fileID: 2048201999}
   - 50: {fileID: 2048201998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18084,7 +18156,7 @@ GameObject:
   - 114: {fileID: 2048926690}
   - 82: {fileID: 2048926689}
   - 50: {fileID: 2048926688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18342,7 +18414,7 @@ GameObject:
   - 114: {fileID: 2095781909}
   - 82: {fileID: 2095781908}
   - 50: {fileID: 2095781907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18550,7 +18622,7 @@ GameObject:
   - 114: {fileID: 2104809803}
   - 82: {fileID: 2104809802}
   - 50: {fileID: 2104809801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18725,7 +18797,7 @@ GameObject:
   - 114: {fileID: 2130924526}
   - 82: {fileID: 2130924525}
   - 50: {fileID: 2130924524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

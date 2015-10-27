@@ -11,7 +11,7 @@ public class GraplingHook{
     private int frameCounter = 0;
     private bool creatingRope;
     private int segmentsCreated = 0;
-    public int maxSegments = 50;
+    public int maxSegments = 20;
     private DistanceJoint2D tempHinge;
     private int newStartIndex = 0;
     private float damper = 1;
