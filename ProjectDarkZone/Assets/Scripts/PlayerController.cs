@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private CircleCollider2D feet;
     private Vector2[] standing, crouched;
     private Health health;
+	private Animator anim;
 
 
     void Awake()
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
         onWall = false;
         upSlope = false;
         downSlope = false;
+		anim = GetComponent<Animator>();
 
         int min = 0;
         for (int i = 0; i < standing.Length; i++)
@@ -121,6 +123,10 @@ public class PlayerController : MonoBehaviour
 
         if (grounded && (upSlope || downSlope))
             NormalizeSlope();
+
+		//Send Parameters to Animator
+		anim.SetFloat("HorizontalSpeed",Mathf.Abs(rigidbody.velocity.x)/10);
+
     }
 
     private void NormalizeSlope()

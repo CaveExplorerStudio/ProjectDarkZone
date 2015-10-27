@@ -12,6 +12,8 @@ GameObject:
   - 95: {fileID: 9591656}
   - 114: {fileID: 11449910}
   - 108: {fileID: 10832494}
+  - 82: {fileID: 8223376}
+  - 60: {fileID: 6016188}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -31,6 +33,96 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!60 &6016188
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146198}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: .0103678405, y: -.0606654286}
+      - {x: -.294430852, y: -.322749496}
+      - {x: -.313625216, y: -.404798627}
+      - {x: -.177845865, y: -.404798597}
+      - {x: .121681288, y: -.162854686}
+      - {x: .222452089, y: -.0495271422}
+      - {x: .127250642, y: -.00788084138}
+--- !u!82 &8223376
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146198}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 20
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9591656
 Animator:
   serializedVersion: 3
@@ -91,7 +183,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dbd62ca943938dec1867d3a7f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  igniteSound: {fileID: 8300000, guid: a8cf4df550426430cb08cd1028435c50, type: 3}
+  burningSound: {fileID: 8300000, guid: 1ea207f9b22d94c88a5e0938fd716f6f, type: 3}
+  extinguishSound: {fileID: 8300000, guid: 1d047b72eb32f4600865dc561b2c19f2, type: 3}
   startTime: 0
+  shouldFollowPlayer: 0
+  player: {fileID: 0}
 --- !u!212 &21272476
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -140,6 +237,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: -1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: igniteSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a8cf4df550426430cb08cd1028435c50, type: 3}
+    - target: {fileID: 0}
+      propertyPath: burningSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ea207f9b22d94c88a5e0938fd716f6f, type: 3}
+    - target: {fileID: 0}
+      propertyPath: extinguishSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d047b72eb32f4600865dc561b2c19f2, type: 3}
+    - target: {fileID: 0}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

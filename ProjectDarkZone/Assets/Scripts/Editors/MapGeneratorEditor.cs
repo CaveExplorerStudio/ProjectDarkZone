@@ -40,16 +40,16 @@ public class MapGeneratorEditor : EditorWindow {
 	
 	void ResetParametersToDefault() { //Put the default parameters here
 		this.randomFillPercent = 50;
-		this.width = 100;
-		this.height = 100;
+		this.width = 150;
+		this.height = 150;
 		this.useRandomSeed = true;
-		this.seed = "Dank";
+		this.seed = "CS196";
 		this.wallThresholdSize = 50;
 		this.roomThresholdSize = 50;
 		this.tileAmount = 1;
 		this.batSpawnRate = 1.0f;
 		this.spawnBats = true;
-		this.placeGems = true;
+		this.placeGems = false;
 		this.regenerateMapOnLaunch = true;
 	}
 	
