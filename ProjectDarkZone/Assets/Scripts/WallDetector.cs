@@ -11,11 +11,13 @@ public class WallDetector : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        pc.SetOnWall(true);
+        if(GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.NameToLayer("Cave")))
+            pc.SetOnWall(true);
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        pc.SetOnWall(false);
+        if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.NameToLayer("Cave")))
+            pc.SetOnWall(false);
     }
 }

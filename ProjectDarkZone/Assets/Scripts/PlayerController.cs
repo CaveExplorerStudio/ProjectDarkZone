@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
     public bool facingRight = true;
 
     public Component mapGenerator;
-    public float moveSpeed = 6f;
-    public float jumpForce = 750f;
+    public float moveSpeed = 4f;
+    public float jumpForce = 400f;
     
     private bool grounded, jump, crouch, upSlope, downSlope, onWall;
-    private int direction;
+    private int direction, gemCount;
     private new Rigidbody2D rigidbody;
     private PolygonCollider2D body;
     private CircleCollider2D feet;
@@ -59,9 +59,9 @@ public class PlayerController : MonoBehaviour
             crouch = false;
 
         direction = 0;
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             direction = 1;
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             direction = -1;
     }
 
@@ -77,27 +77,26 @@ public class PlayerController : MonoBehaviour
                 health.AddHealth((int)((16 - velocity) * 0.5));
             }
         }
-    }
 
+        if (collision.collider.tag.Equals("Gem"))
+        {
+            Destroy(collision.collider.gameObject);
+            gemCount++;
+        }
+    }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;
     }
 
-    public void SetUpSlope(bool value)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        upSlope = value;
-    }
-
-    public void SetDownSlope(bool value)
-    {
-        downSlope = value;
-    }
-
-    public void SetOnWall(bool value)
-    {
-        onWall = value;
+        if (collider.tag.Equals("Heart Container"))
+        {
+            Destroy(collider.gameObject);
+            health.AddHeart();
+        }
     }
 
     void FixedUpdate()
@@ -133,7 +132,7 @@ public class PlayerController : MonoBehaviour
     {
         float friction = (upSlope ? 1 : -1) * (facingRight ? 1 : -1) * 0.4f;
         float yVel = rigidbody.velocity.x == 0 ? 0 : rigidbody.velocity.y;
-        rigidbody.velocity = new Vector2(rigidbody.velocity.x + friction, yVel);
+        rigidbody.velocity = new Vector2(direction * (onWall ? 0 : 1) * moveSpeed + friction, yVel);
     }
 
     private void Flip()
@@ -168,5 +167,20 @@ public class PlayerController : MonoBehaviour
             points[i] = new Vector2(points[i].x, newY);
         }
         body.SetPath(0, points);
+    }
+
+    public void SetUpSlope(bool value)
+    {
+        upSlope = value;
+    }
+
+    public void SetDownSlope(bool value)
+    {
+        downSlope = value;
+    }
+
+    public void SetOnWall(bool value)
+    {
+        onWall = value;
     }
 }

@@ -8,20 +8,28 @@ public class Health : MonoBehaviour {
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Sprite emptyHeart;
+    public float sanityTickTime;
 
     private const int initHearts = 4;
     private const int heartValue = 2;
 
     private Image[] hearts;
+    private Sanity sanity;
     private int health, maxHearts, maxHealth;
+    private float sanityClock;
+    private bool pulseOn, pulseOff;
     
 	void Start () {
         hearts = healthContainer.GetComponentsInChildren<Image>();
+        sanity = GetComponent<Sanity>();
         maxHearts = hearts.Length;
         maxHealth = heartValue * initHearts;
         health = maxHealth;
+        sanityClock = sanityTickTime;
+        pulseOn = false;
+        pulseOff = false;
 
-        for(int i = initHearts; i < maxHearts; i++)
+        for (int i = initHearts; i < maxHearts; i++)
         {
             hearts[i].enabled = false;
         }
@@ -29,9 +37,32 @@ public class Health : MonoBehaviour {
 
     void Update()
     {
-        if(health == 0)
+        if (health == 0)
         {
             //GAME OVER
+        }
+
+        if (sanity.IsEmpty())
+        {
+            sanityClock -= Time.deltaTime;
+            if(sanityClock <= 0)
+            {
+                AddHealth(-1);
+                sanityClock = sanityTickTime;
+                if(!pulseOn)
+                {
+                    sanity.SliderPulseOn();
+                    pulseOn = true;
+                    pulseOff = false;
+                }
+            }
+            else if(sanityClock <= sanityTickTime / 2 && !pulseOff)
+                sanity.SliderPulseOn();
+                pulseOff = true;
+                pulseOn = true;
+            {
+
+            }
         }
     }
 
@@ -50,6 +81,8 @@ public class Health : MonoBehaviour {
         if(maxHealth < maxHearts * heartValue)
         {
             maxHealth += heartValue;
+            health += heartValue;
+            hearts[maxHealth / 2 - 1].enabled = true;
         }
         UpdateHearts();
     }

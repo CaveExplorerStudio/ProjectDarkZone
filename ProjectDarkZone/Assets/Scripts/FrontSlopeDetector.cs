@@ -11,11 +11,13 @@ public class FrontSlopeDetector : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        pc.SetUpSlope(true);
+        if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.NameToLayer("Cave")))
+            pc.SetUpSlope(true);
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        pc.SetUpSlope(false);
+        if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.NameToLayer("Cave")))
+            pc.SetUpSlope(false);
     }
 }

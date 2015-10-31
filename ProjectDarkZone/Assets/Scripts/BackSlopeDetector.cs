@@ -11,11 +11,13 @@ public class BackSlopeDetector : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider)
     {
-        pc.SetDownSlope(true);
+        if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.NameToLayer("Cave")))
+            pc.SetDownSlope(true);
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        pc.SetDownSlope(false);
+        if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.NameToLayer("Cave")))
+            pc.SetDownSlope(false);
     }
 }
