@@ -10323,7 +10323,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGenScript: {fileID: 0}
   viewOffset: 5
-  panInterval: .200000003
   shakeSound: {fileID: 8300000, guid: 73e06d1d487204387ae3017ecbfbd78a, type: 3}
 --- !u!1 &1812564201
 GameObject:
@@ -10819,7 +10818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selector: {fileID: 1160854689}
   actionBar: {fileID: 1943823229}
-  framesBeforeActionBarHide: 0
+  framesBeforeActionBarHide: 100
 --- !u!114 &1943823232
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour {
 	float yMin;
 	
 	public float viewOffset = 5.0f;
-	public float panInterval = 0.2f;
+	private float panInterval = 0.14f;
 	
 	bool shouldPanRight;
 	bool shouldPanLeft;
