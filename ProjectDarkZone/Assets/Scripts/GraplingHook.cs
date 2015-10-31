@@ -4,32 +4,34 @@ using System.Collections.Generic;
 
 public class GraplingHook{
     public List<GameObject> ropeSegments = new List<GameObject>();
-    private List<int> ropeSegmentCodes = new List<int>();
-    private GameObject playerPosition;
-    private GameObject prefab;
-    private GameObject parent;
-    private int frameCounter = 0;
-    private bool creatingRope;
-    private int segmentsCreated = 0;
-    public int maxSegments = 40;
-    private DistanceJoint2D tempHinge;
-    private int newStartIndex = 0;
-    private float damper = 1;
+    public int maxSegments = 40; 
     public int frameSpacing = 4;
     public LayerMask rope_layers;
-    private int ropesCreated = 0;
-    private bool createRope = false;
-    private GameObject referencedObject;
-    private int ropeNumber = 0;
-    private bool foundHead = false;
-    private GameObject head;
     public LayerMask ground_layers;
     public bool facingRight = true;
     public bool isClimbable = false;
 
 
-    private bool freeze = false;
+    private List<int> ropeSegmentCodes = new List<int>();
+    private GameObject playerPosition;
+    private GameObject prefab;
+    private GameObject parent;
+    private GameObject referencedObject;
+    private GameObject head;
+
+    private DistanceJoint2D tempHinge;
+    private float damper = 1;
     private int freezeTimer = 120;
+    private int newStartIndex = 0;
+    private int ropesCreated = 0;
+    private int ropeNumber = 0;
+    private int segmentsCreated = 0;
+    private int frameCounter = 0;
+    private bool creatingRope;
+    private bool foundHead = false;
+    private bool createRope = false;
+    private bool freeze = false;
+
 
     public GraplingHook(GameObject reference, int number)
     {
@@ -41,20 +43,15 @@ public class GraplingHook{
     // Use this for initialization
     void Start () {
         playerPosition = GameObject.Find("FirePoint");
-
         prefab = Resources.Load("RopeSegment", typeof(GameObject)) as GameObject;
         parent = new GameObject();
         parent.name = "Grappling Hook";
-
         ground_layers = 1 << LayerMask.NameToLayer("Cave");
         rope_layers = 1 << LayerMask.NameToLayer("Player");
     }
 	
 	// Update is called once per frame
 	public void Update () {
-        playerPosition = GameObject.Find("FirePoint");
-        GameObject part = GameObject.Find("RopeSegment");
-      
         if (createRope && creatingRope == false) //Remove the first false pls
         {
             CreateGraplingHook(true);
@@ -74,8 +71,6 @@ public class GraplingHook{
             tempHinge.anchor = new Vector2(1f, 0f);
             tempHinge.distance = 0.01f;
             tempHinge.enableCollision = true;
-
-            
         }
 
         frameCounter++;
@@ -90,7 +85,6 @@ public class GraplingHook{
             ropeSegmentCodes.Add(0);
             freeze = true;
             ropesCreated++;
-            //FreezeRope();
         }
 
         if (freeze)
@@ -117,8 +111,7 @@ public class GraplingHook{
 
         if (foundHead && !(Physics2D.OverlapCircle(new Vector2(head.transform.position.x, head.transform.position.y), .2f, ground_layers) == null))
         {
-            GameObject.Find("head" + ropeNumber).GetComponent<Rigidbody2D>().isKinematic = true;
-            //Debug.Log("Yo, I hit something!!");            
+            head.GetComponent<Rigidbody2D>().isKinematic = true;          
         }
 
     }
@@ -127,16 +120,21 @@ public class GraplingHook{
     {
         Material newMat = Resources.Load("Rope", typeof(Material)) as Material;
         GameObject projectile = MonoBehaviour.Instantiate(prefab) as GameObject;
-        projectile.transform.position = GameObject.Find("FirePoint").transform.position;
-        projectile.transform.rotation = GameObject.Find("FirePoint").transform.rotation;
+        GameObject firePoint = GameObject.Find("FirePoint");
+        projectile.transform.position = firePoint.transform.position;
+        projectile.transform.rotation = firePoint.transform.rotation;
+
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
         if (facingRight)
-            rb.AddForce(new Vector2(1.2f, 4.5f) * (1.2f * damper));
+            rb.AddForce(new Vector2(1.2f, 4.5f) * (1.2f * damper)); //Edit to change launch angle of grappling hook
         else
-            rb.AddForce(new Vector2(-1.2f, 4.5f) * (1.2f * damper));
-        projectile.AddComponent<LineRenderer>();
-        projectile.GetComponent<LineRenderer>().SetWidth(.1f, .1f);
-        projectile.GetComponent<LineRenderer>().material = newMat;
+            rb.AddForce(new Vector2(-1.2f, 4.5f) * (1.2f * damper)); //Edit to change launch angle of grappliing hook
+
+        LineRenderer rnd = projectile.AddComponent<LineRenderer>();
+        rnd.SetWidth(.1f, .1f);
+        rnd.material = newMat;
+
         if (!firstSegment)
             projectile.GetComponent<BoxCollider2D>().isTrigger = false;
 
@@ -147,8 +145,8 @@ public class GraplingHook{
 
         if (firstSegment)
         {
-            ropeSegments[ropeSegments.IndexOf(projectile)].AddComponent<CheckCollide>();
-            ropeSegments[ropeSegments.IndexOf(projectile)].GetComponent<CheckCollide>().segmentIndex = ropeSegments.IndexOf(projectile);
+            CheckCollide chk = ropeSegments[ropeSegments.IndexOf(projectile)].AddComponent<CheckCollide>();
+            chk.segmentIndex = ropeSegments.IndexOf(projectile);
             ropeSegments[ropeSegments.IndexOf(projectile)].name = "head" + ropeNumber;
             //ropeSegments[ropeSegments.IndexOf(projectile)].GetComponent<BoxCollider2D>().isTrigger = true;
         }
@@ -168,13 +166,14 @@ public class GraplingHook{
                 i++;
             else if (i < ropeSegments.Count)
             {
-                ropeSegments[i].GetComponent<LineRenderer>().SetPosition(1, new Vector3(ropeSegments[i - 1].transform.position.x,
+                LineRenderer rnd = ropeSegments[i].GetComponent<LineRenderer>();
+                rnd.SetPosition(1, new Vector3(ropeSegments[i - 1].transform.position.x,
                                                                                     ropeSegments[i - 1].transform.position.y,
                                                                                     ropeSegments[i - 1].transform.position.z));
 
-                ropeSegments[i].GetComponent<LineRenderer>().SetPosition(0, new Vector3(ropeSegments[i].transform.position.x,
-                                                                                        ropeSegments[i].transform.position.y,
-                                                                                        ropeSegments[i].transform.position.z));
+                rnd.SetPosition(0, new Vector3(ropeSegments[i].transform.position.x,
+                                                                                    ropeSegments[i].transform.position.y,
+                                                                                    ropeSegments[i].transform.position.z));
                 
                 if (!(Physics2D.OverlapArea(new Vector2(ropeSegments[i - 1].transform.position.x, ropeSegments[i - 1].transform.position.y), 
                                             new Vector2(ropeSegments[i].transform.position.x, ropeSegments[i].transform.position.y), 
