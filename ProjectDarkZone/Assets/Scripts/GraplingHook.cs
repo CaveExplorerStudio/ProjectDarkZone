@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class GraplingHook{
     public List<GameObject> ropeSegments = new List<GameObject>();
+    public List<int> segmentCounters = new List<int>(); 
     public int maxSegments = 40; 
     public int frameSpacing = 4;
     public LayerMask rope_layers;
@@ -21,7 +23,7 @@ public class GraplingHook{
 
     private DistanceJoint2D tempHinge;
     private float damper = 1;
-    private int freezeTimer = 120;
+    private int freezeTimer = 90;
     private int newStartIndex = 0;
     private int ropesCreated = 0;
     private int ropeNumber = 0;
@@ -58,6 +60,7 @@ public class GraplingHook{
             frameCounter = 0;
             creatingRope = true;
             createRope = false;
+            //freeze = true;
         }
 
         if (creatingRope && frameCounter % frameSpacing == 0 && frameCounter != 0 && segmentsCreated < maxSegments)
@@ -85,6 +88,12 @@ public class GraplingHook{
             ropeSegmentCodes.Add(0);
             freeze = true;
             ropesCreated++;
+        }
+
+        for (int i = 0; i < segmentCounters.Count; i++)
+        {
+            if(segmentCounters[i] > 0)
+                segmentCounters[i] -= 1;
         }
 
         if (freeze)
@@ -116,6 +125,18 @@ public class GraplingHook{
 
     }
 
+    private void NewFreezeRope()
+    {
+        for (int i = 0; i < ropeSegments.Count; i++)
+        {
+            if (segmentCounters[i] == 0)
+            {
+                ropeSegments[i].GetComponent<Rigidbody2D>().isKinematic = true;
+                ropeSegments[i].GetComponent<BoxCollider2D>().isTrigger = true;
+            }
+        }
+    }
+
     void CreateGraplingHook(bool firstSegment)
     {
         Material newMat = Resources.Load("Rope", typeof(Material)) as Material;
@@ -141,6 +162,7 @@ public class GraplingHook{
 
         
         ropeSegments.Add(projectile);
+        segmentCounters.Add(120);
         ropeSegmentCodes.Add(1);
 
         if (firstSegment)
