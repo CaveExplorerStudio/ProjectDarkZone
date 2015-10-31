@@ -28,6 +28,7 @@ public class CameraController : MonoBehaviour {
 	
 	float cameraShakeStartTime;
 	float cameraShakeDuration;
+	float cameraShakeIntensity;
 	
 	
 	AudioSource audioSource;
@@ -65,8 +66,9 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.S)) {
-			BeginCameraShake(5.0f);
+		if (Input.GetKeyDown(KeyCode.P)) {
+			Debug.Log("Beginning Camera Shake");
+			BeginCameraShake(0.50f,5.0f);
 		}
 		
 		if (audioSource.isPlaying == false) {
@@ -90,33 +92,19 @@ public class CameraController : MonoBehaviour {
 		}
 		else if (Time.time - cameraShakeStartTime >= delay) {
 			
-			float randX = (UnityEngine.Random.value - 0.5f)/2;
-			float randY = (UnityEngine.Random.value - 0.5f)/2;
+			float randX = (UnityEngine.Random.value*cameraShakeIntensity*2)-cameraShakeIntensity;
+			float randY = (UnityEngine.Random.value*cameraShakeIntensity*2)-cameraShakeIntensity;
 			this.transform.position = new Vector3(transform.position.x + randX, transform.position.y + randY, transform.position.z);
 		}
 	}
 	
-	public void BeginCameraShake(float duration) {
+	public void BeginCameraShake(float intensity, float duration) {
 		shouldShakeCamera = true;
 		cameraShakeStartTime = Time.time;
 		cameraShakeDuration = duration;
+		cameraShakeIntensity = intensity;
 		this.audioSource.PlayOneShot(this.shakeSound);
-		//		TorchPlacer torchPlacer = this.player.gameObject.GetComponent<TorchPlacer>();
-		//		torchPlacer.DimAllTorches(duration);
 	}
-	
-	//	void SetViewOffset() {
-	//		if (playerController.facingRight) {
-	//			if (this.viewOffset < 0) {
-	//				this.viewOffset = -viewOffset;
-	//			}
-	//		}
-	//		else {
-	//			if (this.viewOffset > 0) {
-	//				this.viewOffset = -viewOffset;
-	//			}
-	//		}
-	//	}
 	
 	void SetPanDirection() {
 		

@@ -35,7 +35,6 @@ public class TorchPlacer : MonoBehaviour
 		newTorch.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 		newTorch.transform.parent = this.torches.transform; //Set as child parent object	
 		
-		
 		Vector2 throwVelocity = new Vector2(4.0f,5.0f);
 		if(GetComponent<PlayerController>().facingRight == false){
 			throwVelocity.x *= -1;
@@ -96,6 +95,7 @@ public class TorchPlacer : MonoBehaviour
 		
 		GameObject newTorch = Instantiate(this.torch, torchPosition, Quaternion.identity) as GameObject;
 		Destroy(newTorch.GetComponent<PolygonCollider2D>());
+		newTorch.name = "Player Torch";
 		
 		if(GetComponent<PlayerController>().facingRight == false) {
 			Vector3 newScale = new Vector3(newTorch.transform.localScale.x * -1, newTorch.transform.localScale.y, newTorch.transform.localScale.z);
@@ -108,10 +108,10 @@ public class TorchPlacer : MonoBehaviour
 		torchController.shouldFollowPlayer = true;
 	}
 	
-	public void DimAllTorches(float duration) {
+	public void DimAllTorches(float dimPercentage, float duration) {
 		foreach(Transform torch in this.torches.transform) {
 			TorchController torchController = torch.gameObject.GetComponent<TorchController>();
-			torchController.Dim (duration);
+			torchController.Dim (dimPercentage, duration);
 		}
 	}
 	
@@ -126,9 +126,6 @@ public class TorchPlacer : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.R)) {
 			ThrowTorch();
-		}
-		if (Input.GetKeyDown(KeyCode.E)) {
-			DimAllTorches(5.0f);
 		}
 		
 	}
