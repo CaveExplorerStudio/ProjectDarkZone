@@ -12,6 +12,8 @@ public class GemController : MonoBehaviour {
 	bool lightShouldFadeIn = false;
 	bool lightShouldHold = false;
 	bool lightShouldFadeOut = false;
+
+	float lightIncrementAmount = 0.01f;
 	
 	Transform player;
 	Transform camera;
@@ -75,7 +77,7 @@ public class GemController : MonoBehaviour {
 				lightShouldFadeIn = false;
 				lightShouldHold = true;
 			}
-			this.light.intensity += 0.01f;
+			this.light.intensity += lightIncrementAmount;
 		}
 		if (lightShouldHold) {
 			if (Time.time - lightStartTime >= 6.0f) {
@@ -87,7 +89,7 @@ public class GemController : MonoBehaviour {
 			if (Time.time - lightStartTime >= 7.0f) {
 				lightShouldFadeOut = false;
 			}
-			this.light.intensity -= 0.01f;
+			this.light.intensity -= lightIncrementAmount;
 		}
 	}
 	

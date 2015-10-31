@@ -3,43 +3,46 @@ using System.Collections;
 
 public class TorchController : MonoBehaviour {
 	
-	
+	//Audio
+	AudioSource audioSource;
 	public AudioClip igniteSound;
 	public AudioClip burningSound;
 	public AudioClip extinguishSound;
-	
-	float burnTime = 10.0f;
-	float extinguishProbability = 0.0001f;
+
+	//Timing
+	float startTime;
+
+	//Durations
+	float burnTime = 10.0f; //Guaranteed time the torch will be lit (assuming a direct method to extinguish is not called)
+	float extinguishProbability = 0.0001f; //Probability of torch going out by shadow after burnTime
 	
 	TorchState state = TorchState.Unlit;
-	
-	public float startTime;
-	
 	public bool shouldFollowPlayer = false;
-	
-	Light light;
-	
+
+	//References
 	public Transform player;
 	PlayerController playerController;
 	TorchPlacer torchPlacer;
-	
-	bool previousPlayerFacingRight;
-	
-	float initialXOffset;
-	float initialYOffset;
-	
-	AudioSource audioSource;
-	
+	Light light;
+
+	//Dim Variables
 	bool isDim = false;
-	float dimFactor = 2.25f;
+	float dimPercentage = 0.5f;
 	float dimStartTime;
 	float dimDuration;
+
+	//Flicker Variables
+	bool isFlickering = false;
+	float flickerFrequency = 0.01f;
+	float flickerStartTime;
+	float flickerDuration;
+	float flickerDelay;
 	
-	// Use this for initialization
+
 	void Start () {
 		startTime = Time.time;
 		
-		this.light = this.GetComponent<Light>();
+		this.light = this.GetComponentInChildren<Light>();
 		
 		audioSource = this.GetComponent<AudioSource>();
 		
@@ -60,12 +63,18 @@ public class TorchController : MonoBehaviour {
 		else if (this.state == TorchState.Lit) {
 			Burn ();
 		}
-		
+
+		if (isFlickering) {
+			Flicker ();
+		}
+
 		if (isDim) {
 			if (Time.time-dimStartTime >= dimDuration) {
 				EndDim ();
 			}
 		}
+
+
 	}
 	
 	void Flip()
@@ -75,16 +84,19 @@ public class TorchController : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 	
-	public void Dim(float duration) {
-		this.dimDuration = duration;
-		this.dimStartTime = Time.time;
-		this.isDim = true;
-		this.light.intensity /= dimFactor;
+	public void Dim(float percentage, float duration) {
+		if (isDim == false) {
+			this.dimDuration = duration;
+			this.dimPercentage = percentage;
+			this.dimStartTime = Time.time;
+			this.isDim = true;
+			this.light.intensity *= dimPercentage;
+		}
 	}
 	
 	void EndDim() {
 		this.isDim = false;
-		this.light.intensity *= dimFactor;
+		this.light.intensity /= dimPercentage;
 	}
 	
 	void Burn() {
@@ -111,7 +123,44 @@ public class TorchController : MonoBehaviour {
 		}
 		Destroy(this.gameObject,1.0f);
 	}
-	
+
+	public void BlowOut() {
+		audioSource.PlayOneShot(extinguishSound,0.2f);
+		this.state = TorchState.Extinguished;
+		if (player != null && this.transform.parent == player.transform) {
+			torchPlacer.isHoldingTorch = false;
+		}
+		Destroy(this.gameObject,1.0f);
+	}
+
+	public void BeginFlicker(float delay, float duration) {
+		if (this.isFlickering == false) {
+			this.flickerStartTime = Time.time;
+			this.isFlickering = true;
+			this.flickerDuration = duration;
+			this.flickerDelay = delay;
+		}
+	}
+
+	private void Flicker() {
+		float timePassed = Time.time - this.flickerStartTime;
+		if (timePassed > flickerDuration) {
+			Debug.Log("Ending Flicker");
+			EndFlicker();
+		}
+		else if (timePassed > flickerDelay) {
+			if (this.isDim == false) {
+				this.Dim (0.25f,0.05f);
+			}
+		}
+	}
+
+	private void EndFlicker() {
+		this.isFlickering = false;
+	}
+
+
+
 	public enum TorchState {
 		Unlit,
 		Lit,
