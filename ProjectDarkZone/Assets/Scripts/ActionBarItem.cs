@@ -3,13 +3,13 @@ using System.Collections;
 
 public class ActionBarItem
 {
-    public string name { get; set; }
-    public int amount { get; set; }
+    public IItem Item { get; set; }
+    public int Amount { get; set; }
 
-    public ActionBarItem(string name, int amount)
+    public ActionBarItem(IItem item, int amount)
     {
-        this.name = name;
-        this.amount = amount;
+        this.Item = item;
+        this.Amount = amount;
     }
 
     public ActionBarItem()

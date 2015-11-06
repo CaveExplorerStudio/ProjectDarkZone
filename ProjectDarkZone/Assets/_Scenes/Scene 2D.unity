@@ -15883,6 +15883,8 @@ MonoBehaviour:
   selector: {fileID: 1160854689}
   actionBar: {fileID: 1943823229}
   framesBeforeActionBarHide: 100
+  itemPrefabs:
+  - {fileID: 146198, guid: 65097732dc2ea4b748f010c340c2ec82, type: 2}
 --- !u!114 &1943823232
 MonoBehaviour:
   m_ObjectHideFlags: 0

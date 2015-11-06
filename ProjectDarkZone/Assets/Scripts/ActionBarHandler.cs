@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ActionBarHandler : MonoBehaviour
 {
     public GameObject selector;
     public GameObject actionBar;
     public int framesBeforeActionBarHide;
+    public List<GameObject> itemPrefabs;
     private RectTransform selectorTransform;
     private RectTransform actionBarTransform;
     private ActionBarItem[] items = new ActionBarItem[9];
@@ -98,18 +100,23 @@ public class ActionBarHandler : MonoBehaviour
             unused++;
         }
 
-        // On item pickup
         if (Input.GetKeyDown(KeyCode.I))
         {
-            // Using randomized item names right now for demonstration
-            System.Random rnd = new System.Random();
-            addActionBarItem("ItemName" + rnd.Next(0, 9));
+            // Add item to action bar
+            // Torch as example for now
+            Torch torch = new Torch("Torch", Resources.Load<Sprite>("torch"), true, itemPrefabs[0], GameObject.Find("Torches"), GameObject.Find("Player"),
+                GameObject.Find("Map Generator").GetComponent<MapGenerator>());
+
+            addActionBarItem(torch);
             unused = 0;
         }
 
-        // On item use
         if (Input.GetKeyDown(KeyCode.U))
         {
+            // Use item
+            if (items[selectedIndex] != null)
+                items[selectedIndex].Item.Use();
+
             removeActionBarItem();
             unused = 0;
         }
@@ -130,8 +137,8 @@ public class ActionBarHandler : MonoBehaviour
     {
         if (items[selectedIndex] != null)
         {
-            items[selectedIndex].amount--;
-            if (items[selectedIndex].amount == 0)
+            items[selectedIndex].Amount--;
+            if (items[selectedIndex].Amount == 0)
             {
                 items[selectedIndex] = null;
                 images[selectedIndex].GetComponent<Image>().enabled = false;
@@ -141,22 +148,22 @@ public class ActionBarHandler : MonoBehaviour
             else
             {
                 images[selectedIndex].GetComponentInChildren<Text>().text =
-                    items[selectedIndex].amount.ToString();
+                    items[selectedIndex].Amount.ToString();
             }
         }
     }
 
-    private void addActionBarItem(string itemName)
+    private void addActionBarItem(IItem item)
     {
         bool OnActionBar = false;
 
         for (int i = 0; i < items.Length; i++)
         {
-            if (items[i] != null && items[i].name == itemName)
+            if (items[i] != null && items[i].Item.Name== item.Name)
             {
                 OnActionBar = true;
-                items[i].amount++;
-                images[i].GetComponentInChildren<Text>().text = items[i].amount.ToString();
+                items[i].Amount++;
+                images[i].GetComponentInChildren<Text>().text = items[i].Amount.ToString();
             }
         }
 
@@ -166,11 +173,10 @@ public class ActionBarHandler : MonoBehaviour
             {
                 if (items[i] == null)
                 {
-                    items[i] = new ActionBarItem(itemName, 1);
-                    // Add item image
-                    // images[i].GetComponent<Image>().sprite = Resources.Load("Image");
+                    items[i] = new ActionBarItem(item, 1);
+                    images[i].GetComponent<Image>().sprite = item.Image;
                     images[i].GetComponent<Image>().enabled = true;
-                    images[i].GetComponentInChildren<Text>().text = items[i].amount.ToString();
+                    images[i].GetComponentInChildren<Text>().text = items[i].Amount.ToString();
                     break;
                 }
             }
