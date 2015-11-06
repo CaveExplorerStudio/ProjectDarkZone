@@ -5,14 +5,19 @@ using System.Collections.Generic;
 public class GrapplingHookController : MonoBehaviour {
     private List<GraplingHook> grapplingHooks;
     public int numOfGrapplingHooks = 0;
-    private bool canClimb = false;
+    public bool canClimbGrapplingHook = false;
     private int climables = 0;
     private GameObject thePlayer;
+    private Climbing playerClimbing;
+    private RopeController playerRopeController;
 
     // Use this for initialization
     void Start () {
 	    grapplingHooks = new List<GraplingHook>();
         thePlayer = this.gameObject;
+        playerClimbing = this.GetComponent<Climbing>();
+        playerRopeController = this.GetComponent<RopeController>();
+
     }
 	
 	// Update is called once per frame
@@ -51,11 +56,11 @@ public class GrapplingHookController : MonoBehaviour {
         }
 
         if (climables > 0)
-            canClimb = true;
+            canClimbGrapplingHook = true;
         else
-            canClimb = false;
+            canClimbGrapplingHook = false;
 
-        thePlayer.GetComponent<Climbing>().isClimbing = canClimb;
+        playerClimbing.isClimbingGrapplingHook = canClimbGrapplingHook;
     }
    
 }
