@@ -35,6 +35,7 @@ public class MapGenerator : MonoBehaviour {
 	public List<Coord> floorTiles;
 	public List<Coord> rightWallTiles;
 	public List<Coord> leftWallTiles;
+	public List<Coord> filledWallTiles;
 	public List<Coord> openTiles; // 3x3 of empty tiles
 	public List<Coord> emptyTiles; // 1x1 of empty tiles
 	
@@ -137,14 +138,14 @@ public class MapGenerator : MonoBehaviour {
 
 		if (width > height) {
 			float yOffset = -width/4;
-			background.transform.position = new Vector2(0f,yOffset);
+			background.transform.position = new Vector3(0f,yOffset, 1.0f);
 		}
 		else if (height > width) {
 			float xOffset = height/4;
-			background.transform.position = new Vector2(0f, xOffset);
+			background.transform.position = new Vector3(0f, xOffset, 1.0f);
 		}
 		else {
-			background.transform.position = new Vector2(0.0f,0.0f);
+			background.transform.position = new Vector3(0.0f,0.0f, 1.0f);
 		}
 	}
 
@@ -795,6 +796,20 @@ public class MapGenerator : MonoBehaviour {
 		//		}
 		//		return new Coord(-1,-1);
 	}
+
+	public Coord GetClosestWallTile(Coord tile) {
+		
+		Coord closestTile = this.filledWallTiles[0];
+		float minDistance = Distance(closestTile, tile);
+		foreach (Coord filledWallTile in filledWallTiles) {
+			float distance = Distance (tile,filledWallTile);
+			if (distance < minDistance) {
+				minDistance = distance;
+				closestTile = filledWallTile;
+			}
+		}
+		return closestTile;
+	}
 	
 	public Vector2 GetPositionInSceneFloat(float x, float y) {
 		Vector2 relativePos = new Vector2(x * tileSize - (width/2)*tileSize + tileSize/2, y*tileSize- (width/2)*tileSize + tileSize/2);
@@ -871,6 +886,7 @@ public class MapGenerator : MonoBehaviour {
 		ceilingTiles = new List<Coord>();
 		rightWallTiles = new List<Coord>();
 		leftWallTiles = new List<Coord>();
+		filledWallTiles = new List<Coord>();
 		openTiles = new List<Coord>();
 		emptyTiles = new List<Coord>();
 		
@@ -901,7 +917,9 @@ public class MapGenerator : MonoBehaviour {
 				default:
 					break;
 				}
-				
+				if((configuration & 32) > 0) //all other tiles with the middle bit
+					filledWallTiles.Add (tile);
+
 				if (this.map[x,y] == 0) {
 					this.emptyTiles.Add(tile);
 				}
