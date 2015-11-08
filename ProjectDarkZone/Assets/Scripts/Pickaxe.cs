@@ -59,7 +59,7 @@ public class Pickaxe{
 
     public void checkCollision()
     {
-        if (!(Physics2D.OverlapCircle(new Vector2(leftSpike.transform.position.x, rightSpike.transform.position.y), .2f, ground_layers) == null))
+        if (!(Physics2D.OverlapCircle(new Vector2(rightSpike.transform.position.x, rightSpike.transform.position.y), .1f, ground_layers) == null) || !(Physics2D.OverlapCircle(new Vector2(leftSpike.transform.position.x, leftSpike.transform.position.y), .1f, ground_layers) == null))
         {
             currentRigidBody.isKinematic = true;
         }
