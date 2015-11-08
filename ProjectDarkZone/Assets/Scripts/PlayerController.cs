@@ -5,12 +5,14 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
     public bool facingRight = true;
+	[HideInInspector]
+	public bool grounded = false;
 
     public Component mapGenerator;
     public float moveSpeed = 6f;
     public float jumpForce = 750f;
     
-    private bool grounded, jump, crouch, upSlope, downSlope, onWall;
+	private bool jump, crouch, upSlope, downSlope, onWall, movementEnabled;
     private int direction;
     private new Rigidbody2D rigidbody;
     private PolygonCollider2D body;
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
         body = GetComponent<PolygonCollider2D>();
         feet = GetComponent<CircleCollider2D>();
         health = GetComponent<Health>();
+		movementEnabled = true;
         standing = body.points;
         crouched = new Vector2[standing.Length];
         grounded = false;
@@ -50,21 +53,39 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && grounded)
-            jump = true;
+		if(movementEnabled)
+		{
+	        if (Input.GetKey(KeyCode.Space) && grounded)
+	            jump = true;
 
-        if (Input.GetKey(KeyCode.LeftControl) && grounded)
-            crouch = true;
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
-            crouch = false;
+	        if (Input.GetKey(KeyCode.LeftControl) && grounded)
+	            crouch = true;
+	        else if (Input.GetKeyUp(KeyCode.LeftControl))
+	            crouch = false;
 
-        direction = 0;
-        if (Input.GetKey(KeyCode.RightArrow))
-            direction = 1;
-        else if (Input.GetKey(KeyCode.LeftArrow))
-            direction = -1;
+	        direction = 0;
+	        if (Input.GetKey(KeyCode.RightArrow))
+	            direction = 1;
+	        else if (Input.GetKey(KeyCode.LeftArrow))
+	            direction = -1;
+		}
+		else
+		{
+			jump = false;
+			crouch = false;
+			direction = 0;
+		}
     }
 
+	public void disableMovement()
+	{
+		movementEnabled = false;
+	}
+
+	public void enableMovement()
+	{
+		movementEnabled = true;
+	}
 
     void OnCollisionEnter2D(Collision2D collision)
     {
