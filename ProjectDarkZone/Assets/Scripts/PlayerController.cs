@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 4f;
     public float jumpForce = 400f;
     
-    private bool grounded, jump, crouch, upSlope, downSlope, onWall;
-    private int direction, gemCount;
+    private bool grounded, jump, crouch, upSlope, downSlope, onWall, holdingGem;
+    private int direction;
     private new Rigidbody2D rigidbody;
     private PolygonCollider2D body;
     private CircleCollider2D feet;
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.tag.Equals("Gem"))
         {
             Destroy(collision.collider.gameObject);
-            gemCount++;
+            holdingGem = true;
         }
     }
 
