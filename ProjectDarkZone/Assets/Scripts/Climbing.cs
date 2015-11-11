@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Climbing : MonoBehaviour {
-    public bool isClimbing;
+    public bool isClimbingRope;
+    public bool isClimbingGrapplingHook;
     [HideInInspector]
     public bool facingRight = true;
     [HideInInspector]
@@ -44,7 +45,7 @@ public class Climbing : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (isClimbing)
+        if (isClimbingGrapplingHook)
         {
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
@@ -55,6 +56,17 @@ public class Climbing : MonoBehaviour {
                     rigidbody.velocity = new Vector2(rigidbody.velocity.x, Mathf.Sign(rigidbody.velocity.y) * maxSpeed);
             }
             
+        }
+        else if (isClimbingRope)
+        {
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            {
+                if (rigidbody.velocity.y < 2f)
+                    rigidbody.AddForce(Vector2.up * 200f);
+
+                if (Mathf.Abs(rigidbody.velocity.y) > 2f)
+                    rigidbody.velocity = new Vector2(rigidbody.velocity.x, Mathf.Sign(rigidbody.velocity.y) * 2f);
+            }
         }
 
     }
