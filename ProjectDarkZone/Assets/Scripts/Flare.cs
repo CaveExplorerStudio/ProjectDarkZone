@@ -9,6 +9,9 @@ public class Flare : IItem {
     private GameObject currentFlare;
     private Rigidbody2D currentRigidBody;
     private LayerMask ground_layers;
+    private Light flareLight;
+    private int burnTime = 1000;
+    private bool burning = true;
 
     private static int numOfFlares = 0;
 
@@ -48,6 +51,42 @@ public class Flare : IItem {
         currentFlare = newFlare;
         currentRigidBody = flareBody;
 
+        flareLight = currentFlare.GetComponentInChildren<Light>();
+
         numOfFlares++;
+    }
+
+    public Light getLightComp()
+    {
+        if (flareLight != null)
+            return flareLight;
+        else
+            return null;
+    }
+
+    public bool isLit()
+    {
+        return burning;
+    }
+
+    public void Burn()
+    {
+        burnTime--;
+
+        if (burnTime <= 0)
+        {
+            burning = false;
+            if (flareLight.intensity > 0)
+            {
+                flareLight.intensity -= .1f;
+            }
+            else
+                MonoBehaviour.Destroy(flareLight);
+        }
+    }
+
+    public void SetLightIntensity(int i)
+    {
+        flareLight.intensity = i;
     }
 }
