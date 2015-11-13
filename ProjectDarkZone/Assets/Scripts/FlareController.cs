@@ -1,15 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class FlareController : MonoBehaviour {
+    //References
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    List<Flare> flares;
+
+
+    // Use this for initialization
+    void Start()
+    {
+        flares = new List<Flare>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Flare flare = new Flare();
+            flare.Use();
+            flares.Add(flare);
+        }
+
+    }
 }
