@@ -12,15 +12,15 @@ public class Torch : IItem
     public MapGenerator MapGenScript { get; set; }
 
 
-    public Torch (string name, Sprite image, bool isConsumable, GameObject prefab, GameObject torches, GameObject player, MapGenerator mapGenScript)
+    public Torch (string name, Sprite image, bool isConsumable, GameObject prefab)
     {
         Name = name;
         Image = image;
         IsConsumable = isConsumable;
         Prefab = prefab;
-        Torches = torches;
-        Player = player;
-        MapGenScript = mapGenScript;
+        Torches = GameObject.Find("Torches");
+        Player = GameObject.Find("Player");
+        MapGenScript = GameObject.Find("Map Generator").GetComponent<MapGenerator>();
     }
 
 
