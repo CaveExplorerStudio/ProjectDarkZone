@@ -7,9 +7,10 @@ public class MapGenerator : MonoBehaviour {
 	
 	int[,] map;
 	
-	private GameObject player;
+	GameObject player;
 	
-	public bool regenerateMapOnLaunch = true;
+	
+	public bool regenerateMapOnLaunch = true; //This regenerates the data about the cave so that it can be used while the game is playing
 	
 	// Base Map Parameters
 	public int width;
@@ -25,7 +26,7 @@ public class MapGenerator : MonoBehaviour {
 	
 	public float tileSize = 1.0f; //Conversion from Coord units to Unity Scene units.
 	
-
+	
 	// Graph (used for analyzing map)
 	public Graph graph;
 	
@@ -59,16 +60,16 @@ public class MapGenerator : MonoBehaviour {
 	//Important Positions in Map
 	public Coord playerSpawn;
 	
-	//Children of Map Generator - Use to organize other game objects
+	//Children of Map Generator
+	public GameObject background;
+	//Use to organize other game objects:
 	public GameObject scenery;
 	public GameObject entities;
 	public GameObject bats;
 	public GameObject gems;
 	public GameObject items;
 	public GameObject torches;
-
-
-	public GameObject background;
+	public GameObject rocks;
 	
 	void Start()
 	{	
@@ -79,7 +80,7 @@ public class MapGenerator : MonoBehaviour {
 		
 	}
 	
-	public void CreateNecessaryGameObject() {
+	public void CreateNecessaryGameObjects() {
 		
 		if (scenery == null) {
 			this.scenery = FindOrCreateGameObject("Scenery",this.gameObject);
@@ -96,10 +97,13 @@ public class MapGenerator : MonoBehaviour {
 		if (items == null) {
 			this.items = FindOrCreateGameObject("Items",this.gameObject);
 		}
+		if (rocks == null) {
+			this.rocks = FindOrCreateGameObject("Rocks",this.gameObject);
+		}
 		if (torches == null) {
 			this.torches = FindOrCreateGameObject("Torches",this.gameObject);
 		}
-
+		
 		FindOrCreatePlayer();
 	}
 	
@@ -111,7 +115,7 @@ public class MapGenerator : MonoBehaviour {
 		}
 		return gameObject;
 	}
-
+	
 	void FindOrCreatePlayer() {
 		GameObject _player = GameObject.Find ("Player");
 		if (_player == null) {
@@ -130,29 +134,29 @@ public class MapGenerator : MonoBehaviour {
 	}
 	
 	void ResizeBackground() {
-
+		
 		//TODO: Fix the offset when the width and height are different.
-
+		
 		Vector3 backgroundScale = new Vector3(this.width/10.0f,1.0f,this.height/10.0f);
 		background.transform.localScale = backgroundScale;
-
+		
 		if (width > height) {
 			float yOffset = -width/4;
-			background.transform.position = new Vector3(0f,yOffset, 1.0f);
+			background.transform.position = new Vector3(0f,yOffset,0.1f);
 		}
 		else if (height > width) {
 			float xOffset = height/4;
-			background.transform.position = new Vector3(0f, xOffset, 1.0f);
+			background.transform.position = new Vector3(0f, xOffset,0.1f);
 		}
 		else {
-			background.transform.position = new Vector3(0.0f,0.0f, 1.0f);
+			background.transform.position = new Vector3(0.0f,0.0f,0.1f);
 		}
 	}
-
+	
 	public void GenerateMap()
 	{
 		ResizeBackground();
-
+		
 		map = new int[width, height];
 		RandomFillMap();
 		
@@ -647,9 +651,15 @@ public class MapGenerator : MonoBehaviour {
 	//
 	//    }
 	
+	public void Clear() {
+		DestroyChildren(scenery);
+		DestroyChildren(bats);
+		DestroyChildren(items);
+		DestroyChildren(gems);
+	}
 	
 	public void DestroyChildren(GameObject parent) {
-		//Destroys the children of the given game object
+		//Destroys the children game objects of the given game object
 		
 		while (parent.transform.childCount > 0) {
 			GameObject child = parent.transform.GetChild(0).gameObject;
@@ -660,20 +670,6 @@ public class MapGenerator : MonoBehaviour {
 				DestroyImmediate(child);
 			}
 		}
-	}
-	
-	public void DestroyScenery() {
-		DestroyChildren(scenery);
-	}
-	public void DestroyEntities() {
-		DestroyChildren(bats);
-		//DestroyChildren(entities);
-	}
-	public void DestroyItems() {
-		DestroyChildren(items);
-	}
-	public void DestroyGems() {
-		DestroyChildren(gems);
 	}
 	
 	public void SpawnPlayer() {
@@ -699,7 +695,7 @@ public class MapGenerator : MonoBehaviour {
 	
 	public void AddScenery() {
 		
-		DestroyScenery(); //Clear previous scenery
+		DestroyChildren(this.scenery); //Clear previous scenery
 		GetTileTypes();
 		
 		List<Coord> allFlatTiles = new List<Coord>();
@@ -784,17 +780,6 @@ public class MapGenerator : MonoBehaviour {
 		}
 		
 		return closestTile;
-		
-		//		for (int x = -1; x <= 1; x++) {
-		//			for (int y = -1; y <= 1; y++) {
-		//				int newX = tile.tileX + x;
-		//				int newY = tile.tileY + y;
-		//				if (IsInMapRange(newX,newY) && this.map[newX,newY] == 0) {
-		//					return new Coord(newX,newY);
-		//				}
-		//			}
-		//		}
-		//		return new Coord(-1,-1);
 	}
 
 	public Coord GetClosestWallTile(Coord tile) {
@@ -826,7 +811,7 @@ public class MapGenerator : MonoBehaviour {
 		
 		tileMarker.transform.position = new Vector3(tileMarker.transform.position.x,tileMarker.transform.position.y,-1.0f);
 	}
-
+	
 	public void DrawSquareAt(Coord tile, float radius, Color color) {
 		List<float[]> squareVertices = new List<float[]>();
 		
@@ -917,6 +902,7 @@ public class MapGenerator : MonoBehaviour {
 				default:
 					break;
 				}
+
 				if((configuration & 32) > 0) //all other tiles with the middle bit
 					filledWallTiles.Add (tile);
 
@@ -987,7 +973,7 @@ public class MapGenerator : MonoBehaviour {
 		return closestTile;
 	}
 	
-	float Distance(Coord tile1, Coord tile2) {
+	public float Distance(Coord tile1, Coord tile2) {
 		//Return distance between tiles
 		float dx = Mathf.Abs(tile1.tileX-tile2.tileX);
 		float dy = Mathf.Abs(tile1.tileY-tile2.tileY);
@@ -1011,6 +997,33 @@ public class MapGenerator : MonoBehaviour {
 		meshGen.tileAmount = _tileAmount;
 	}
 	
+	public List<Coord> GetOpenTileCluster(Coord origin, int tileAmount) {
+		
+		List<Coord> cluster = new List<Coord>();
+		List<Coord> uncheckedTiles = new List<Coord>();
+		uncheckedTiles.Add(origin);
+		
+		while (cluster.Count < tileAmount && uncheckedTiles.Count > 0) {
+			Coord currentTile = uncheckedTiles[UnityEngine.Random.Range(0,uncheckedTiles.Count-1)];
+			
+			int[] xValues = {-1,1,0,0};
+			int[] yValues = {0,0,-1,1};
+			
+			for (int i = 0;i<4;i++) {
+				int x = xValues[i] + currentTile.tileX;
+				int y = yValues[i] + currentTile.tileY;
+				Coord adjacentTile = new Coord(x,y);
+				if (IsInMapRange(x,y) && openTiles.Contains(adjacentTile) && cluster.Contains(adjacentTile) == false) {
+					uncheckedTiles.Add (adjacentTile);
+				}
+			}
+			
+			cluster.Add (currentTile);
+			uncheckedTiles.Remove(currentTile);
+		}
+		
+		return cluster;
+	}
 	
 	//Graph Stuff (not finished)
 	
@@ -1047,24 +1060,24 @@ public class MapGenerator : MonoBehaviour {
 		graph.DisplayTree();
 	}
 	
-//	public void ShowFurthestEndpointFromPlayer() {
-//		GenerateGraph();
-//		
-//		graph.MakeTreeFromGraph(playerSpawn);
-//		
-//		List<Coord> filteredEndPoints = graph.GetFileteredEndpointsFromArray(100,this.floorTiles);
-//		Coord furthestEndPoint = filteredEndPoints[0];
-//		int maxDistance = graph.tree.Distance(playerSpawn,furthestEndPoint);
-//		foreach (Coord endpoint in filteredEndPoints) {
-//			int distance = graph.tree.Distance(playerSpawn,endpoint);
-//			if (distance > maxDistance) {
-//				maxDistance = distance;
-//				furthestEndPoint = endpoint;
-//			}
-//		}
-//		Debug.Log ("Max Distance From Player: " + maxDistance.ToString());
-//		DrawSquareAt(furthestEndPoint, 0.8f,Color.green);
-//	}
+	//	public void ShowFurthestEndpointFromPlayer() {
+	//		GenerateGraph();
+	//		
+	//		graph.MakeTreeFromGraph(playerSpawn);
+	//		
+	//		List<Coord> filteredEndPoints = graph.GetFileteredEndpointsFromArray(100,this.floorTiles);
+	//		Coord furthestEndPoint = filteredEndPoints[0];
+	//		int maxDistance = graph.tree.Distance(playerSpawn,furthestEndPoint);
+	//		foreach (Coord endpoint in filteredEndPoints) {
+	//			int distance = graph.tree.Distance(playerSpawn,endpoint);
+	//			if (distance > maxDistance) {
+	//				maxDistance = distance;
+	//				furthestEndPoint = endpoint;
+	//			}
+	//		}
+	//		Debug.Log ("Max Distance From Player: " + maxDistance.ToString());
+	//		DrawSquareAt(furthestEndPoint, 0.8f,Color.green);
+	//	}
 	
 	public void ShowAllEndpoints() {
 		GenerateGraph();
@@ -1076,28 +1089,28 @@ public class MapGenerator : MonoBehaviour {
 		Debug.Log ("Endpoints: " + endpoints.Count.ToString());
 	}
 	
-//	public void ShowFilteredEndpoints() {
-//		GenerateGraph();
-//		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(20,this.floorTiles);
-//		foreach(Coord endpoint in endpoints) {
-//			DrawSquareAt(endpoint, 0.8f,Color.white);
-//		}
-//		Debug.Log ("Endpoints: " + endpoints.Count.ToString());
-//	}
+	//	public void ShowFilteredEndpoints() {
+	//		GenerateGraph();
+	//		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(20,this.floorTiles);
+	//		foreach(Coord endpoint in endpoints) {
+	//			DrawSquareAt(endpoint, 0.8f,Color.white);
+	//		}
+	//		Debug.Log ("Endpoints: " + endpoints.Count.ToString());
+	//	}
 	
 	
-//	public void PlaceItemsAtEndpoints() {
-//		GenerateGraph();
-//		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(20,this.floorTiles);
-//		foreach(Coord endpoint in endpoints) {
-//			AddObjectAt(endpoint,ceilingScenery,scenery);
-//		}
-//	}
-
+	//	public void PlaceItemsAtEndpoints() {
+	//		GenerateGraph();
+	//		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(20,this.floorTiles);
+	//		foreach(Coord endpoint in endpoints) {
+	//			AddObjectAt(endpoint,ceilingScenery,scenery);
+	//		}
+	//	}
+	
 	public void PlaceItemsAndGems() {
 		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray();
 		Coord[] sortedPoints = SortEndpointsByDistance(endpoints);
-
+		
 		List<Coord> gemPositions = GetSpacedOutEndpoints(this.gemPrefabs.Length,sortedPoints);
 		for (int i = 0; i<this.gemPrefabs.Length;i++) {
 			if (i < gemPositions.Count) {
@@ -1105,7 +1118,7 @@ public class MapGenerator : MonoBehaviour {
 			}
 		}
 	}
-
+	
 	List<Coord> GetSpacedOutEndpoints(int amount, Coord[] sortedEndpoints) {
 		int interval = Mathf.RoundToInt(sortedEndpoints.Length / (amount-1));
 		List<Coord> newEndpoints = new List<Coord>();
@@ -1114,41 +1127,33 @@ public class MapGenerator : MonoBehaviour {
 			if (newIndex > 0) {
 				newIndex --;
 			}
-//			Debug.Log ("New Index: " + newIndex.ToString());
+			//			Debug.Log ("New Index: " + newIndex.ToString());
 			newEndpoints.Add (sortedEndpoints[newIndex]);
 		}
 		return newEndpoints;
 	}
-
-//	public void PlaceGems() {
-//		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(gemPrefabs.Length,this.floorTiles);
-//		Coord[] sortedPoints = SortEndpointsByDistance(endpoints);
-//		for (int i = 0; i<this.gemPrefabs.Length;i++) {
-//			if (i < sortedPoints.Length) {
-//				AddObjectAt(sortedPoints[i],this.gemPrefabs[i],this.gems);
-//			}
-//		}
-//	}
+	
+	//	public void PlaceGems() {
+	//		List<Coord> endpoints = graph.GetFileteredEndpointsFromArray(gemPrefabs.Length,this.floorTiles);
+	//		Coord[] sortedPoints = SortEndpointsByDistance(endpoints);
+	//		for (int i = 0; i<this.gemPrefabs.Length;i++) {
+	//			if (i < sortedPoints.Length) {
+	//				AddObjectAt(sortedPoints[i],this.gemPrefabs[i],this.gems);
+	//			}
+	//		}
+	//	}
 	
 	public Coord[] SortEndpointsByDistance(List<Coord> endpoints) {
-//		SetPlayerSpawn();
-//		graph.MakeTreeFromGraph(this.playerSpawn);
 		Coord[] sortedEndPoints = new Coord[endpoints.Count];
 		for (int i = 0;i<endpoints.Count;i++) {
 			sortedEndPoints[i] = endpoints[i];
 		}
-		Array.Sort(sortedEndPoints,SortFunction);
+		float[] distances = new float[sortedEndPoints.Length];
+		for (int i = 0; i < sortedEndPoints.Length; i++) {
+			distances[i] = graph.tree.Distance(this.playerSpawn,sortedEndPoints[i]);
+		}
+		Array.Sort(distances,sortedEndPoints);
 		return sortedEndPoints;
-	}
-	
-	public int SortFunction(Coord node1, Coord node2) {
-		//		int distance1 = graph.tree.Distance(node1,this.playerSpawn);
-		//		int distance2 = graph.tree.Distance(node2,this.playerSpawn);
-		int distance1 = graph.tree.Distance(this.playerSpawn,node1);
-		int distance2 = graph.tree.Distance(this.playerSpawn,node2);
-		if (distance1 > distance2) return -1;
-		if (distance1 < distance2) return 1;
-		return 0;
 	}
 	
 }
@@ -1166,7 +1171,7 @@ public struct Coord
 	}
 	
 	public string ToString() {
-		string str = "(X: " + tileX.ToString() + ", Y: " + tileY.ToString();
+		string str = "(X: " + tileX.ToString() + ", Y: " + tileY.ToString() + ")";
 		return str;
 	}
 }

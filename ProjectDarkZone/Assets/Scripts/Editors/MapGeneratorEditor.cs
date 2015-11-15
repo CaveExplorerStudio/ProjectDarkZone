@@ -63,22 +63,16 @@ public class MapGeneratorEditor : EditorWindow {
 		if (GUILayout.Button ("Clear", GUILayout.Height(buttonHeight))) {
 			MeshGenerator meshGenScript = GameObject.Find ("Map Generator").GetComponent<MeshGenerator>();
 			MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
-			mapGenScript.CreateNecessaryGameObject();
+			mapGenScript.CreateNecessaryGameObjects();
 			meshGenScript.DestroyMeshAndCollider();
-			mapGenScript.DestroyScenery();
-			mapGenScript.DestroyEntities();
-			mapGenScript.DestroyGems();
-			mapGenScript.DestroyItems();
+			mapGenScript.Clear();
 		}
 		
 		if (GUILayout.Button ( "New", GUILayout.Height(buttonHeight))) {
 			MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
-			mapGenScript.CreateNecessaryGameObject();
+			mapGenScript.CreateNecessaryGameObjects();
 			mapGenScript.setNewParameters(randomFillPercent, useRandomSeed, width, height, seed, tileAmount, wallThresholdSize, roomThresholdSize, batSpawnRate, regenerateMapOnLaunch);
-			mapGenScript.DestroyScenery();
-			mapGenScript.DestroyEntities();
-			mapGenScript.DestroyGems();
-			mapGenScript.DestroyItems();
+			mapGenScript.Clear();
 			mapGenScript.GenerateMap();
 			mapGenScript.GetTileTypes();
 			if (this.spawnBats) {
@@ -155,14 +149,13 @@ public class MapGeneratorEditor : EditorWindow {
 				MeshGenerator meshGenScript = GameObject.Find ("Map Generator").GetComponent<MeshGenerator>();
 				MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
 				meshGenScript.DestroyMeshAndCollider();
-				mapGenScript.DestroyScenery();
-				mapGenScript.DestroyEntities();
+				mapGenScript.Clear ();
 			}
 			
 			if (GUILayout.Button ( "Blank Map", GUILayout.Height(buttonHeightSmall))) {
 				MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
 				mapGenScript.setNewParameters(randomFillPercent, useRandomSeed, width, height, seed, tileAmount, wallThresholdSize, roomThresholdSize, batSpawnRate, regenerateMapOnLaunch);
-				mapGenScript.DestroyScenery();
+				mapGenScript.Clear();
 				mapGenScript.GenerateMap();
 			}
 			
