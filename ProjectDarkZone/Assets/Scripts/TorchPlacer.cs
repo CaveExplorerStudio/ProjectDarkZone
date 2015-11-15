@@ -57,7 +57,8 @@ public class TorchPlacer : MonoBehaviour
 		if(mapGenScript.IsInWall((Vector2)torchPosition) == false) //torch is not in wall
 		{
 			GameObject newTorch = Instantiate(this.torch, torchPosition, Quaternion.identity) as GameObject;
-			Destroy(newTorch.GetComponent<PolygonCollider2D>());
+			//			Destroy(newTorch.GetComponent<PolygonCollider2D>());
+			newTorch.GetComponent<PolygonCollider2D>().enabled = false;
 			
 			if(GetComponent<PlayerController>().facingRight == false) {
 				Vector3 newScale = new Vector3(newTorch.transform.localScale.x * -1, newTorch.transform.localScale.y, newTorch.transform.localScale.z);
@@ -94,7 +95,8 @@ public class TorchPlacer : MonoBehaviour
 		Vector3 torchPosition = new Vector3(transform.position.x + Xoffset, transform.position.y + YOffset, -1.0f);
 		
 		GameObject newTorch = Instantiate(this.torch, torchPosition, Quaternion.identity) as GameObject;
-		Destroy(newTorch.GetComponent<PolygonCollider2D>());
+		//			Destroy(newTorch.GetComponent<PolygonCollider2D>());
+		newTorch.GetComponent<PolygonCollider2D>().enabled = false;
 		newTorch.name = "Player Torch";
 		
 		if(GetComponent<PlayerController>().facingRight == false) {
@@ -108,10 +110,10 @@ public class TorchPlacer : MonoBehaviour
 		torchController.shouldFollowPlayer = true;
 	}
 	
-	public void DimAllTorches(float dimPercentage, float duration) {
+	public void DimAllTorches(float dimPercentage, float duration, float delay) {
 		foreach(Transform torch in this.torches.transform) {
 			TorchController torchController = torch.gameObject.GetComponent<TorchController>();
-			torchController.Dim (dimPercentage, duration);
+			torchController.BeginDim (dimPercentage, duration, delay);
 		}
 	}
 	
