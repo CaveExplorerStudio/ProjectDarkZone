@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gem
   - Torch
+  - Exit
   layers:
   - Default
   - TransparentFX

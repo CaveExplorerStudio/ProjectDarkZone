@@ -47,6 +47,7 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject leftWallScenery;
 	
 	//Other Prefabs
+	public GameObject exitPrefab;
 	public GameObject[] gemPrefabs;
 	public GameObject[] itemPrefabs;
 	public GameObject playerPrefab;
@@ -131,6 +132,10 @@ public class MapGenerator : MonoBehaviour {
 		Coord spawnPoint = GetTileClosestToTile(new Coord(0,height-1), floorTiles);
 		spawnPoint.tileY ++;
 		this.playerSpawn = spawnPoint;
+		this.AddObjectAt(this.playerSpawn,this.exitPrefab,this.gameObject);
+		GameObject exit = GameObject.Find ("Exit(Clone)");
+		exit.name = "Exit";
+		exit.transform.position = new Vector3(exit.transform.position.x,exit.transform.position.y,0.0f);
 	}
 	
 	void ResizeBackground() {
@@ -656,6 +661,11 @@ public class MapGenerator : MonoBehaviour {
 		DestroyChildren(bats);
 		DestroyChildren(items);
 		DestroyChildren(gems);
+
+		GameObject exit = GameObject.Find ("Exit");
+		if (exit != null) {
+			DestroyImmediate(exit);
+		}
 	}
 	
 	public void DestroyChildren(GameObject parent) {
