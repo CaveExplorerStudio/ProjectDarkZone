@@ -7,6 +7,8 @@ public class MeshGenerator : MonoBehaviour {
     public SquareGrid squareGrid;
     public MeshFilter walls;
     public MeshFilter cave;
+
+	[HideInInspector]
 	public int tileAmount = 1;
 
     public bool is2D;
