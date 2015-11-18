@@ -7,6 +7,8 @@ TagManager:
   - Gem
   - Torch
   - Exit
+  - Cave
+  - Overworld
   layers:
   - Default
   - TransparentFX

@@ -5,13 +5,13 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
     public bool facingRight = true, grounded = false;
-
-    public Component mapGenerator;
-    public float moveSpeed = 6f;
-    public float jumpForce = 750f;
     
-	private bool jump, crouch, upSlope, downSlope, onWall, movementEnabled;
-    private string heldGem = null;
+    public float moveSpeed = 6f;
+    public float jumpForce = 400f;
+
+    private static string heldGem = null;
+
+    private bool jump, crouch, upSlope, downSlope, onWall, movementEnabled;
     private int direction;
     private new Rigidbody2D rigidbody;
     private PolygonCollider2D body;
@@ -102,6 +102,10 @@ public class PlayerController : MonoBehaviour
             {
                 health.AddHealth((int)((16 - velocity) * 0.5));
             }
+            if (collision.collider.tag.Equals("Overworld"))
+                Sanity.SetDepleteSanity(false);
+            else if (collision.collider.tag.Equals("Cave"))
+                Sanity.SetDepleteSanity(true);
         }
 
         if (collision.collider.tag.Equals("Gem") && heldGem == null)
