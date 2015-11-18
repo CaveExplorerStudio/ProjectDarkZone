@@ -11,11 +11,13 @@ public class FrontSlopeDetector : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        pc.SetUpSlope(true);
+        if (collider.tag.Equals("Cave"))
+            pc.SetUpSlope(true);
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        pc.SetUpSlope(false);
+        if (collider.tag.Equals("Cave"))
+            pc.SetUpSlope(false);
     }
 }

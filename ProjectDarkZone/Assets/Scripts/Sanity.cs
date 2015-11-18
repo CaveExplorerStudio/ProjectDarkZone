@@ -4,14 +4,15 @@ using System.Collections;
 
 public class Sanity : MonoBehaviour
 {
-
     public Component sanityBar;
     public int sanityLifetime;
-    public Color targetColor;
+    public Color normalColor, dangerColor;
+
+    private static bool deplete = false;
+    private static float value = 100f;
 
     private Slider sanity;
-    private Color origColor;
-    private float value, degenPerSec, fadeTime;
+    private float degenPerSec, fadeTime;
     private bool faded;
     private Image foreground, background;
     private Health health;
@@ -20,25 +21,39 @@ public class Sanity : MonoBehaviour
     {
         sanity = sanityBar.GetComponent<Slider>();
         background = sanityBar.GetComponentsInChildren<Image>()[0];
-        origColor = background.color;
         foreground = sanityBar.GetComponentsInChildren<Image>()[1];
         degenPerSec = sanity.maxValue / sanityLifetime;
         health = GetComponent<Health>();
         fadeTime = health.sanityTickTime;
         faded = false;
+        sanity.value = value;
     }
 
     void Update()
     {
         value = sanity.value;
 
-        if (sanity.value > sanity.minValue)
-            sanity.value -= Time.deltaTime * degenPerSec;
-        else if (sanity.value <= sanity.minValue && !faded)
+        if (deplete)
         {
-            foreground.enabled = false;
-            background.CrossFadeColor(targetColor, fadeTime, true, false);
-            faded = true;
+            if (sanity.value > sanity.minValue)
+                sanity.value -= Time.deltaTime * degenPerSec;
+            else if (sanity.value <= sanity.minValue && !faded)
+            {
+                foreground.enabled = false;
+                background.CrossFadeColor(dangerColor, fadeTime, true, false);
+                faded = true;
+            }
+        }
+        else
+        {
+            if (sanity.value == 0 && faded)
+            {
+                foreground.enabled = false;
+                background.CrossFadeColor(normalColor, fadeTime, true, false);
+                faded = false;
+            }
+            if (sanity.value < sanity.maxValue)
+                sanity.value += Time.deltaTime * degenPerSec;
         }
     }
 
@@ -47,17 +62,12 @@ public class Sanity : MonoBehaviour
         return sanity.value <= sanity.minValue;
     }
 
-    public void SliderPulseOn()
+    public static void SetDepleteSanity(bool deplete)
     {
-        background.CrossFadeColor(origColor, fadeTime / 2, true, false);
+        Sanity.deplete = deplete;
     }
 
-    public void SliderPulseOff()
-    {
-        background.CrossFadeColor(targetColor, fadeTime / 2, true, false);
-    }
-
-    public void restoreSanity(float percent)
+    public void restoreSanityBy(float percent)
     {
         if (IsEmpty())
         {

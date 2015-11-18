@@ -11,11 +11,13 @@ public class BackSlopeDetector : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider)
     {
-        pc.SetDownSlope(true);
+        if (collider.tag.Equals("Cave"))
+            pc.SetDownSlope(true);
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        pc.SetDownSlope(false);
+        if (collider.tag.Equals("Cave"))
+            pc.SetDownSlope(false);
     }
 }
