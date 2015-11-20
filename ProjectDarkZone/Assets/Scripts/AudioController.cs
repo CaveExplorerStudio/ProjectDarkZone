@@ -14,6 +14,9 @@ public class AudioController : MonoBehaviour {
 
 	void Start() {
 		this.audioSource = this.GetComponent<AudioSource>();
+		this.audioSource.clip = ambient1;
+		this.audioSource.Play();
+		this.audioSource.loop = true;
 	}
 
 	public void PlayShakeSound() {
