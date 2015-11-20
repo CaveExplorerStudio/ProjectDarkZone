@@ -7,7 +7,8 @@ public class EventController : MonoBehaviour {
 	
 	int gemsCollected = 0;
 	int sanity = 100; //Replace once a dynamic value is created somewhere in the project.
-	
+
+	bool enableNumberTesting = false;
 	
 	//Prefabs
 	public GameObject rock1;
@@ -43,6 +44,15 @@ public class EventController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (enableNumberTesting) {
+			CheckTests();
+		}
+
+
+	}
+
+	void CheckTests() {
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
 			Debug.Log("Event: Shaking Camera");
 			ShakeCamera(0.5f,5.0f);
@@ -89,7 +99,6 @@ public class EventController : MonoBehaviour {
 			FlickerPlacedTorches(5.0f);
 		}
 	}
-	
 	
 	//Events
 	
