@@ -43,10 +43,10 @@ public class MapGenerator : MonoBehaviour {
 	public Coord[] itemSpawnTiles;
 	
 	//Scenery - Prefabs to place at the different tile types
-	public GameObject ceilingScenery;
-	public GameObject floorScenery;
-	public GameObject rightWallScenery;
-	public GameObject leftWallScenery;
+	public GameObject[] ceilingScenery;
+	public GameObject[] floorScenery;
+	public GameObject[] rightWallScenery;
+	public GameObject[] leftWallScenery;
 	
 	//Other Prefabs
 	public GameObject exitPrefab;
@@ -67,6 +67,8 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject background;
 	//Used to organize other game objects:
 	public GameObject scenery;
+	public GameObject stalactites;
+	public GameObject stalagmites;
 	public GameObject entities;
 	public GameObject bats;
 	public GameObject gems;
@@ -90,6 +92,12 @@ public class MapGenerator : MonoBehaviour {
 		//Checks if the necessary objects exist. If it doesn't, it will create it.
 		if (scenery == null) {
 			this.scenery = FindOrCreateGameObject("Scenery",this.gameObject);
+		}
+		if (stalactites == null) {
+			this.stalactites = FindOrCreateGameObject("Stalactites",this.scenery);
+		}
+		if (stalagmites == null) {
+			this.stalagmites = FindOrCreateGameObject("Stalagmites",this.scenery);
 		}
 		if (entities == null) {
 			this.entities = FindOrCreateGameObject("Entities",this.gameObject);
@@ -127,7 +135,7 @@ public class MapGenerator : MonoBehaviour {
 		}
 		return gameObject;
 	}
-	
+
 	void FindOrCreatePlayer() {
 		GameObject _player = GameObject.Find ("Player");
 		if (_player == null) {
@@ -665,7 +673,8 @@ public class MapGenerator : MonoBehaviour {
 	
 	public void Clear() {
 		//Removes all the previously generated game objects
-		DestroyChildren(scenery);
+		DestroyChildren(stalactites);
+		DestroyChildren(stalagmites);
 		DestroyChildren(bats);
 		DestroyChildren(items);
 		DestroyChildren(gems);
@@ -714,39 +723,58 @@ public class MapGenerator : MonoBehaviour {
 	
 	public void AddScenery() {
 		//Adds sprites to different tile types in the scene (ex: stalagtites on ceilings)
-		
-		DestroyChildren(this.scenery); //Clear previous scenery
 		GetTileTypes();
 		
-		List<Coord> allFlatTiles = new List<Coord>();
-		allFlatTiles.AddRange(floorTiles);
-		allFlatTiles.AddRange(ceilingTiles);
-		allFlatTiles.AddRange(rightWallTiles);
-		allFlatTiles.AddRange(leftWallTiles);
+//		List<Coord> allFlatTiles = new List<Coord>();
+//		allFlatTiles.AddRange(floorTiles);
+//		allFlatTiles.AddRange(ceilingTiles);
+//		allFlatTiles.AddRange(rightWallTiles);
+//		allFlatTiles.AddRange(leftWallTiles);
 		
 		int markerCount = 0;
-		
+
+		int floorSpawnRate = 20;
+		int ceilingSpawnRate = 50;
+		int leftWallSpawnRate = 10;
+		int rightWallSpawnRate = 10;
+
+		float SceneryZPosition = 0.01f;
+
 		foreach (Coord tile in floorTiles) {
-			markerCount ++;
-			AddObjectAt(tile,floorScenery,scenery);
+			if (UnityEngine.Random.Range(0,100)<= floorSpawnRate && this.floorScenery.Length > 0) {
+				markerCount ++;
+				GameObject randScenery = this.floorScenery[UnityEngine.Random.Range (0,this.floorScenery.Length-1)];
+				Coord shiftedTile = new Coord(tile.tileX,tile.tileY+1);
+				AddObjectAt(shiftedTile,randScenery,stalagmites,SceneryZPosition);
+			}
 		}
 		
 		foreach (Coord tile in ceilingTiles) {
-			markerCount ++;
-			AddObjectAt(tile,ceilingScenery,scenery);
+			if (UnityEngine.Random.Range(0,100)<= ceilingSpawnRate && this.ceilingScenery.Length > 0) {
+				markerCount ++;
+				GameObject randScenery = this.ceilingScenery[UnityEngine.Random.Range (0,this.ceilingScenery.Length-1)];
+				Coord shiftedTile = new Coord(tile.tileX,tile.tileY-1);
+				AddObjectAt(shiftedTile,randScenery,stalactites,SceneryZPosition);
+			}
 		}
 		
 		foreach (Coord tile in rightWallTiles) {
-			markerCount ++;
-			AddObjectAt(tile,rightWallScenery,scenery);
+			if (UnityEngine.Random.Range(0,100)<= rightWallSpawnRate && this.rightWallScenery.Length > 0) {
+				markerCount ++;
+				GameObject randScenery = this.rightWallScenery[UnityEngine.Random.Range (0,this.rightWallScenery.Length-1)];
+				AddObjectAt(tile,randScenery,scenery,SceneryZPosition);
+			}
 		}
 		
 		foreach (Coord tile in leftWallTiles) {
-			markerCount ++;
-			AddObjectAt(tile,leftWallScenery,scenery);
+			if (UnityEngine.Random.Range(0,100)<= leftWallSpawnRate && this.leftWallScenery.Length > 0) {
+				markerCount ++;
+				GameObject randScenery = this.leftWallScenery[UnityEngine.Random.Range (0,this.leftWallScenery.Length-1)];
+				AddObjectAt(tile,randScenery,scenery,SceneryZPosition);
+			}
 		}
 		
-		Debug.Log ("Markers Added: " + markerCount);
+		Debug.Log ("Scenery Added: " + markerCount);
 		
 	}
 	
@@ -834,6 +862,19 @@ public class MapGenerator : MonoBehaviour {
 		tileMarker.transform.parent = parent.transform; //Set as child parent object
 		
 		tileMarker.transform.position = new Vector3(tileMarker.transform.position.x,tileMarker.transform.position.y,-1.0f);
+	}
+
+	public void AddObjectAt(Coord tile, GameObject obj, GameObject parent, float zPosition) {
+		//An easy method for adding game objects to the scene.
+		//Takes a tile coordinate, the object prefab, and the objects desired parent
+		Vector2 relativePosition = GetTilePositionInScene(tile);
+		float x = relativePosition.x;
+		float y = relativePosition.y;
+		GameObject tileMarker = Instantiate(obj, new Vector3(x,y,0.0f), Quaternion.identity) as GameObject;
+		
+		tileMarker.transform.parent = parent.transform; //Set as child parent object
+		
+		tileMarker.transform.position = new Vector3(tileMarker.transform.position.x,tileMarker.transform.position.y,zPosition);
 	}
 	
 	public void DrawSquareAt(Coord tile, float radius, Color color) {

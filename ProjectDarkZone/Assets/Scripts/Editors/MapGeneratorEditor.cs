@@ -78,12 +78,13 @@ public class MapGeneratorEditor : EditorWindow {
 			if (this.spawnBats) {
 				mapGenScript.AddBats();
 			}
+			mapGenScript.SetPlayerSpawn();
+			mapGenScript.AddExit();
 			if (this.placeGems) {
 				mapGenScript.GenerateGraph();
 				//				mapGenScript.GetTileTypes();
-				mapGenScript.SetPlayerSpawn();
+
 				mapGenScript.SpawnPlayer();
-				mapGenScript.AddExit();
 				mapGenScript.MakeTreeGraph();
 				mapGenScript.SetItemSpawnPoints();
 				mapGenScript.GrabItemSpawnPoints();
@@ -92,6 +93,7 @@ public class MapGeneratorEditor : EditorWindow {
 			else {
 				mapGenScript.SpawnPlayer();
 			}
+			mapGenScript.AddScenery();
 			//			mapGenScript.SpawnPlayer();
 		}
 		

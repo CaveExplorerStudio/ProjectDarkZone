@@ -119,18 +119,35 @@ public class CameraController : MonoBehaviour {
 	
 	void SetPanDirection() {
 		
-		if ((player.position.x + viewOffset-this.transform.position.x) > panInterval && playerController.facingRight) {
+		if ((player.position.x + viewOffset-this.transform.position.x) > 0 && playerController.facingRight) {
 			shouldPanRight = true;
 			shouldPanLeft = false;
+			float temp = (player.position.x + viewOffset-this.transform.position.x);
+			this.panInterval = Mathf.Min(1.0f,temp/this.panInterval)*panInterval;
 		}
-		else if ((player.position.x - viewOffset - this.transform.position.x) < panInterval && !playerController.facingRight) {
+		else if ((player.position.x - viewOffset - this.transform.position.x) < 0 && !playerController.facingRight) {
 			shouldPanLeft = true;
 			shouldPanRight = false;
+			float temp = (player.position.x - viewOffset - this.transform.position.x);
+			this.panInterval = Mathf.Min(1.0f,-temp/this.panInterval)*panInterval;
 		}
 		else {
 			shouldPanRight = false;
 			shouldPanLeft = false;
 		}
+
+//		if ((player.position.x + viewOffset-this.transform.position.x) > 0.01f && playerController.facingRight) {
+//			shouldPanRight = true;
+//			shouldPanLeft = false;
+//		}
+//		else if ((player.position.x - viewOffset - this.transform.position.x) < -0.01f && !playerController.facingRight) {
+//			shouldPanLeft = true;
+//			shouldPanRight = false;
+//		}
+//		else {
+//			shouldPanRight = false;
+//			shouldPanLeft = false;
+//		}
 	}
 	
 	void Pan() {
@@ -144,6 +161,7 @@ public class CameraController : MonoBehaviour {
 			pos.x -= this.panInterval;
 			this.transform.position = pos;
 		}
+
 	}
 	
 	void SetPanInterval() {
@@ -157,8 +175,8 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	void MoveCamera() {
-		SetPanDirection();
 		SetPanInterval();
+		SetPanDirection();
 		Pan ();
 		
 		float newX = this.transform.position.x;
