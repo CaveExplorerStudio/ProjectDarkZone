@@ -82,10 +82,17 @@ public class MapGeneratorEditor : EditorWindow {
 				mapGenScript.GenerateGraph();
 				//				mapGenScript.GetTileTypes();
 				mapGenScript.SetPlayerSpawn();
+				mapGenScript.SpawnPlayer();
+				mapGenScript.AddExit();
 				mapGenScript.MakeTreeGraph();
+				mapGenScript.SetItemSpawnPoints();
+				mapGenScript.GrabItemSpawnPoints();
 				mapGenScript.PlaceItemsAndGems();
 			}
-			mapGenScript.SpawnPlayer();
+			else {
+				mapGenScript.SpawnPlayer();
+			}
+			//			mapGenScript.SpawnPlayer();
 		}
 		
 		
@@ -245,10 +252,10 @@ public class MapGeneratorEditor : EditorWindow {
 				
 			}
 			
-//			if (GUILayout.Button ("Find Furthest Endpoint", GUILayout.Height(buttonHeightSmall))) {
-//				MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
-//				mapGenScript.ShowFurthestEndpointFromPlayer();
-//			}
+			//			if (GUILayout.Button ("Find Furthest Endpoint", GUILayout.Height(buttonHeightSmall))) {
+			//				MapGenerator mapGenScript = GameObject.Find ("Map Generator").GetComponent<MapGenerator>();
+			//				mapGenScript.ShowFurthestEndpointFromPlayer();
+			//			}
 			
 			
 		}
