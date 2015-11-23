@@ -11,13 +11,13 @@ public class PageController : MonoBehaviour {
     System.IO.StreamReader file;
     public GameObject pageGUI;
     private bool timeToSet = true;
-    private GameObject prefab;
+    public GameObject prefab;
 
 
 	// Use this for initialization
 	void Start () {
         pages = new List<journalPage>();
-        file = new System.IO.StreamReader("I:\\Github\\ProjectDarkZone\\ProjectDarkZone\\Assets\\Resources\\entries.txt");
+        file = new System.IO.StreamReader("C:\\Users\\Chris\\Documents\\GitHub\\New Darkzone\\ProjectDarkZone\\ProjectDarkZone\\Assets\\Resources\\entries.txt");
 
         prefab = Resources.Load("PageUI", typeof(GameObject)) as GameObject;
 
