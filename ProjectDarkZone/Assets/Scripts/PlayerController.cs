@@ -4,15 +4,14 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
-    public bool facingRight = true;
-	[HideInInspector]
-	public bool grounded = false;
-
-    public Component mapGenerator;
-    public float moveSpeed = 6f;
-    public float jumpForce = 750f;
+    public bool facingRight = true, grounded = false;
     
-	private bool jump, crouch, upSlope, downSlope, onWall, movementEnabled;
+    public float moveSpeed = 6f;
+    public float jumpForce = 400f;
+
+    private static string heldGem = null;
+
+    private bool jump, crouch, upSlope, downSlope, onWall, movementEnabled;
     private int direction;
     private new Rigidbody2D rigidbody;
     private PolygonCollider2D body;
@@ -53,6 +52,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(health.GetHealth() == 0)
+        {
+            disableMovement();
+            // GAME OVER
+        }
+
 		if(movementEnabled)
 		{
 	        if (Input.GetKey(KeyCode.Space) && grounded)
@@ -63,12 +68,12 @@ public class PlayerController : MonoBehaviour
 	        else if (Input.GetKeyUp(KeyCode.LeftControl))
 	            crouch = false;
 
-	        direction = 0;
-	        if (Input.GetKey(KeyCode.RightArrow))
-	            direction = 1;
-	        else if (Input.GetKey(KeyCode.LeftArrow))
-	            direction = -1;
-		}
+            direction = 0;
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+                direction = 1;
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+                direction = -1;
+        }
 		else
 		{
 			jump = false;
@@ -97,13 +102,38 @@ public class PlayerController : MonoBehaviour
             {
                 health.AddHealth((int)((16 - velocity) * 0.5));
             }
+            if (collision.collider.tag.Equals("Overworld"))
+                Sanity.SetDepleteSanity(false);
+            else if (collision.collider.tag.Equals("Cave"))
+                Sanity.SetDepleteSanity(true);
+        }
+
+        if (collision.collider.tag.Equals("Gem") && heldGem == null)
+        {
+            Destroy(collision.collider.gameObject);
+            heldGem = collision.collider.gameObject.name;
         }
     }
-
 
     void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag.Equals("Heart Container"))
+        {
+            Destroy(collider.gameObject);
+            health.AddHeart();
+        }
+    }
+
+    public string DropGem()
+    {
+        string gem = heldGem;
+        heldGem = null;
+        return gem;
     }
 
     public void SetUpSlope(bool value)

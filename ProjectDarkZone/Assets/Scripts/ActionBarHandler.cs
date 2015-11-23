@@ -104,10 +104,10 @@ public class ActionBarHandler : MonoBehaviour
         {
             // Add item to action bar
             // Torch as example for now
-            Torch torch = new Torch("Torch", Resources.Load<Sprite>("torch"), true, itemPrefabs[0], GameObject.Find("Torches"), GameObject.Find("Player"),
-                GameObject.Find("Map Generator").GetComponent<MapGenerator>());
+            Torch torch = new Torch("Torch", Resources.Load<Sprite>("torch"), true, itemPrefabs[0]);
 
             addActionBarItem(torch);
+            addActionBarItem(GameObject.Find("Player").GetComponent<GrapplingHookController>());
             unused = 0;
         }
 
@@ -117,7 +117,9 @@ public class ActionBarHandler : MonoBehaviour
             if (items[selectedIndex] != null)
                 items[selectedIndex].Item.Use();
 
-            removeActionBarItem();
+            if (items[selectedIndex] != null && items[selectedIndex].Item.IsConsumable)
+                removeActionBarItem();
+
             unused = 0;
         }
 

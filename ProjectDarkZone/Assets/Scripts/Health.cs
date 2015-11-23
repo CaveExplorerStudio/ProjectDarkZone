@@ -8,20 +8,26 @@ public class Health : MonoBehaviour {
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Sprite emptyHeart;
+    public float sanityTickTime;
 
     private const int initHearts = 4;
     private const int heartValue = 2;
 
     private Image[] hearts;
+    private Sanity sanity;
     private int health, maxHearts, maxHealth;
-    
-	void Start () {
+    private float sanityClock;
+
+    void Start ()
+    {
         hearts = healthContainer.GetComponentsInChildren<Image>();
+        sanity = GetComponent<Sanity>();
         maxHearts = hearts.Length;
         maxHealth = heartValue * initHearts;
         health = maxHealth;
+        sanityClock = sanityTickTime;
 
-        for(int i = initHearts; i < maxHearts; i++)
+        for (int i = initHearts; i < maxHearts; i++)
         {
             hearts[i].enabled = false;
         }
@@ -29,9 +35,14 @@ public class Health : MonoBehaviour {
 
     void Update()
     {
-        if(health == 0)
+        if (sanity.IsEmpty())
         {
-            //GAME OVER
+            sanityClock -= Time.deltaTime;
+            if (sanityClock <= 0)
+            {
+                AddHealth(-1);
+                ResetSanityClock();
+            }
         }
     }
 
@@ -65,5 +76,15 @@ public class Health : MonoBehaviour {
             else
                 hearts[i].sprite = emptyHeart;
         }
+    }
+
+    public void ResetSanityClock()
+    {
+        sanityClock = sanityTickTime;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }

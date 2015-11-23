@@ -11,11 +11,13 @@ public class WallDetector : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        pc.SetOnWall(true);
+        if(collider.tag.Equals("Cave") || collider.tag.Equals("Overworld"))
+            pc.SetOnWall(true);
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        pc.SetOnWall(false);
+        if (collider.tag.Equals("Cave") || collider.tag.Equals("Overworld"))
+            pc.SetOnWall(false);
     }
 }

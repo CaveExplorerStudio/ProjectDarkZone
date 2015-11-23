@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour {
 	// Automatically adjusts to any screen size.
 	
 	Transform player;
+	Rigidbody2D playerRigidBody;
 	PlayerController playerController;
 	
 	public MapGenerator mapGenScript;
@@ -20,7 +21,9 @@ public class CameraController : MonoBehaviour {
 	float yMin;
 	
 	public float viewOffset = 5.0f;
-	private float panInterval = 0.14f;
+	private float panInterval;
+	private float maxPanInterval = 0.25f;
+	private float minPanInterval = 0.03f;
 	
 	bool shouldPanRight;
 	bool shouldPanLeft;
@@ -31,19 +34,22 @@ public class CameraController : MonoBehaviour {
 	float cameraShakeIntensity;
 	
 	
-	AudioSource audioSource;
-	public AudioClip shakeSound;
+	private GameObject audioDelegate;
+	private AudioController audioController;
 	
 	
 	void Start () {
 		
-		this.audioSource = this.GetComponent<AudioSource>();
+		//		this.audioSource = this.GetComponent<AudioSource>();
 		
 		if (player == null) {
 			player = GameObject.Find ("Player").transform;
 		}
 		
+		this.playerRigidBody = player.GetComponent<Rigidbody2D>();
 		this.playerController = player.GetComponent<PlayerController>();
+		this.audioDelegate = GameObject.Find ("Audio Delegate");
+		this.audioController = audioDelegate.GetComponent<AudioController>();
 		
 		MoveToPlayer();
 		
@@ -71,12 +77,17 @@ public class CameraController : MonoBehaviour {
 			BeginCameraShake(0.50f,5.0f);
 		}
 		
-		if (audioSource.isPlaying == false) {
-			audioSource.Play ();
-		}
 	}
 	
 	void FixedUpdate () {
+		//		MoveCamera();
+		//		
+		//		if (shouldShakeCamera) {
+		//			ShakeCamera();
+		//		}
+	}
+	
+	void LateUpdate() {
 		MoveCamera();
 		
 		if (shouldShakeCamera) {
@@ -103,23 +114,40 @@ public class CameraController : MonoBehaviour {
 		cameraShakeStartTime = Time.time;
 		cameraShakeDuration = duration;
 		cameraShakeIntensity = intensity;
-		this.audioSource.PlayOneShot(this.shakeSound);
+		this.audioController.PlayShakeSound();
 	}
 	
 	void SetPanDirection() {
 		
-		if ((player.position.x + viewOffset-this.transform.position.x) > panInterval && playerController.facingRight) {
+		if ((player.position.x + viewOffset-this.transform.position.x) > 0 && playerController.facingRight) {
 			shouldPanRight = true;
 			shouldPanLeft = false;
+			float temp = (player.position.x + viewOffset-this.transform.position.x);
+			this.panInterval = Mathf.Min(1.0f,temp/this.panInterval)*panInterval;
 		}
-		else if ((player.position.x - viewOffset - this.transform.position.x) < panInterval && !playerController.facingRight) {
+		else if ((player.position.x - viewOffset - this.transform.position.x) < 0 && !playerController.facingRight) {
 			shouldPanLeft = true;
 			shouldPanRight = false;
+			float temp = (player.position.x - viewOffset - this.transform.position.x);
+			this.panInterval = Mathf.Min(1.0f,-temp/this.panInterval)*panInterval;
 		}
 		else {
 			shouldPanRight = false;
 			shouldPanLeft = false;
 		}
+
+//		if ((player.position.x + viewOffset-this.transform.position.x) > 0.01f && playerController.facingRight) {
+//			shouldPanRight = true;
+//			shouldPanLeft = false;
+//		}
+//		else if ((player.position.x - viewOffset - this.transform.position.x) < -0.01f && !playerController.facingRight) {
+//			shouldPanLeft = true;
+//			shouldPanRight = false;
+//		}
+//		else {
+//			shouldPanRight = false;
+//			shouldPanLeft = false;
+//		}
 	}
 	
 	void Pan() {
@@ -133,9 +161,21 @@ public class CameraController : MonoBehaviour {
 			pos.x -= this.panInterval;
 			this.transform.position = pos;
 		}
+
+	}
+	
+	void SetPanInterval() {
+		
+		if (Mathf.Abs (this.playerRigidBody.velocity.x) > 1.0f) {
+			this.panInterval = maxPanInterval;
+		}
+		else {
+			this.panInterval = minPanInterval;
+		}
 	}
 	
 	void MoveCamera() {
+		SetPanInterval();
 		SetPanDirection();
 		Pan ();
 		
@@ -147,8 +187,19 @@ public class CameraController : MonoBehaviour {
 		
 		this.transform.position = new Vector3(newX,newY,this.transform.position.z);
 		
-		//		Debug.Log ("ShouldPanRight: " + shouldPanRight.ToString() + "\nShouldPanLeft: " + shouldPanLeft.ToString());
-		
+	}
+	
+	public bool IsInView(Vector2 position) {
+		float sightY = Camera.main.orthographicSize;    
+		float sightX = (sightY * Screen.width / Screen.height);
+		float xDist = Mathf.Abs(this.transform.position.x - position.x);
+		float yDist = Mathf.Abs (this.transform.position.y - position.y);
+		if (xDist <= sightX && yDist <= sightY) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	

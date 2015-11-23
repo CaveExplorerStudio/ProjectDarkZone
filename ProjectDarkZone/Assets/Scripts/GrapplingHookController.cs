@@ -2,7 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GrapplingHookController : MonoBehaviour {
+public class GrapplingHookController : MonoBehaviour, IItem {
+    public string Name { get; set; }
+    public Sprite Image { get; set; }
+    public bool IsConsumable { get; set; }
+    public GameObject Prefab { get; set; }
     private List<GraplingHook> grapplingHooks;
     public int numOfGrapplingHooks = 0;
     public bool canClimbGrapplingHook = false;
@@ -14,29 +18,27 @@ public class GrapplingHookController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 	    grapplingHooks = new List<GraplingHook>();
-        thePlayer = this.gameObject;
-        playerClimbing = this.GetComponent<Climbing>();
-        playerRopeController = this.GetComponent<RopeController>();
-
+        thePlayer = GameObject.Find("Player");
+        playerClimbing = thePlayer.GetComponent<Climbing>();
+        playerRopeController = thePlayer.GetComponent<RopeController>();
+        Name = "GrapplingHook";
+        Image = Resources.Load<Sprite>("torch");
+        IsConsumable = true;
+        Prefab = null;
     }
 	
-	// Update is called once per frame
-	void Update () {
-        climables = 0;
-
-        if(numOfGrapplingHooks == 0)
+    public void Use()
+    {
+        if (numOfGrapplingHooks == 0)
         {
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                grapplingHooks.Add(new GraplingHook(thePlayer, numOfGrapplingHooks));
-                grapplingHooks[numOfGrapplingHooks].SetFrameSpacing(4);
-                grapplingHooks[numOfGrapplingHooks].facingRight = this.GetComponent<PlayerController>().facingRight;
-                grapplingHooks[numOfGrapplingHooks].CreateRope();
+            grapplingHooks.Add(new GraplingHook(thePlayer, numOfGrapplingHooks));
+            grapplingHooks[numOfGrapplingHooks].SetFrameSpacing(4);
+            grapplingHooks[numOfGrapplingHooks].facingRight = this.GetComponent<PlayerController>().facingRight;
+            grapplingHooks[numOfGrapplingHooks].CreateRope();
 
-                numOfGrapplingHooks++;
-            }
+            numOfGrapplingHooks++;
         }
-        else if (Input.GetKeyDown(KeyCode.G) && !grapplingHooks[numOfGrapplingHooks - 1].isCreatingRope())
+        else if (!grapplingHooks[numOfGrapplingHooks - 1].isCreatingRope())
         {
             grapplingHooks.Add(new GraplingHook(this.gameObject, numOfGrapplingHooks));
             grapplingHooks[numOfGrapplingHooks].SetFrameSpacing(4);
@@ -45,7 +47,12 @@ public class GrapplingHookController : MonoBehaviour {
 
             numOfGrapplingHooks++;
         }
-	    
+    }
+
+	// Update is called once per frame
+	void Update () {
+        climables = 0;
+
         foreach(GraplingHook grp in grapplingHooks)
         {
             grp.Update();

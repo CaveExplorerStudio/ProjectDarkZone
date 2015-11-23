@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Gem
+  - Torch
+  - Exit
+  - Cave
+  - Overworld
   layers:
   - Default
   - TransparentFX
