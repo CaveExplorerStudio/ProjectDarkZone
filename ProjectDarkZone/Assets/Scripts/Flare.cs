@@ -4,7 +4,6 @@ using System.Collections;
 public class Flare : IItem {
     private GameObject playerPosition;
     private GameObject player;
-    private GameObject flarePrefab;
     private PlayerController playerControl;
     private GameObject currentFlare;
     private Rigidbody2D currentRigidBody;
@@ -23,17 +22,23 @@ public class Flare : IItem {
     public bool IsConsumable { get; set; }
     public GameObject Prefab { get; set; }
 
-    public void Use()
+    public Flare(string name, Sprite image, bool isConsumable, GameObject prefab)
     {
+        Name = name;
+        Image = image;
+        IsConsumable = isConsumable;
+        Prefab = prefab;
         playerPosition = GameObject.Find("FirePoint");
         player = GameObject.Find("Player");
         playerControl = player.GetComponent<PlayerController>();
-        flarePrefab = Resources.Load("Flare", typeof(GameObject)) as GameObject;
         ground_layers = 1 << LayerMask.NameToLayer("Cave");
+    }
 
+    public void Use()
+    {
         Vector3 pickPosition = new Vector3(playerPosition.transform.position.x, playerPosition.transform.position.y, -1.0f);
 
-        GameObject newFlare = MonoBehaviour.Instantiate(flarePrefab, pickPosition, Quaternion.identity) as GameObject;
+        GameObject newFlare = MonoBehaviour.Instantiate(Prefab, pickPosition, Quaternion.identity) as GameObject;
 
         Rigidbody2D flareBody = newFlare.AddComponent<Rigidbody2D>();
         flareBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;

@@ -6,7 +6,7 @@ public class FlareController : MonoBehaviour {
     //References
     float strobe = 6;
     float increment = .05f;
-    List<Flare> flares;
+    public List<Flare> flares;
 
 
     // Use this for initialization
@@ -25,12 +25,12 @@ public class FlareController : MonoBehaviour {
 
         strobe += increment;
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Flare flare = new Flare();
-            flare.Use();
-            flares.Add(flare);
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    Flare flare = new Flare();
+        //    flare.Use();
+        //    flares.Add(flare);
+        //}
 
         foreach (Flare f in flares)
         {

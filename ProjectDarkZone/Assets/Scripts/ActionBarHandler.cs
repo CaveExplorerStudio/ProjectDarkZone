@@ -105,9 +105,12 @@ public class ActionBarHandler : MonoBehaviour
             // Add item to action bar
             // Torch as example for now
             Torch torch = new Torch("Torch", Resources.Load<Sprite>("torch"), true, itemPrefabs[0]);
+            Flare flare = new Flare("Flare", Resources.Load<Sprite>("torch"), true, itemPrefabs[1]);
 
             addActionBarItem(torch);
+            addActionBarItem(flare);
             addActionBarItem(GameObject.Find("Player").GetComponent<GrapplingHookController>());
+            GameObject.Find("Player").GetComponent<FlareController>().flares.Add(flare);
             unused = 0;
         }
 
