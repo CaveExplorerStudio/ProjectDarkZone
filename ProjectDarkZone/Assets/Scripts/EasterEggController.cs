@@ -20,7 +20,12 @@ public class EasterEggController : MonoBehaviour {
             enteredCharacters += c;
             if (enteredCharacters.Contains(easterEgg))
             {
-                CaveBackground.mainTexture = Resources.Load<Texture>("Modi");   
+                CaveBackground.mainTexture = Resources.Load<Texture>("Modi");
+            }
+
+            if (enteredCharacters.Length >= 4)
+            {
+                enteredCharacters = enteredCharacters.Substring(1);
             }
         }
     }
