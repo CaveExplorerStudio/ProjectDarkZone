@@ -12,13 +12,13 @@ public class PageController : MonoBehaviour {
     public GameObject pageGUI;
     private bool timeToSet = true;
     public GameObject prefab;
-    public MapGenerator mapGenScript;
-    public GameObject pagePrefab;
-    public GameObject pageParent;
-    public LayerMask page_layer;
-    public Canvas pageCanvas;
-    public CanvasGroup pageCanvasGroup;
-    public bool pageActive;
+    private MapGenerator mapGenScript;
+    private GameObject pagePrefab;
+    private GameObject pageParent;
+    private LayerMask page_layer;
+    private Canvas pageCanvas;
+    private CanvasGroup pageCanvasGroup;
+    private bool pageActive;
     private bool isFading;
     private int fadeCounter = 10;
     private int fadeState = -1;
@@ -161,5 +161,10 @@ public class PageController : MonoBehaviour {
     public void placePages()
     {
         this.mapGenScript.PlaceRandomly(pagePrefab, pageParent, 10);
+    }
+
+    public int getAllCurrentPages()
+    {
+        return pagesCollected;
     }
 }
