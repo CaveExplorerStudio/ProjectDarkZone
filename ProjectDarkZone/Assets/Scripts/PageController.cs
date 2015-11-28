@@ -16,7 +16,12 @@ public class PageController : MonoBehaviour {
     public GameObject pagePrefab;
     public GameObject pageParent;
     public LayerMask page_layer;
+    public Canvas pageCanvas;
+    public CanvasGroup pageCanvasGroup;
     public bool pageActive;
+    private bool isFading;
+    private int fadeCounter = 10;
+    private int fadeState = -1;
 
     // Use this for initialization
     void Start () {
@@ -42,8 +47,10 @@ public class PageController : MonoBehaviour {
         }
 
         placePages();
+        pageCanvas = pageGUI.GetComponent<Canvas>();
+        pageCanvasGroup = pageGUI.GetComponent<CanvasGroup>();
 
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -73,27 +80,66 @@ public class PageController : MonoBehaviour {
                 fields[2].text = pages[pagesCollected].footer;
 
 
-                pageGUI.GetComponent<Canvas>().enabled = false;
+                pageCanvas.enabled = false;
 
                 timeToSet = !timeToSet;
             }
 
             if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), 1, page_layer) == null) && Input.GetKeyDown(KeyCode.E))
             {
-                pageGUI.GetComponent<Canvas>().enabled = true;
+                pageCanvas.enabled = true;
                 pageActive = true;
+                isFading = true;
+                fadeState = 0;
             }
 
             if (Input.GetKeyDown(KeyCode.X) && pageActive) //Also have to store data.
             {
-                pagesCollected++;
-                pageGUI.GetComponent<Canvas>().enabled = false;
-                pageActive = false;
-                timeToSet = true;
+                isFading = true;
+                fadeState = 1;
             }
+
+            if (isFading)
+                FadePage(fadeState);
 
         }
 
+    }
+
+    private void FadePage(int i)
+    {
+        if (fadeCounter != 0 && i == 1)
+        {
+            fadeCounter--;
+            pageCanvasGroup.alpha -= .1f;
+        }
+        else if (i == 1)
+        {
+            isFading = false;
+            CollectPage();
+            fadeCounter = 10;
+            pageCanvasGroup.alpha = 0;
+        }
+
+        if (fadeCounter != 0 && i == 0)
+        {
+            fadeCounter--;
+            pageCanvasGroup.alpha += .1f;
+        }
+        else if (i == 0)
+        {
+            isFading = false;
+            fadeCounter = 10;
+            pageCanvasGroup.alpha = 1;
+        }
+    }
+
+    private void CollectPage()
+    {
+        pagesCollected++;
+        pageCanvas.enabled = false;
+        pageActive = false;
+        timeToSet = true;
     }
 
     public struct journalPage
