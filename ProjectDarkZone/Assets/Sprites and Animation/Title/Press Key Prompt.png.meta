@@ -1,0 +1,430 @@
+fileFormatVersion: 2
+guid: 2e1f3af56dad9e34dbd490f8afb7b515
+timeCreated: 1448767796
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Press Key Prompt_0
+    21300002: Press Key Prompt_1
+    21300004: Press Key Prompt_2
+    21300006: Press Key Prompt_3
+    21300008: Press Key Prompt_4
+    21300010: Press Key Prompt_5
+    21300012: Press Key Prompt_6
+    21300014: Press Key Prompt_7
+    21300016: Press Key Prompt_8
+    21300018: Press Key Prompt_9
+    21300020: Press Key Prompt_10
+    21300022: Press Key Prompt_11
+    21300024: Press Key Prompt_12
+    21300026: Press Key Prompt_13
+    21300028: Press Key Prompt_14
+    21300030: Press Key Prompt_15
+    21300032: Press Key Prompt_16
+    21300034: Press Key Prompt_17
+    21300036: Press Key Prompt_18
+    21300038: Press Key Prompt_19
+    21300040: Press Key Prompt_20
+    21300042: Press Key Prompt_21
+    21300044: Press Key Prompt_22
+    21300046: Press Key Prompt_23
+    21300048: Press Key Prompt_24
+    21300050: Press Key Prompt_25
+    21300052: Press Key Prompt_26
+    21300054: Press Key Prompt_27
+    21300056: Press Key Prompt_28
+    21300058: Press Key Prompt_29
+    21300060: Press Key Prompt_30
+    21300062: Press Key Prompt_31
+    21300064: Press Key Prompt_32
+    21300066: Press Key Prompt_33
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 10
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Press Key Prompt_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_3
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_4
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_5
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_6
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_7
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_8
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_9
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_10
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_11
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_12
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_13
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_14
+      rect:
+        serializedVersion: 2
+        x: 1106
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_15
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_16
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_17
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_18
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_19
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_20
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_21
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_22
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_23
+      rect:
+        serializedVersion: 2
+        x: 1817
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_24
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_25
+      rect:
+        serializedVersion: 2
+        x: 1975
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_26
+      rect:
+        serializedVersion: 2
+        x: 2054
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_27
+      rect:
+        serializedVersion: 2
+        x: 2133
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_28
+      rect:
+        serializedVersion: 2
+        x: 2212
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_29
+      rect:
+        serializedVersion: 2
+        x: 2291
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_30
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_31
+      rect:
+        serializedVersion: 2
+        x: 2449
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_32
+      rect:
+        serializedVersion: 2
+        x: 2528
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Press Key Prompt_33
+      rect:
+        serializedVersion: 2
+        x: 2607
+        y: 0
+        width: 79
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

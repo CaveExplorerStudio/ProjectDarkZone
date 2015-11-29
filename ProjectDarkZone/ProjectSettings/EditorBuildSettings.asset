@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/_Scenes/Overworld.unity
   - enabled: 1
     path: Assets/_Scenes/Scene 2D.unity
+  - enabled: 1
+    path: Assets/_Scenes/Title Screen.unity
