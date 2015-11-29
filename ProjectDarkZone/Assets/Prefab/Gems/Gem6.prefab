@@ -11,8 +11,8 @@ GameObject:
   - 212: {fileID: 21204308}
   - 50: {fileID: 5061996}
   - 114: {fileID: 11455562}
-  - 60: {fileID: 6059260}
   - 82: {fileID: 8212616}
+  - 61: {fileID: 6181000}
   m_Layer: 0
   m_Name: Gem6
   m_TagString: Gem
@@ -55,8 +55,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.800000012}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalPosition: {x: -66.3183289, y: 56.389267, z: -.800000012}
+  m_LocalScale: {x: 2.4734652, y: 2.47346544, z: 4.94693089}
   m_Children:
   - {fileID: 457162}
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!60 &6059260
-PolygonCollider2D:
+--- !u!61 &6181000
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -87,17 +87,9 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: -.195058078, y: .345639199}
-      - {x: -.42587176, y: .109786198}
-      - {x: -.42587173, y: -.0049418807}
-      - {x: -.00852644444, y: -.417247862}
-      - {x: -.00620169565, y: -.417247862}
-      - {x: .415987998, y: 0}
-      - {x: .420929939, y: .114825644}
-      - {x: .200000003, y: .35058108}
+  m_Offset: {x: .000487350451, y: -.00291793328}
+  serializedVersion: 2
+  m_Size: {x: .0890474468, y: .126951858}
 --- !u!82 &8212616
 AudioSource:
   m_ObjectHideFlags: 1
@@ -177,8 +169,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: .375253499, g: 1, b: .352941155, a: 1}
+  m_Intensity: 1.91999996
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -190,7 +182,7 @@ Light:
     m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_Flare: {fileID: 0}
+  m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -235,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d08dc2feb18e641888b0e4df38fd6496, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99b515864a028ed449416dd7020fdec4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

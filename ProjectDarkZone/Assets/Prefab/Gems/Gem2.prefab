@@ -43,8 +43,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.800000012}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalPosition: {x: -62.9554024, y: 57.5788155, z: -.800000012}
+  m_LocalScale: {x: 3.22887158, y: 3.22888041, z: 6.45776081}
   m_Children:
   - {fileID: 491516}
   m_Father: {fileID: 0}
@@ -87,9 +87,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .0900000036}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .319999993
+  m_Radius: .0705550164
 --- !u!82 &8222390
 AudioSource:
   m_ObjectHideFlags: 1
@@ -108,7 +108,7 @@ AudioSource:
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: .626464844
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -169,7 +169,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .381001294, g: .391360611, b: .595588207, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -182,7 +182,7 @@ Light:
     m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_Flare: {fileID: 0}
+  m_Flare: {fileID: 12100000, guid: 51e9e94bd0b2a4b96a5d00f9441133a7, type: 2}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 13b1c2a78a21542e28e554c6a9c87aff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e31e7b7948e44c4698bffa9964c3858, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

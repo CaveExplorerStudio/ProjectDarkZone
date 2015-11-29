@@ -27,8 +27,8 @@ GameObject:
   - 212: {fileID: 21289512}
   - 50: {fileID: 5087250}
   - 114: {fileID: 11489858}
-  - 60: {fileID: 6012372}
   - 82: {fileID: 8230750}
+  - 60: {fileID: 6057598}
   m_Layer: 0
   m_Name: Gem5
   m_TagString: Gem
@@ -43,8 +43,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.800000012}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalPosition: {x: -67.3503494, y: 56.2586594, z: -.800000012}
+  m_LocalScale: {x: 2.28462696, y: 2.28462768, z: 4.56925535}
   m_Children:
   - {fileID: 443758}
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!60 &6012372
+--- !u!60 &6057598
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -90,15 +90,15 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -.242182195, y: .279070199}
-      - {x: -.365634352, y: .0516767241}
-      - {x: -.364613086, y: -.157852814}
-      - {x: -.168635085, y: -.403814495}
-      - {x: .0914220288, y: -.404930681}
-      - {x: .294023305, y: -.164475635}
-      - {x: .294023067, y: .084104538}
-      - {x: .182608321, y: .287821352}
-      - {x: -.0231620669, y: .500322342}
+    - - {x: .0399999991, y: .0700000003}
+      - {x: -.0700000003, y: .0700000003}
+      - {x: -.0799999982, y: .0399999991}
+      - {x: -.0799999982, y: -.0299999993}
+      - {x: -.00999999978, y: -.0799999982}
+      - {x: .00999999978, y: -.0799999982}
+      - {x: .0599999987, y: -.0399999991}
+      - {x: .0799999982, y: -.0199999996}
+      - {x: .0799999982, y: .0299999993}
 --- !u!82 &8230750
 AudioSource:
   m_ObjectHideFlags: 1
@@ -179,7 +179,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3.46000004
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -191,7 +191,7 @@ Light:
     m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_Flare: {fileID: 0}
+  m_Flare: {fileID: 12100000, guid: 6174f2fe01a3c418090a23ec2f36e684, type: 2}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -236,7 +236,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b9062cab0e9a94d888b24a73971402dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 480d88f77a97d324bbb4487beb75736e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

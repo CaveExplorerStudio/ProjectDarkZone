@@ -11,8 +11,8 @@ GameObject:
   - 212: {fileID: 21221376}
   - 50: {fileID: 5037052}
   - 114: {fileID: 11472584}
-  - 60: {fileID: 6016810}
   - 82: {fileID: 8232596}
+  - 58: {fileID: 5896228}
   m_Layer: 0
   m_Name: Gem4
   m_TagString: Gem
@@ -43,8 +43,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.800000012}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalPosition: {x: -67.3853912, y: 56.3216553, z: -.800000012}
+  m_LocalScale: {x: 2.1574831, y: 2.15748286, z: 4.31496572}
   m_Children:
   - {fileID: 442536}
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!60 &6016810
-PolygonCollider2D:
+--- !u!58 &5896228
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -88,16 +88,8 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: -.331136078, y: .200000003}
-      - {x: -.334961802, y: -.0590150803}
-      - {x: -.0945068449, y: -.290151179}
-      - {x: .170492306, y: -.286325485}
-      - {x: .39780274, y: -.0458704382}
-      - {x: .39780274, y: .207651556}
-      - {x: .162840873, y: .431136012}
-      - {x: -.0923483968, y: .431136012}
+  serializedVersion: 2
+  m_Radius: .0799999982
 --- !u!82 &8232596
 AudioSource:
   m_ObjectHideFlags: 1
@@ -190,7 +182,7 @@ Light:
     m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_Flare: {fileID: 0}
+  m_Flare: {fileID: 12100000, guid: 5681314a26a394990806a2eb6f15a468, type: 2}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -235,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 742af6d159b8649e7b219d5262494ef8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c86ed0ce050a2bb4885a2288e692c80c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

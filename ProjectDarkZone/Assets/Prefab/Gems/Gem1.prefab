@@ -55,8 +55,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.800000012}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalPosition: {x: -66.1081772, y: 56.3300018, z: -.800000012}
+  m_LocalScale: {x: 2.26190472, y: 2.26190472, z: 4.52380943}
   m_Children:
   - {fileID: 400482}
   m_Father: {fileID: 0}
@@ -87,9 +87,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.0299999993, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .349999994
+  m_Radius: .0776362419
 --- !u!82 &8241298
 AudioSource:
   m_ObjectHideFlags: 1
@@ -169,8 +169,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: .897058845, g: .263840824, b: .263840824, a: 1}
+  m_Intensity: .720000029
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -182,7 +182,7 @@ Light:
     m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_Flare: {fileID: 0}
+  m_Flare: {fileID: 12100000, guid: 54fbbf098d116effa00081aba8ad6659, type: 2}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fb6177660b2904df1aab261d73a82933, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3d8badb96110c646afbbafb0da191fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

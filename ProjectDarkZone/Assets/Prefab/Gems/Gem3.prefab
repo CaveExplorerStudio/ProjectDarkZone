@@ -11,8 +11,8 @@ GameObject:
   - 212: {fileID: 21263676}
   - 50: {fileID: 5057886}
   - 114: {fileID: 11492282}
-  - 60: {fileID: 6076662}
   - 82: {fileID: 8263014}
+  - 58: {fileID: 5881646}
   m_Layer: 0
   m_Name: Gem3
   m_TagString: Gem
@@ -55,8 +55,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.800000012}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalPosition: {x: -67.2711945, y: 56.5180893, z: -.800000012}
+  m_LocalScale: {x: 2.0876267, y: 2.08763003, z: 4.17526007}
   m_Children:
   - {fileID: 480254}
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!60 &6076662
-PolygonCollider2D:
+--- !u!58 &5881646
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -88,16 +88,8 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: .00276598334, y: .55246222}
-      - {x: -.309280038, y: -.0311748832}
-      - {x: -.309280068, y: -.0409459472}
-      - {x: .00931896269, y: -.537159145}
-      - {x: .00871123374, y: -.529507577}
-      - {x: .350264907, y: -.0382188559}
-      - {x: .350265086, y: -.0240532868}
-      - {x: .0125372149, y: .544810712}
+  serializedVersion: 2
+  m_Radius: .0799999982
 --- !u!82 &8263014
 AudioSource:
   m_ObjectHideFlags: 1
@@ -177,8 +169,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: .926470578, g: .417945296, b: .0885596648, a: 1}
+  m_Intensity: 1.84000003
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -190,7 +182,7 @@ Light:
     m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_Flare: {fileID: 0}
+  m_Flare: {fileID: 12100000, guid: 51e9e94bd0b2a4b96a5d00f9441133a7, type: 2}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -235,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 98b944b3b3d68479a98be66f551a03c1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 96e60ac98f527da4cb20ba43b68c2640, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
