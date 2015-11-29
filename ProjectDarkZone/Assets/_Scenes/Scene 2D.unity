@@ -32784,22 +32784,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7735c3ee667a4f16a88a787ecd00951, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &1825182909 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 178544, guid: df72ce19bfbab44f487079333deba334, type: 2}
-  m_PrefabInternal: {fileID: 1527499921}
---- !u!114 &1825182911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1825182909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dadf03c7cccd7e74b80f82c764bdaa5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CaveBackground: {fileID: 2100000, guid: b809fcfcfbd6f7a428777ae41f8c5bf8, type: 2}
 --- !u!1 &1826906688
 GameObject:
   m_ObjectHideFlags: 0
