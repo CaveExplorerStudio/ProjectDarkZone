@@ -4,7 +4,7 @@ using System.Collections;
 public class PageCollisionController : MonoBehaviour {
     public LayerMask player_layer;
     public MeshRenderer myRenderer;
-    private int deathTimer = 4;
+    private int deathTimer = 10;
     private bool isAlive = true;
 
     // Use this for initialization
@@ -15,7 +15,7 @@ public class PageCollisionController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), .8f, player_layer) == null))
+        if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), .7f, player_layer) == null))
         {
             myRenderer.enabled = true;
 

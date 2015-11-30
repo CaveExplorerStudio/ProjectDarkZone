@@ -27,7 +27,7 @@ public class PageController : MonoBehaviour {
     void Start () {
         this.mapGenScript = GameObject.Find("Map Generator").GetComponent<MapGenerator>();
         pages = new List<journalPage>();
-        file = new System.IO.StreamReader("C:\\Users\\Chris\\Documents\\GitHub\\New Darkzone\\ProjectDarkZone\\ProjectDarkZone\\Assets\\Resources\\entries.txt");
+        file = new System.IO.StreamReader("I:\\Github\\ProjectDarkZone\\ProjectDarkZone\\Assets\\Resources\\entries.txt");
 
         prefab = Resources.Load("PageUI", typeof(GameObject)) as GameObject;
         pagePrefab = Resources.Load("Page", typeof(GameObject)) as GameObject;
@@ -46,8 +46,14 @@ public class PageController : MonoBehaviour {
             numberOfPages++;
         }
 
-        placePages();
+        //placePages();
         pageCanvas = pageGUI.GetComponent<Canvas>();
+
+        if (pageCanvas == null)
+            Debug.Log("The reference is null");
+        else
+            Debug.Log("I have a reference!!");
+
         pageCanvasGroup = pageGUI.GetComponent<CanvasGroup>();
 
     }
@@ -60,7 +66,7 @@ public class PageController : MonoBehaviour {
         //    timeToSet = true;
         //}
 
-        if (pagesCollected <= numberOfPages)
+        if (pagesCollected < numberOfPages)
         {
 
 
@@ -85,7 +91,7 @@ public class PageController : MonoBehaviour {
                 timeToSet = !timeToSet;
             }
 
-            if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), 1, page_layer) == null) && Input.GetKeyDown(KeyCode.E))
+            if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), .8f, page_layer) == null) && Input.GetKeyDown(KeyCode.E))
             {
                 pageCanvas.enabled = true;
                 pageActive = true;
@@ -160,7 +166,7 @@ public class PageController : MonoBehaviour {
 
     public void placePages()
     {
-        this.mapGenScript.PlaceRandomly(pagePrefab, pageParent, 10);
+        this.mapGenScript.PlaceEvenlyDistributed(pagePrefab, pageParent, 10);
     }
 
     public int getAllCurrentPages()
