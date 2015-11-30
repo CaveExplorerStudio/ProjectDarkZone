@@ -46,7 +46,7 @@ public class PageController : MonoBehaviour {
             numberOfPages++;
         }
 
-        //placePages();
+        placePages();
         pageCanvas = pageGUI.GetComponent<Canvas>();
 
         if (pageCanvas == null)
