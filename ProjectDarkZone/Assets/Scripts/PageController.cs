@@ -148,21 +148,7 @@ public class PageController : MonoBehaviour {
         timeToSet = true;
     }
 
-    public struct journalPage
-    {
-        public string header;
-        public string footer;
-        public string body;
-        public int pageNumber;
-
-        public journalPage(string head, string bod, string foot, int num)
-        {
-            header = head;
-            footer = foot;
-            body = bod;
-            pageNumber = num;
-        }
-    }
+    
 
     public void placePages()
     {
@@ -172,5 +158,21 @@ public class PageController : MonoBehaviour {
     public int getAllCurrentPages()
     {
         return pagesCollected;
+    }
+}
+
+public struct journalPage
+{
+    public string header;
+    public string footer;
+    public string body;
+    public int pageNumber;
+
+    public journalPage(string head, string bod, string foot, int num)
+    {
+        header = head;
+        footer = foot;
+        body = bod;
+        pageNumber = num;
     }
 }
