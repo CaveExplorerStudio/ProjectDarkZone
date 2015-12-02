@@ -159,6 +159,12 @@ public class PageController : MonoBehaviour {
     {
         return pagesCollected;
     }
+
+    public List<journalPage> getCollectedPages()
+    {
+        return pages;
+    }
+
 }
 
 public struct journalPage
