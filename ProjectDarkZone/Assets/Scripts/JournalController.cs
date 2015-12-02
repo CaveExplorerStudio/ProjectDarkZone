@@ -10,6 +10,7 @@ public class JournalController : MonoBehaviour {
     private GameObject prefab;
     private GameObject journalGUI;
     private PageController pageControl;
+    private Button[] buttons;
 
     private bool journalActive;
     private bool isFading;
@@ -22,10 +23,12 @@ public class JournalController : MonoBehaviour {
         prefab = Resources.Load("Journal", typeof(GameObject)) as GameObject;
         journalGUI = Instantiate(prefab) as GameObject;
         journalActive = false;
+        journalGUI.name = "ActiveJournal";
 
         journalCanvas = journalGUI.GetComponent<Canvas>();
         journalCanvasGroup = journalGUI.GetComponent<CanvasGroup>();
         pageControl = GameObject.Find("Player").GetComponent<PageController>();
+        buttons = GameObject.Find("ActiveJournal").GetComponentsInChildren<Button>();
     }
 	
 	
@@ -94,7 +97,7 @@ public class JournalController : MonoBehaviour {
             fields[4].text = "";
             fields[5].text = "";
         }
-        else if (pageControl.getAllCurrentPages() % 2 == 0 && currentPage <= pageControl.getAllCurrentPages() - 2)
+        else if (currentPage <= pageControl.getAllCurrentPages() - 2)
         {
             fields[0].text = collectedPages[currentPage].header;
             fields[1].text = collectedPages[currentPage].body;
@@ -103,5 +106,24 @@ public class JournalController : MonoBehaviour {
             fields[4].text = collectedPages[currentPage + 1].body;
             fields[5].text = collectedPages[currentPage + 1].footer;
         }
+        else if (currentPage <= pageControl.getAllCurrentPages() - 1)
+        {
+            fields[0].text = collectedPages[currentPage].header;
+            fields[1].text = collectedPages[currentPage].body;
+            fields[2].text = collectedPages[currentPage].footer;
+            fields[3].text = "";
+            fields[4].text = "";
+            fields[5].text = "";
+        }
+    }
+
+    public void clickForward()
+    {
+
+    }
+
+    public void clickBack()
+    {
+
     }
 }
