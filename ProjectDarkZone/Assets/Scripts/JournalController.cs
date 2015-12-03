@@ -29,6 +29,9 @@ public class JournalController : MonoBehaviour {
         journalCanvasGroup = journalGUI.GetComponent<CanvasGroup>();
         pageControl = GameObject.Find("Player").GetComponent<PageController>();
         buttons = GameObject.Find("ActiveJournal").GetComponentsInChildren<Button>();
+
+        buttons[0].onClick.AddListener(delegate { clickForward(); });
+        buttons[1].onClick.AddListener(delegate { clickBack(); });
     }
 	
 	
@@ -119,11 +122,15 @@ public class JournalController : MonoBehaviour {
 
     public void clickForward()
     {
-
+        if (currentPage < pageControl.getAllCurrentPages() - 2)
+            currentPage += 2;
+        UpdateText();
     }
 
     public void clickBack()
     {
-
+        if (currentPage >= 2)
+            currentPage -= 2;
+        UpdateText();
     }
 }
