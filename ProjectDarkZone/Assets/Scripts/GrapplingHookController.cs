@@ -22,7 +22,7 @@ public class GrapplingHookController : MonoBehaviour, IItem {
         playerClimbing = thePlayer.GetComponent<Climbing>();
         playerRopeController = thePlayer.GetComponent<RopeController>();
         Name = "GrapplingHook";
-        Image = Resources.Load<Sprite>("torch");
+        Image = Resources.Load<Sprite>("sign");
         IsConsumable = true;
         Prefab = null;
     }

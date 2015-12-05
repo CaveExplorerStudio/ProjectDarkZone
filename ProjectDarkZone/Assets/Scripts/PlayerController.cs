@@ -113,6 +113,8 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.collider.gameObject);
             heldGem = collision.collider.gameObject.name;
         }
+
+        GameObject.Find("ActionBar").GetComponent<ActionBarHandler>().checkCollision(collision.collider);
     }
 
     void OnCollisionExit2D(Collision2D collision)
