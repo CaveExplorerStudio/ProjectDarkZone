@@ -9,6 +9,8 @@ TagManager:
   - Exit
   - Cave
   - Overworld
+  - TorchUnlit
+  - Journal
   layers:
   - Default
   - TransparentFX

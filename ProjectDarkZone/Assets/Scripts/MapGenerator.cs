@@ -49,6 +49,8 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject[] leftWallScenery;
 	
 	//Other Prefabs
+	public GameObject journalPrefab;
+	public GameObject unlitTorchPrefab;
 	public GameObject exitPrefab;
 	public GameObject[] gemPrefabs;
 	public GameObject[] itemPrefabs;
@@ -1197,7 +1199,8 @@ public class MapGenerator : MonoBehaviour {
 	
 	public void PlaceItemsAndGems() {
 		PlaceEvenlyDistributed(this.gemPrefabs, this.gems, GetTilePositionInScene(this.playerSpawn), 30.0f);
-
+		PlaceEvenlyDistributed(this.journalPrefab, this.items, 8);
+		PlaceEvenlyDistributed(this.unlitTorchPrefab, this.items, 60);
 	}
 	
 	public void PlaceRandomly(GameObject prefab, GameObject parent) {
