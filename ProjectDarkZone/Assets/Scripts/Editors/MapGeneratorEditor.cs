@@ -49,7 +49,7 @@ public class MapGeneratorEditor : EditorWindow {
 		this.tileAmount = 1;
 		this.batSpawnRate = 1.0f;
 		this.spawnBats = true;
-		this.placeGems = false;
+		this.placeGems = true;
 		this.regenerateMapOnLaunch = true;
 	}
 	
@@ -120,7 +120,7 @@ public class MapGeneratorEditor : EditorWindow {
 			roomThresholdSize = EditorGUILayout.IntSlider ("Room", roomThresholdSize, 1, 1000);
 			
 			spawnBats = EditorGUILayout.Toggle("Spawn Bats", spawnBats);
-			placeGems = EditorGUILayout.Toggle("Place Gems (Slower)", placeGems);
+			placeGems = EditorGUILayout.Toggle("Items & Gems (Slower)", placeGems);
 			
 			regenerateMapOnLaunch = EditorGUILayout.Toggle("Regenerate Map On Launch", regenerateMapOnLaunch);
 			
