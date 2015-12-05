@@ -11,6 +11,8 @@ TagManager:
   - Overworld
   - TorchUnlit
   - Journal
+  - Rope
+  - Flare
   layers:
   - Default
   - TransparentFX

@@ -72,10 +72,10 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.P)) {
-			Debug.Log("Beginning Camera Shake");
-			BeginCameraShake(0.50f,5.0f);
-		}
+//		if (Input.GetKeyDown(KeyCode.P)) {
+//			Debug.Log("Beginning Camera Shake");
+//			BeginCameraShake(0.50f,5.0f);
+//		}
 		
 	}
 	
