@@ -361,7 +361,7 @@ GameObject:
   - 212: {fileID: 1019496547}
   - 95: {fileID: 1019496546}
   m_Layer: 0
-  m_Name: background_0
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1f985176631914f89aea0158f29f19ec, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -468,6 +468,10 @@ Prefab:
     - target: {fileID: 11449910, guid: 65097732dc2ea4b748f010c340c2ec82, type: 2}
       propertyPath: shouldFollowPlayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10872442, guid: 65097732dc2ea4b748f010c340c2ec82, type: 2}
+      propertyPath: m_Intensity
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65097732dc2ea4b748f010c340c2ec82, type: 2}
