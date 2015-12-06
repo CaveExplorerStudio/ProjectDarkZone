@@ -32944,6 +32944,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11442772, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df72ce19bfbab44f487079333deba334, type: 2}
   m_IsPrefabParent: 0
@@ -40066,6 +40070,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0e542685c135e4abcc65c490fc3cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1872577168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1872577149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadf03c7cccd7e74b80f82c764bdaa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CaveBackground: {fileID: 2100000, guid: b809fcfcfbd6f7a428777ae41f8c5bf8, type: 2}
 --- !u!1001 &1874042330
 Prefab:
   m_ObjectHideFlags: 0
@@ -41932,6 +41948,7 @@ MonoBehaviour:
   framesBeforeActionBarHide: 100
   itemPrefabs:
   - {fileID: 146198, guid: 65097732dc2ea4b748f010c340c2ec82, type: 2}
+  - {fileID: 101632, guid: e2dc18e158980a643bd79b5ad6fd00f2, type: 2}
 --- !u!114 &1943823232
 MonoBehaviour:
   m_ObjectHideFlags: 0
