@@ -27,7 +27,7 @@ public class PageController : MonoBehaviour {
     void Start () {
         this.mapGenScript = GameObject.Find("Map Generator").GetComponent<MapGenerator>();
         pages = new List<journalPage>();
-        file = new System.IO.StreamReader("C:\\Users\\Chris\\Documents\\GitHub\\New Darkzone\\ProjectDarkZone\\ProjectDarkZone\\Assets\\Resources\\entries.txt");
+        file = new System.IO.StreamReader("Assets\\Resources\\entries.txt");
 
         prefab = Resources.Load("PageUI", typeof(GameObject)) as GameObject;
         pagePrefab = Resources.Load("Page", typeof(GameObject)) as GameObject;
@@ -48,6 +48,12 @@ public class PageController : MonoBehaviour {
 
         placePages();
         pageCanvas = pageGUI.GetComponent<Canvas>();
+
+        if (pageCanvas == null)
+            Debug.Log("The reference is null");
+        else
+            Debug.Log("I have a reference!!");
+
         pageCanvasGroup = pageGUI.GetComponent<CanvasGroup>();
 
     }
@@ -60,7 +66,7 @@ public class PageController : MonoBehaviour {
         //    timeToSet = true;
         //}
 
-        if (pagesCollected <= numberOfPages)
+        if (pagesCollected < numberOfPages)
         {
 
 
@@ -85,7 +91,7 @@ public class PageController : MonoBehaviour {
                 timeToSet = !timeToSet;
             }
 
-            if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), 1, page_layer) == null) && Input.GetKeyDown(KeyCode.E))
+            if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), .8f, page_layer) == null) && Input.GetKeyDown(KeyCode.E))
             {
                 pageCanvas.enabled = true;
                 pageActive = true;
@@ -142,29 +148,37 @@ public class PageController : MonoBehaviour {
         timeToSet = true;
     }
 
-    public struct journalPage
-    {
-        public string header;
-        public string footer;
-        public string body;
-        public int pageNumber;
-
-        public journalPage(string head, string bod, string foot, int num)
-        {
-            header = head;
-            footer = foot;
-            body = bod;
-            pageNumber = num;
-        }
-    }
+    
 
     public void placePages()
     {
-        this.mapGenScript.PlaceRandomly(pagePrefab, pageParent, 10);
+        this.mapGenScript.PlaceEvenlyDistributed(pagePrefab, pageParent, 10);
     }
 
     public int getAllCurrentPages()
     {
         return pagesCollected;
+    }
+
+    public List<journalPage> getCollectedPages()
+    {
+        return pages;
+    }
+
+}
+
+public struct journalPage
+{
+    public string header;
+    public string footer;
+    public string body;
+    public int pageNumber;
+
+    public journalPage(string head, string bod, string foot, int num)
+    {
+        header = head;
+        footer = foot;
+        body = bod;
+        pageNumber = num;
     }
 }

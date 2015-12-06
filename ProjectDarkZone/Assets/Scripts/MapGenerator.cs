@@ -82,7 +82,7 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject markers;
 	public GameObject itemSpawnPoints;
 	
-	void Start()
+	void Awake()
 	{	
 		if (this.regenerateMapOnLaunch) {
 			GenerateMap();
