@@ -4,20 +4,23 @@ using System.Collections;
 public class panel : MonoBehaviour {
 
 	private bool open;
+	public Renderer rend;
 
 	// Use this for initialization
 	void Start () {
 		open = false;
-		gameObject.SetActive(false);
+		rend = GetComponent<Renderer>();
+		rend.enabled = false;
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
 		if(open) {
-			gameObject.SetActive(true);
+			rend.enabled = true;
 		}
 		if (!open) {
-			gameObject.SetActive (false);
+			rend.enabled = false;
 		}
 	}
 	

@@ -13,7 +13,7 @@ public class SleepTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (sleep && Input.GetKeyDown("down")) {
+		if (sleep && (Input.GetKeyDown("down") || Input.GetKeyDown("S"))) {
 			StartCoroutine(goToBed());
 		}
 	}
