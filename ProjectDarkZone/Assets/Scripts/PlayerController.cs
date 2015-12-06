@@ -76,27 +76,6 @@ public class PlayerController : MonoBehaviour
 	        else if (Input.GetKeyUp(KeyCode.LeftControl))
 	            crouch = false;
 
-            //XXX
-            if (Input.GetKeyDown(KeyCode.L) && numCollected < 8)
-            {
-                bool repeat;
-                do
-                {
-                    repeat = false;
-                    heldGem = "" + (int)Random.Range(1f, 8.5f);
-                    foreach(string gem in collectedGems)
-                    {
-                        if(gem != null)
-                            if(heldGem.Equals(gem.Substring(gem.IndexOfAny(PlayerHUDController.nums), 1))){
-                                repeat = true;
-                            }
-                    }
-                } while (repeat);
-
-                hud.UpdateGemIcon(heldGem);
-            }
-            //XXX
-
             direction = 0;
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
                 direction = 1;
