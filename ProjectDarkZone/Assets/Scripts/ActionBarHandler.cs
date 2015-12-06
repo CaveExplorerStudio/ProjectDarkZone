@@ -24,6 +24,14 @@ public class ActionBarHandler : MonoBehaviour
         {
             images[i] = GameObject.Find("ItemImage" + i);
         }
+
+        Torch torch = new Torch("Torch", Resources.Load<Sprite>("torch"), true, itemPrefabs[0]);
+        addActionBarItem(torch);
+        addActionBarItem(GameObject.Find("Player").GetComponent<GrapplingHookController>());
+        items[0].Amount = 20;
+        items[1].Amount = 20;
+        images[0].GetComponentInChildren<Text>().text = items[0].Amount.ToString();
+        images[1].GetComponentInChildren<Text>().text = items[1].Amount.ToString();
     }
 
     void Update()
@@ -177,6 +185,7 @@ public class ActionBarHandler : MonoBehaviour
     public void checkCollision(Collider2D collider)
     {
         bool isItem = false;
+        Debug.Log(collider.tag);
         switch (collider.tag)
         {
             case "TorchUnlit":
@@ -185,7 +194,7 @@ public class ActionBarHandler : MonoBehaviour
                 isItem = true;
                 break;
             case "Flare":
-                Flare flare = new Flare("Flare", Resources.Load<Sprite>("Odeo_Flare_horizontal_wo_line_cropped-e1421220595272"), true, itemPrefabs[1]);
+                Flare flare = new Flare("Flare", Resources.Load<Sprite>("flare"), true, itemPrefabs[1]);
                 addActionBarItem(flare);
                 GameObject.Find("Player").GetComponent<FlareController>().flares.Add(flare);
                 isItem = true;
