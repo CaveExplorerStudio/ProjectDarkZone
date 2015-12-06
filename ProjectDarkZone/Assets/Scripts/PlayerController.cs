@@ -5,11 +5,14 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
     public bool facingRight = true, grounded = false;
-    
+
+    public EventController events;
     public float moveSpeed = 6f;
     public float jumpForce = 400f;
 
     private static string heldGem = null;
+    private static int numCollected = 0;
+    private static string[] collectedGems = new string[8];
 
     private bool jump, crouch, upSlope, downSlope, onWall, movementEnabled;
     private int direction;
@@ -19,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private Vector2[] standing, crouched;
     private Health health;
 	private Animator anim;
+    private PlayerHUDController hud;
 
 
     void Awake()
@@ -35,6 +39,7 @@ public class PlayerController : MonoBehaviour
         upSlope = false;
         downSlope = false;
 		anim = GetComponent<Animator>();
+        hud = GetComponent<PlayerHUDController>();
 
         int min = 0;
         for (int i = 0; i < standing.Length; i++)
@@ -49,13 +54,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        hud.UpdateGemIcon(heldGem);
+    }
 
     void Update()
     {
         if(health.GetHealth() == 0)
         {
-            disableMovement();
-            // GAME OVER
+            StartCoroutine(Death());
         }
 
 		if(movementEnabled)
@@ -67,6 +75,27 @@ public class PlayerController : MonoBehaviour
 	            crouch = true;
 	        else if (Input.GetKeyUp(KeyCode.LeftControl))
 	            crouch = false;
+
+            //XXX
+            if (Input.GetKeyDown(KeyCode.L) && numCollected < 8)
+            {
+                bool repeat;
+                do
+                {
+                    repeat = false;
+                    heldGem = "" + (int)Random.Range(1f, 8.5f);
+                    foreach(string gem in collectedGems)
+                    {
+                        if(gem != null)
+                            if(heldGem.Equals(gem.Substring(gem.IndexOfAny(PlayerHUDController.nums), 1))){
+                                repeat = true;
+                            }
+                    }
+                } while (repeat);
+
+                hud.UpdateGemIcon(heldGem);
+            }
+            //XXX
 
             direction = 0;
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
@@ -112,6 +141,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(collision.collider.gameObject);
             heldGem = collision.collider.gameObject.name;
+            hud.UpdateGemIcon(heldGem);
         }
     }
 
@@ -126,6 +156,34 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(collider.gameObject);
             health.AddHeart();
+        }
+        else if (collider.name.Equals("ChestTrigger"))
+        {
+            hud.OpenCollection(collectedGems);
+            if (heldGem != null)
+            {
+                StartCoroutine(NewGemAnim());
+            }
+        }
+    }
+
+    private IEnumerator NewGemAnim()
+    {
+        disableMovement();
+        string gem = DropGem();
+        hud.UpdateGemIcon(heldGem);
+        StartCoroutine(hud.AddGemToCollection(gem));
+        yield return new WaitForSeconds(1.5f);
+        collectedGems[numCollected] = gem;
+        numCollected++;
+        enableMovement();
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.name.Equals("ChestTrigger"))
+        {
+            hud.CloseCollection();
         }
     }
 
@@ -219,5 +277,25 @@ public class PlayerController : MonoBehaviour
             points[i] = new Vector2(points[i].x, newY);
         }
         body.SetPath(0, points);
+    }
+
+    public static void ResetAllValues()
+    {
+        heldGem = null;
+        numCollected = 0;
+        collectedGems = new string[8];
+    }
+
+    private IEnumerator Death()
+    {
+        disableMovement();
+        events.ShakeCamera(0.5f, 3f);
+        yield return new WaitForSeconds(5f);
+        events.TorchSweepOut(0.5f);
+        yield return new WaitForSeconds(7f);
+        ResetAllValues();
+        Health.ResetAllValues();
+        Sanity.ResetAllValues();
+        Application.LoadLevel("Title Screen");
     }
 }

@@ -73,6 +73,7 @@ GameObject:
   - 114: {fileID: 11433236}
   - 114: {fileID: 11466732}
   - 114: {fileID: 11492442}
+  - 114: {fileID: 11428114}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -179,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -63.5, y: 68, z: 0}
+  m_LocalPosition: {x: -70.5, y: 65, z: 0}
   m_LocalScale: {x: .649999976, y: .649999976, z: .649999976}
   m_Children:
   - {fileID: 434034}
@@ -231,18 +232,14 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -.219479084, y: 1.34936857}
-      - {x: -.493791699, y: .279935122}
-      - {x: -.614080131, y: -1.08447969}
-      - {x: -.0492785536, y: -.493102461}
-      - {x: .445343673, y: -1.08447933}
-      - {x: .539135754, y: -.550111473}
-      - {x: .764645934, y: -.542201102}
-      - {x: .812521935, y: -.264970899}
-      - {x: .586425424, y: .00608536601}
-      - {x: .615062594, y: .606805503}
-      - {x: .783432424, y: .89080888}
-      - {x: .367295265, y: 1.39689577}
+    - - {x: -.266666681, y: .466666669}
+      - {x: -.333333343, y: .266666681}
+      - {x: -.333333343, y: -.300000012}
+      - {x: -.166666672, y: -.400000006}
+      - {x: .13333334, y: -.400000006}
+      - {x: .300000012, y: -.166666672}
+      - {x: .300000012, y: .233333334}
+      - {x: .13333334, y: .466666669}
 --- !u!61 &6137296
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -430,7 +427,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sanityBar: {fileID: 0}
   sanityLifetime: 120
-  targetColor: {r: .904411793, g: .299253911, b: .299253911, a: .783999979}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  dangerColor: {r: .992156863, g: .274509817, b: .274509817, a: 1}
 --- !u!114 &11426824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -444,9 +442,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   grounded: 0
-  mapGenerator: {fileID: 0}
   moveSpeed: 6
   jumpForce: 400
+--- !u!114 &11428114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335c2877bc4f7b84b95f50e7f46893f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heldGem: {fileID: 0}
+  collection: {fileID: 0}
+  gem1: {fileID: 21300000, guid: c3d8badb96110c646afbbafb0da191fc, type: 3}
+  gem2: {fileID: 21300000, guid: 5e31e7b7948e44c4698bffa9964c3858, type: 3}
+  gem3: {fileID: 21300000, guid: 96e60ac98f527da4cb20ba43b68c2640, type: 3}
+  gem4: {fileID: 21300000, guid: c86ed0ce050a2bb4885a2288e692c80c, type: 3}
+  gem5: {fileID: 21300000, guid: 480d88f77a97d324bbb4487beb75736e, type: 3}
+  gem6: {fileID: 21300000, guid: 99b515864a028ed449416dd7020fdec4, type: 3}
+  gem7: {fileID: 21300000, guid: c724df0fbc7e6bc448e9685bf284d388, type: 3}
+  gem8: {fileID: 21300000, guid: cee90d1fa1f8c407db258b07a6b8dff7, type: 3}
 --- !u!114 &11433236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -472,9 +490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthContainer: {fileID: 0}
-  fullHeart: {fileID: 21300000, guid: 8a1114b36fb2dc044a621551c2a30039, type: 3}
-  halfHeart: {fileID: 21300000, guid: 0c609766ef021e14281354b4c3a21c96, type: 3}
-  emptyHeart: {fileID: 21300000, guid: 6839f529cc76329409f2b3b809f99007, type: 3}
+  fullHeart: {fileID: 21300000, guid: 1f5fd6f9cdb984f0689a788e52edf60b, type: 3}
+  halfHeart: {fileID: 21300000, guid: 0d2b975912e2c4ad28a95eb58a5f457b, type: 3}
+  emptyHeart: {fileID: 21300000, guid: e55bca571d33c4a7b89f77664287a04e, type: 3}
   sanityTickTime: 5
 --- !u!114 &11442772
 MonoBehaviour:
