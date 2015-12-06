@@ -12,10 +12,13 @@ public class Health : MonoBehaviour {
 
     private const int initHearts = 4;
     private const int heartValue = 2;
+    
+    private static int maxHealth = heartValue * initHearts;
+    private static int health = maxHealth;
 
     private Image[] hearts;
     private Sanity sanity;
-    private int health, maxHearts, maxHealth;
+    private int maxHearts;
     private float sanityClock;
 
     void Start ()
@@ -23,14 +26,13 @@ public class Health : MonoBehaviour {
         hearts = healthContainer.GetComponentsInChildren<Image>();
         sanity = GetComponent<Sanity>();
         maxHearts = hearts.Length;
-        maxHealth = heartValue * initHearts;
-        health = maxHealth;
         sanityClock = sanityTickTime;
 
-        for (int i = initHearts; i < maxHearts; i++)
+        for (int i = maxHealth / heartValue; i < maxHearts; i++)
         {
             hearts[i].enabled = false;
         }
+        UpdateHearts();
 	}
 
     void Update()
@@ -50,7 +52,7 @@ public class Health : MonoBehaviour {
     {
         health += amount;
         if (health > maxHealth)
-            health = maxHearts * heartValue;
+            health = maxHealth;
         else if (health < 0)
             health = 0;
         UpdateHearts();
@@ -86,5 +88,11 @@ public class Health : MonoBehaviour {
     public int GetHealth()
     {
         return health;
+    }
+
+    public static void ResetAllValues()
+    {
+        maxHealth = heartValue * initHearts;
+        health = maxHealth;
     }
 }

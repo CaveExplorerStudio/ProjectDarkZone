@@ -76,4 +76,10 @@ public class Sanity : MonoBehaviour
 
         sanity.value += sanity.maxValue * percent;
     }
+
+    public static void ResetAllValues()
+    {
+        deplete = false;
+        value = 100f;
+    }
 }
