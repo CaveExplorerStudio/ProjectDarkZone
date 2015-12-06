@@ -24,6 +24,14 @@ public class ActionBarHandler : MonoBehaviour
         {
             images[i] = GameObject.Find("ItemImage" + i);
         }
+
+        Torch torch = new Torch("Torch", Resources.Load<Sprite>("torch"), true, itemPrefabs[0]);
+        addActionBarItem(torch);
+        addActionBarItem(GameObject.Find("Player").GetComponent<GrapplingHookController>());
+        items[0].Amount = 20;
+        items[1].Amount = 20;
+        images[0].GetComponentInChildren<Text>().text = items[0].Amount.ToString();
+        images[1].GetComponentInChildren<Text>().text = items[1].Amount.ToString();
     }
 
     void Update()
@@ -100,20 +108,6 @@ public class ActionBarHandler : MonoBehaviour
             unused++;
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            // Add item to action bar
-            // Torch as example for now
-            Torch torch = new Torch("Torch", Resources.Load<Sprite>("torch"), true, itemPrefabs[0]);
-            Flare flare = new Flare("Flare", Resources.Load<Sprite>("torch"), true, itemPrefabs[1]);
-
-            addActionBarItem(torch);
-            addActionBarItem(flare);
-            addActionBarItem(GameObject.Find("Player").GetComponent<GrapplingHookController>());
-            GameObject.Find("Player").GetComponent<FlareController>().flares.Add(flare);
-            unused = 0;
-        }
-
         if (Input.GetKeyDown(KeyCode.U))
         {
             // Use item
@@ -164,7 +158,7 @@ public class ActionBarHandler : MonoBehaviour
 
         for (int i = 0; i < items.Length; i++)
         {
-            if (items[i] != null && items[i].Item.Name== item.Name)
+            if (items[i] != null && items[i].Item.Name.Equals(item.Name))
             {
                 OnActionBar = true;
                 items[i].Amount++;
@@ -187,4 +181,36 @@ public class ActionBarHandler : MonoBehaviour
             }
         }
     }
+
+    public void checkCollision(Collider2D collider)
+    {
+        bool isItem = false;
+        Debug.Log(collider.tag);
+        switch (collider.tag)
+        {
+            case "TorchUnlit":
+                Torch torch = new Torch("Torch", Resources.Load<Sprite>("torch"), true, itemPrefabs[0]);
+                addActionBarItem(torch);
+                isItem = true;
+                break;
+            case "Flare":
+                Flare flare = new Flare("Flare", Resources.Load<Sprite>("flare"), true, itemPrefabs[1]);
+                addActionBarItem(flare);
+                GameObject.Find("Player").GetComponent<FlareController>().flares.Add(flare);
+                isItem = true;
+                break;
+            case "Rope":
+                addActionBarItem(GameObject.Find("Player").GetComponent<GrapplingHookController>());
+                isItem = true;
+                break;
+        }
+
+        if (isItem)
+        {
+            unused = 0;
+            Destroy(collider.gameObject);
+        }
+
+    }
+
 }

@@ -122,6 +122,8 @@ public class PlayerController : MonoBehaviour
             heldGem = collision.collider.gameObject.name;
             hud.UpdateGemIcon(heldGem);
         }
+
+        GameObject.Find("ActionBar").GetComponent<ActionBarHandler>().checkCollision(collision.collider);
     }
 
     void OnCollisionExit2D(Collision2D collision)
