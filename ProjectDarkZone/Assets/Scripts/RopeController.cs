@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class RopeController : MonoBehaviour
 {
+    //Variable declaration
     private List<Rope> ropes;
     public int numOfRopes = 0;
     public bool canClimbRope = false;
@@ -15,6 +16,7 @@ public class RopeController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //Standard initialization
         ropes = new List<Rope>();
         thePlayer = this.gameObject;
         playerClimbing = this.GetComponent<Climbing>();
@@ -28,7 +30,7 @@ public class RopeController : MonoBehaviour
 
         if (numOfRopes == 0)
         {
-            if (Input.GetKeyDown(KeyCode.H))
+            if (Input.GetKeyDown(KeyCode.H)) //Rope fired on H key press.
             {
                 ropes.Add(new Rope(thePlayer, numOfRopes));
                 ropes[numOfRopes].SetFrameSpacing(4);
@@ -48,7 +50,7 @@ public class RopeController : MonoBehaviour
             numOfRopes++;
         }
 
-        foreach (Rope rp in ropes)
+        foreach (Rope rp in ropes) //Updating all the ropes that have been created. 
         {
             rp.Update();
             rp.facingRight = this.GetComponent<PlayerController>().facingRight;

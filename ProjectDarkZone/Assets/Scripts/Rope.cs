@@ -5,26 +5,28 @@ using System;
 
 public class Rope
 {
+    //Public variables
     public List<GameObject> ropeSegments = new List<GameObject>();
     public List<int> segmentCounters = new List<int>();
-    public int maxSegments = 40;
-    public int frameSpacing = 4;
+    public int maxSegments = 40; //Segments that make up the rope. Can be changed for a longer or shorter rope
+    public int frameSpacing = 4; //How much time to wait before shooting another segment. Higher number == longer rope.
     public LayerMask rope_layers;
     public LayerMask ground_layers;
     public bool facingRight = true;
     public bool isClimbable = false;
 
-
+    //Private object references
     private List<int> ropeSegmentCodes = new List<int>();
     private GameObject playerPosition;
     private GameObject prefab;
     private GameObject parent;
     private GameObject referencedObject;
     private GameObject head;
-
     private DistanceJoint2D tempHinge;
+
+    //Private primative variables
     private float damper = 1;
-    private int freezeTimer = 200;
+    private int freezeTimer = 200; //How long to wait before freezing rope after it has been launched. Longer == more buggy, but more realistic. 
     private int newStartIndex = 0;
     private int ropesCreated = 0;
     private int ropeNumber = 0;
@@ -46,6 +48,7 @@ public class Rope
     // Use this for initialization
     void Start()
     {
+        //Standard game object 
         playerPosition = GameObject.Find("FirePoint");
         prefab = Resources.Load("RopeSegment", typeof(GameObject)) as GameObject;
         parent = new GameObject();
@@ -66,11 +69,11 @@ public class Rope
             //freeze = true;
         }
 
-        if (creatingRope && frameCounter % frameSpacing == 0 && frameCounter != 0 && segmentsCreated < maxSegments)
+        if (creatingRope && frameCounter % frameSpacing == 0 && frameCounter != 0 && segmentsCreated < maxSegments) //If the spacer is out, create another segment and connect it to the previous
         {
             CreateGraplingHook(false);
             segmentsCreated++;
-            damper += .02f;
+            damper += .02f; //Damps the velocity for new segments after the first one. 
 
             tempHinge = ropeSegments[segmentsCreated - 1 + newStartIndex].AddComponent<DistanceJoint2D>();
             tempHinge.connectedBody = ropeSegments[segmentsCreated + newStartIndex].GetComponent<Rigidbody2D>();
@@ -81,14 +84,14 @@ public class Rope
 
         frameCounter++;
 
-        if (segmentsCreated == maxSegments)
+        if (segmentsCreated == maxSegments) //End of rope creation
         {
             creatingRope = false;
             newStartIndex += 1;
             newStartIndex += segmentsCreated;
             segmentsCreated = 0;
             damper = 1;
-            ropeSegmentCodes.Add(0);
+            ropeSegmentCodes.Add(0); //Means that the current segment should not have a tracer link to the next one. 
             freeze = true;
             ropesCreated++;
         }
@@ -99,7 +102,7 @@ public class Rope
                 segmentCounters[i] -= 1;
         }
 
-        if (freeze)
+        if (freeze) // Will freeze rope in place after allotted timer
         {
             if (freezeTimer != 0)
                 freezeTimer--;
@@ -112,7 +115,7 @@ public class Rope
             UpdateTraces();
         }
 
-        if (!foundHead)
+        if (!foundHead) //Finding the head of the rope to do the collision calculations. 
         {
             if (!(GameObject.Find("RHead" + ropeNumber) == null))
             {
@@ -128,7 +131,7 @@ public class Rope
 
     }
 
-    private void NewFreezeRope()
+    private void NewFreezeRope() //Freezes each segment in the array.
     {
         for (int i = 0; i < ropeSegments.Count; i++)
         {
@@ -140,11 +143,11 @@ public class Rope
         }
     }
 
-    void CreateGraplingHook(bool firstSegment)
+    void CreateGraplingHook(bool firstSegment) //Responsible for the first segment
     {
         Material newMat = Resources.Load("Rope", typeof(Material)) as Material;
         GameObject projectile = MonoBehaviour.Instantiate(prefab) as GameObject;
-        GameObject firePoint = GameObject.Find("FirePoint");
+        GameObject firePoint = GameObject.Find("FirePoint"); //Place where the rope will eminate from
         projectile.transform.position = firePoint.transform.position;
         projectile.transform.rotation = firePoint.transform.rotation;
 
@@ -168,7 +171,7 @@ public class Rope
         segmentCounters.Add(120);
         ropeSegmentCodes.Add(1);
 
-        if (firstSegment)
+        if (firstSegment) //Make the first segment the head
         {
             CheckCollide chk = ropeSegments[ropeSegments.IndexOf(projectile)].AddComponent<CheckCollide>();
             chk.segmentIndex = ropeSegments.IndexOf(projectile);
@@ -182,7 +185,7 @@ public class Rope
 
     }
 
-    void UpdateTraces()
+    void UpdateTraces() //Traces drawn in between the segments of rope. 
     {
         bool foundOnCurrentIteration = false;
         for (int i = 1; i < ropeSegments.Count; i++)
