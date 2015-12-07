@@ -15,19 +15,23 @@ public class EasterEggController : MonoBehaviour {
 
 	void Update()
     {
-        foreach (var c in Input.inputString)
-        {
-            enteredCharacters += c;
-            if (enteredCharacters.Contains(easterEgg))
-            {
-                CaveBackground.mainTexture = Resources.Load<Texture>("Modi");
-            }
-
-            if (enteredCharacters.Length >= 4)
-            {
-                enteredCharacters = enteredCharacters.Substring(1);
-            }
-        }
+		if (Input.GetKeyDown(KeyCode.Period)) {
+			CaveBackground.mainTexture = Resources.Load<Texture>("Modi");
+		}
+//		Debug.Log ("Input: " + Input.inputString);
+//        foreach (var c in Input.inputString)
+//        {
+//            enteredCharacters += c;
+//            if (enteredCharacters.Contains(easterEgg))
+//            {
+//                CaveBackground.mainTexture = Resources.Load<Texture>("Modi");
+//            }
+//
+//            if (enteredCharacters.Length >= 4)
+//            {
+//                enteredCharacters = enteredCharacters.Substring(1);
+//            }
+//        }
     }
 
 

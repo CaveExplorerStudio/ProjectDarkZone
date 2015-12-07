@@ -185,7 +185,6 @@ public class ActionBarHandler : MonoBehaviour
     public void checkCollision(Collider2D collider)
     {
         bool isItem = false;
-        Debug.Log(collider.tag);
         switch (collider.tag)
         {
             case "TorchUnlit":

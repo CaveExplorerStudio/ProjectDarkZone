@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Health health;
 	private Animator anim;
     private PlayerHUDController hud;
+	private GameObject headLight;
 
 
     void Awake()
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
         downSlope = false;
 		anim = GetComponent<Animator>();
         hud = GetComponent<PlayerHUDController>();
+		headLight = GameObject.Find ("HeadLight");
 
         int min = 0;
         for (int i = 0; i < standing.Length; i++)
@@ -106,10 +108,15 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
             float velocity = Mathf.Abs(collision.relativeVelocity.magnitude);
+			float verticalVelocity = collision.relativeVelocity.y;
+//			Debug.Log ("Velocity: " + verticalVelocity.ToString());
             if(velocity > 16)
             {
                 health.AddHealth((int)((16 - velocity) * 0.5));
             }
+			else if (verticalVelocity < -10.0f) {
+				anim.SetTrigger("Land");
+			}
             if (collision.collider.tag.Equals("Overworld"))
                 Sanity.SetDepleteSanity(false);
             else if (collision.collider.tag.Equals("Cave"))
@@ -236,6 +243,7 @@ public class PlayerController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+		this.headLight.transform.Rotate(0,180,0);
     }
 
     void Crouch(bool crouch)
@@ -269,6 +277,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Death()
     {
+		anim.SetBool("isDead", true);
         disableMovement();
         events.ShakeCamera(0.5f, 3f);
         yield return new WaitForSeconds(5f);
