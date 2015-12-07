@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class PageController : MonoBehaviour {
+    //Static members
     private static int numberOfPages = 0;
     private static int pagesCollected = 0;
+
+    //Object references
     private List<journalPage> pages;
-    private string h;
     System.IO.StreamReader file;
     public GameObject pageGUI;
     private bool timeToSet = true;
@@ -18,13 +20,18 @@ public class PageController : MonoBehaviour {
     private LayerMask page_layer;
     private Canvas pageCanvas;
     private CanvasGroup pageCanvasGroup;
+
+    //Primatives
     private bool pageActive;
     private bool isFading;
-    private int fadeCounter = 10;
+    private int fadeCounter = 10; //Change to adjust fade speed 
     private int fadeState = -1;
+    private string h;
 
     // Use this for initialization
     void Start () {
+
+        //Standard game object loading
         this.mapGenScript = GameObject.Find("Map Generator").GetComponent<MapGenerator>();
         pages = new List<journalPage>();
         file = new System.IO.StreamReader("Assets/Resources/entries.txt");
@@ -39,7 +46,7 @@ public class PageController : MonoBehaviour {
 
         pageActive = false;
 
-        while ((h = file.ReadLine()) != null)
+        while ((h = file.ReadLine()) != null) //Read each line of the entries.txt file, with each title, body, and footer being divided by enter. May want to change to \t or something
         {
             Debug.Log(h);
             pages.Add(new journalPage(h, file.ReadLine(), file.ReadLine(), numberOfPages));
@@ -52,7 +59,7 @@ public class PageController : MonoBehaviour {
         if (pageCanvas == null)
             Debug.Log("The reference is null");
         else
-            Debug.Log("I have a reference!!");
+            Debug.Log("I have a reference!!"); //Verifying reference to the page Canvas because changes to the scene have caused problems.
 
         pageCanvasGroup = pageGUI.GetComponent<CanvasGroup>();
 
@@ -96,13 +103,13 @@ public class PageController : MonoBehaviour {
                 pageCanvas.enabled = true;
                 pageActive = true;
                 isFading = true;
-                fadeState = 0;
+                fadeState = 0; //Fade-in
             }
 
             if (Input.GetKeyDown(KeyCode.X) && pageActive) //Also have to store data.
             {
                 isFading = true;
-                fadeState = 1;
+                fadeState = 1; //Fade-out
             }
 
             if (isFading)
@@ -112,7 +119,7 @@ public class PageController : MonoBehaviour {
 
     }
 
-    private void FadePage(int i)
+    private void FadePage(int i) //Different states depending if it's starting/stoping fading-in/fading-out
     {
         if (fadeCounter != 0 && i == 1)
         {
@@ -150,9 +157,9 @@ public class PageController : MonoBehaviour {
 
     
 
-    public void placePages()
+    public void placePages() //Evenly distributed pages throughout the map, from the map generator script
     {
-        this.mapGenScript.PlaceEvenlyDistributed(pagePrefab, pageParent, 10);
+        this.mapGenScript.PlaceEvenlyDistributed(pagePrefab, pageParent, 18);
     }
 
     public int getAllCurrentPages()
@@ -167,7 +174,7 @@ public class PageController : MonoBehaviour {
 
 }
 
-public struct journalPage
+public struct journalPage //Struct used to hold page data. May be replaced by class in later development
 {
     public string header;
     public string footer;

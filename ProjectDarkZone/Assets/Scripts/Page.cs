@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Code currently unused. Refer to the "JournalController" and "PageController" for functionality. 
+
 public class Page : IItem{
     public string Name { get; set; }
     public Sprite Image { get; set; }

@@ -17,7 +17,7 @@ public class PageCollisionController : MonoBehaviour {
 	void Update () {
         if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), .7f, player_layer) == null))
         {
-            myRenderer.enabled = true;
+            myRenderer.enabled = true; //Renders the text above the page. 
 
             if (Input.GetKeyDown(KeyCode.E))
             {

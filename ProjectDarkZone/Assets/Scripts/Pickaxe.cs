@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Currently unused be ready item
+*/
+
 public class Pickaxe{
     //References
     private GameObject playerPosition;
@@ -19,6 +23,7 @@ public class Pickaxe{
     
     public Pickaxe()
     {
+        //Standard game object loading
         playerPosition = GameObject.Find("FirePoint");
         player = GameObject.Find("Player");
         playerControl = player.GetComponent<PlayerController>();
@@ -36,19 +41,19 @@ public class Pickaxe{
         pickBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
 
-        Vector2 throwVelocity = new Vector2(4.0f, 5.0f);
+        Vector2 throwVelocity = new Vector2(4.0f, 5.0f); //Controls initial throw speed and direction
         if(playerControl.facingRight == false)
         {
-            throwVelocity.x *= -1;
+            throwVelocity.x *= -1; //Will reverse the X depending on how you are facing. 
         }
 
         pickBody.velocity = throwVelocity;
-        pickBody.angularVelocity = 200.0f;
+        pickBody.angularVelocity = 200.0f; //Gives rotation to the throw
 
         currentPickaxe = newPick;
         currentRigidBody = pickBody;
 
-        leftSpike = GameObject.Find("LeftSpike");
+        leftSpike = GameObject.Find("LeftSpike"); //Used for collisions in the CheckCollision() methods, represents the tips of the axe. 
         rightSpike = GameObject.Find("RightSpike");
 
         leftSpike.name = "LeftSpike" + numOfAxes;

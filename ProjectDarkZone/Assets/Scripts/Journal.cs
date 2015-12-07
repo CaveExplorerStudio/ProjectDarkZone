@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+Currently unused object. To see journal functionally, see "JournalController"
+*/
+
 public class Journal : IItem {
 
     public string Name { get; set; }
