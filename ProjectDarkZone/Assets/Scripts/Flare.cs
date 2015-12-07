@@ -40,7 +40,7 @@ public class Flare : IItem {
 
         GameObject newFlare = MonoBehaviour.Instantiate(Prefab, pickPosition, Quaternion.identity) as GameObject;
 
-        Rigidbody2D flareBody = newFlare.AddComponent<Rigidbody2D>();
+        Rigidbody2D flareBody = newFlare.GetComponent<Rigidbody2D>();
         flareBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
 
