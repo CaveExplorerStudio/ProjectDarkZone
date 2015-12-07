@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class JournalController : MonoBehaviour {
+    //Private object references
     private List<journalPage> collectedPages;
     private Canvas journalCanvas;
     private CanvasGroup journalCanvasGroup;
@@ -12,6 +13,7 @@ public class JournalController : MonoBehaviour {
     private PageController pageControl;
     private Button[] buttons;
 
+    //Private primative variables
     private bool journalActive;
     private bool isFading;
     private int fadeState;
@@ -25,6 +27,7 @@ public class JournalController : MonoBehaviour {
         journalActive = false;
         journalGUI.name = "ActiveJournal";
 
+        //Get's components from scene in one place to aid in run-time efficiency. 
         journalCanvas = journalGUI.GetComponent<Canvas>();
         journalCanvasGroup = journalGUI.GetComponent<CanvasGroup>();
         pageControl = GameObject.Find("Player").GetComponent<PageController>();
@@ -36,7 +39,7 @@ public class JournalController : MonoBehaviour {
 	
 	
 	void Update () {
-	    if (Input.GetKeyDown(KeyCode.J) && !journalActive)
+	    if (Input.GetKeyDown(KeyCode.J) && !journalActive) //Journal bounded to "J" here
         {
             UpdateText();
             journalActive = !journalActive;
@@ -57,7 +60,7 @@ public class JournalController : MonoBehaviour {
 
     }
 
-    private void FadePage(int i)
+    private void FadePage(int i) //Used to slowly fade the page. i == 1 is a fade out, i == 0 is a fade in.
     {
         if (fadeCounter != 0 && i == 1)
         {
@@ -87,11 +90,11 @@ public class JournalController : MonoBehaviour {
 
     private void UpdateText()
     {
-        Text[] fields = journalGUI.GetComponentsInChildren<Text>();
+        Text[] fields = journalGUI.GetComponentsInChildren<Text>(); //Gets components of the text in GUI
 
         collectedPages = pageControl.getCollectedPages();
 
-        if (pageControl.getAllCurrentPages() == 0)
+        if (pageControl.getAllCurrentPages() == 0) //Controls for if the pages are blank or not even.
         {
             fields[0].text = "You have no collected entries";
             fields[1].text = "";
@@ -120,14 +123,14 @@ public class JournalController : MonoBehaviour {
         }
     }
 
-    public void clickForward()
+    public void clickForward() //Connected to the "onclick" of the right button
     {
         if (currentPage < pageControl.getAllCurrentPages() - 2)
             currentPage += 2;
         UpdateText();
     }
 
-    public void clickBack()
+    public void clickBack() //Connected to the "onclick" of the left button
     {
         if (currentPage >= 2)
             currentPage -= 2;
