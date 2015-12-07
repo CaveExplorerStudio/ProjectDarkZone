@@ -21,12 +21,15 @@ public class Health : MonoBehaviour {
     private int maxHearts;
     private float sanityClock;
 
+	private Animator playerAnimator;
+
     void Start ()
     {
         hearts = healthContainer.GetComponentsInChildren<Image>();
         sanity = GetComponent<Sanity>();
         maxHearts = hearts.Length;
         sanityClock = sanityTickTime;
+		playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
 
         for (int i = maxHealth / heartValue; i < maxHearts; i++)
         {
@@ -50,7 +53,12 @@ public class Health : MonoBehaviour {
 
     public void AddHealth(int amount)
     {
+
         health += amount;
+		if (amount < 0) {
+			playerAnimator.SetTrigger("Hurt");
+		}
+
         if (health > maxHealth)
             health = maxHealth;
         else if (health < 0)

@@ -27,7 +27,7 @@ public class PageController : MonoBehaviour {
     void Start () {
         this.mapGenScript = GameObject.Find("Map Generator").GetComponent<MapGenerator>();
         pages = new List<journalPage>();
-        file = new System.IO.StreamReader("Assets\\Resources\\entries.txt");
+        file = new System.IO.StreamReader("Assets/Resources/entries.txt");
 
         prefab = Resources.Load("PageUI", typeof(GameObject)) as GameObject;
         pagePrefab = Resources.Load("Page", typeof(GameObject)) as GameObject;

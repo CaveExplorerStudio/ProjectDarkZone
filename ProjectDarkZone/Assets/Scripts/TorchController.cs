@@ -54,12 +54,12 @@ public class TorchController : MonoBehaviour {
 		audioSource = this.GetComponent<AudioSource>();
 		
 		if (shouldFollowPlayer) {
-			if (this.player == null) {
-				this.player = GameObject.Find ("Player").transform;
-			}
-			playerController = this.player.GetComponent<PlayerController>();
-			torchPlacer = this.player.GetComponent<TorchPlacer>();
-			this.transform.parent = player.transform;
+//			if (this.player == null) {
+//				this.player = GameObject.Find ("Player").transform;
+//			}
+//			playerController = this.player.GetComponent<PlayerController>();
+//			torchPlacer = this.player.GetComponent<TorchPlacer>();
+//			this.transform.parent = player.transform;
 		}
 	}
 	
