@@ -11,7 +11,12 @@ public class TorchController : MonoBehaviour {
 	
 	//Timing
 	float startTime;
-	
+
+
+	//Spot Light
+	float initSpotAngle;
+	float spotAngleVariation = 5.0f;
+
 	//Durations
 	float burnTime = 10.0f; //Guaranteed time the torch will be lit (assuming a direct method to extinguish is not called)
 	float extinguishProbability = 0.0001f; //Probability of torch going out by shadow after burnTime
@@ -48,8 +53,8 @@ public class TorchController : MonoBehaviour {
 	
 	void Start () {
 		startTime = Time.time;
-		
 		this.light = this.GetComponentInChildren<Light>();
+		initSpotAngle = this.light.spotAngle;
 		
 		audioSource = this.GetComponent<AudioSource>();
 		
@@ -135,9 +140,13 @@ public class TorchController : MonoBehaviour {
 	}
 	
 	void Burn() {
+
+		this.light.spotAngle = initSpotAngle + UnityEngine.Random.Range(-spotAngleVariation,spotAngleVariation);
+
 		if (audioSource.isPlaying == false) {
 			audioSource.PlayOneShot(burningSound,1.0f);
 		}
+
 		if (Time.time - startTime >= burnTime) {
 			if (UnityEngine.Random.value < this.extinguishProbability) {
 				this.Extinguish();
