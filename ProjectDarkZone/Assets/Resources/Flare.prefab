@@ -11,6 +11,8 @@ GameObject:
   - 212: {fileID: 21266872}
   - 60: {fileID: 6050402}
   - 50: {fileID: 5070186}
+  - 82: {fileID: 8238094}
+  - 114: {fileID: 11484694}
   m_Layer: 0
   m_Name: Flare
   m_TagString: Untagged
@@ -41,8 +43,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.14924574, y: -6.78149557, z: 0}
-  m_LocalScale: {x: .0470559597, y: .0470559597, z: .0470559597}
+  m_LocalPosition: {x: -60.0999985, y: 67.5699997, z: 0}
+  m_LocalScale: {x: .0299999993, y: .0299999993, z: .0470559597}
   m_Children:
   - {fileID: 461538}
   m_Father: {fileID: 0}
@@ -54,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.52000046, y: -1.61000001, z: -2.5}
+  m_LocalPosition: {x: 8.39999962, y: -3.29999995, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 424102}
@@ -217,6 +219,76 @@ PolygonCollider2D:
       - {x: 8.45499992, y: -3.24000001}
       - {x: 8.71500015, y: -3.1099999}
       - {x: 9.09500027, y: -2.71000004}
+--- !u!82 &8238094
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101632}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5b1098da6de41405b8a4680eee0c583a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!108 &10876688
 Light:
   m_ObjectHideFlags: 1
@@ -225,11 +297,11 @@ Light:
   m_GameObject: {fileID: 172814}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 2
+  m_Type: 0
   m_Color: {r: .911764681, g: .0603373721, b: .0603373721, a: 1}
-  m_Intensity: 6
-  m_Range: 20
-  m_SpotAngle: 30
+  m_Intensity: 8
+  m_Range: 43.7700005
+  m_SpotAngle: 167
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -249,6 +321,17 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11484694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e8cdb130e3c48f8af2ac71b22c2d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21266872
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -296,6 +379,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b1098da6de41405b8a4680eee0c583a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -51,7 +51,7 @@ public class Flare : IItem {
         }
 
         flareBody.velocity = throwVelocity;
-        flareBody.angularVelocity = 200.0f;
+        flareBody.angularVelocity = 400.0f;
 
         currentFlare = newFlare;
         currentRigidBody = flareBody;
