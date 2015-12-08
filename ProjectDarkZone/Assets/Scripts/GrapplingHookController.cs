@@ -14,6 +14,7 @@ public class GrapplingHookController : MonoBehaviour, IItem {
     private GameObject thePlayer;
     private Climbing playerClimbing;
     private RopeController playerRopeController;
+	private AudioController audioController;
 
     // Use this for initialization
     void Start () {
@@ -25,10 +26,14 @@ public class GrapplingHookController : MonoBehaviour, IItem {
         Image = Resources.Load<Sprite>("grapplinghook");
         IsConsumable = true;
         Prefab = null;
+		audioController = GameObject.Find ("Audio Delegate").GetComponent<AudioController>();
     }
 	
     public void Use()
     {
+
+		audioController.PlayGrapplingThrowSound();
+
         if (numOfGrapplingHooks == 0)
         {
             grapplingHooks.Add(new GraplingHook(thePlayer, numOfGrapplingHooks));

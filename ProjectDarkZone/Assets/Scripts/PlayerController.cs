@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 	private Animator anim;
     private PlayerHUDController hud;
 	private GameObject headLight;
+	private AudioController audioController;
 
 
     void Awake()
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
 		anim = GetComponent<Animator>();
         hud = GetComponent<PlayerHUDController>();
 		headLight = GameObject.Find ("HeadLight");
+		audioController = GameObject.Find ("Audio Delegate").GetComponent<AudioController>();
 
         int min = 0;
         for (int i = 0; i < standing.Length; i++)
@@ -116,6 +118,7 @@ public class PlayerController : MonoBehaviour
             }
 			else if (verticalVelocity < -10.0f) {
 				anim.SetTrigger("Land");
+				audioController.PlayLandingSound();
 			}
             if (collision.collider.tag.Equals("Overworld"))
                 Sanity.SetDepleteSanity(false);
@@ -222,7 +225,12 @@ public class PlayerController : MonoBehaviour
             NormalizeSlope();
 
 		//Send Parameters to Animator
-		anim.SetFloat("HorizontalSpeed",Mathf.Abs(rigidbody.velocity.x)/10);
+		float horizontalSpeed = this.grounded ? Mathf.Abs(rigidbody.velocity.x)/10:0;
+
+		anim.SetFloat("HorizontalSpeed",horizontalSpeed);
+		if (horizontalSpeed > 0.1) {
+			audioController.PlayFootStepSound();
+		}
 
     }
 

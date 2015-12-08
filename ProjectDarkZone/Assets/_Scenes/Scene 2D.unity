@@ -33467,6 +33467,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: footSteps.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 494460, guid: df72ce19bfbab44f487079333deba334, type: 2}
       propertyPath: m_LocalPosition.x
       value: -63.5
@@ -33523,6 +33527,54 @@ Prefab:
       propertyPath: m_Intensity
       value: .74000001
       objectReference: {fileID: 0}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: footSteps.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b5ff4222995834335ae02e65e3760fbd, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: footSteps.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: de95607d7d5eb4284b022938c29d03fa, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: footSteps.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd23819fbff16400f87ddbf425afe021, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: footSteps.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: de671ad604599423492c388aaacc0251, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: footSteps.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 91d772a1bb1d24850aeace8c2566fd87, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: footSteps.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: f43e4cabf029e4afc9ee40d1311f8144, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: footSteps.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70179986d6ac24191a71354ab0b9c76f, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: footSteps.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: bc403f4e53a57482db71f59fbb490d50, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: landingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e54ce2a1a5a041f99e7da3d3b815ed6, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: heartBeatSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71eff7694e09d4ff2a5a11101edefd3d, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: grapplingThrowSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 30389f3a99a494e55ba01a42614e2de0, type: 3}
+    - target: {fileID: 11468344, guid: df72ce19bfbab44f487079333deba334, type: 2}
+      propertyPath: grapplingHitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7272282cd56ee43259680d8dc4f5cfa6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df72ce19bfbab44f487079333deba334, type: 2}
   m_IsPrefabParent: 0
