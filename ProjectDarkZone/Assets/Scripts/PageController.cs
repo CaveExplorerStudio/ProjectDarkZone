@@ -98,7 +98,7 @@ public class PageController : MonoBehaviour {
                 timeToSet = !timeToSet;
             }
 
-            if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), .8f, page_layer) == null) && Input.GetKeyDown(KeyCode.E))
+            if (!(Physics2D.OverlapCircle(new Vector2(this.transform.position.x, this.transform.position.y), 1f, page_layer) == null) && Input.GetKeyDown(KeyCode.E))
             {
                 pageCanvas.enabled = true;
                 pageActive = true;
