@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 6f;
     public float jumpForce = 400f;
 
-    private static string heldGem = null;
+    public static string heldGem = null;
     private static int numCollected = 0;
     private static string[] collectedGems = new string[8];
 
@@ -111,12 +111,13 @@ public class PlayerController : MonoBehaviour
             grounded = true;
             float velocity = Mathf.Abs(collision.relativeVelocity.magnitude);
 			float verticalVelocity = collision.relativeVelocity.y;
+//			Debug.Log ("VV: " + verticalVelocity);
 //			Debug.Log ("Velocity: " + verticalVelocity.ToString());
             if(velocity > 16)
             {
                 health.AddHealth((int)((16 - velocity) * 0.5));
             }
-			else if (verticalVelocity < -10.0f) {
+			if (verticalVelocity < -9.0f) {
 				anim.SetTrigger("Land");
 				audioController.PlayLandingSound();
 			}
@@ -133,7 +134,12 @@ public class PlayerController : MonoBehaviour
             hud.UpdateGemIcon(heldGem);
         }
 
-        GameObject.Find("ActionBar").GetComponent<ActionBarHandler>().checkCollision(collision.collider);
+		GameObject actionBar = GameObject.Find("ActionBar");
+		if (actionBar != null) {
+			actionBar.GetComponent<ActionBarHandler>().checkCollision(collision.collider);
+		}
+
+//        GameObject.Find("ActionBar").GetComponent<ActionBarHandler>().checkCollision(collision.collider);
     }
 
     void OnCollisionExit2D(Collision2D collision)

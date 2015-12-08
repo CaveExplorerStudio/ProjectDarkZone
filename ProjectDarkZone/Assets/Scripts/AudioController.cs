@@ -6,6 +6,7 @@ public class AudioController : MonoBehaviour {
 	AudioSource audioSource;
 
 	public AudioClip ambient1;
+	public AudioClip ambientSuspense;
 
 
 	public AudioClip shakeSound;
@@ -34,6 +35,12 @@ public class AudioController : MonoBehaviour {
 		this.audioSource.loop = true;
 	}
 
+	public void ChangeAmbient() {
+		audioSource.Stop();
+		this.audioSource.clip = ambientSuspense;
+		audioSource.Play ();
+	}
+
 	public void PlayShakeSound() {
 		audioSource.PlayOneShot(shakeSound);
 	}
@@ -52,8 +59,10 @@ public class AudioController : MonoBehaviour {
 
 	public void PlayHeartBeatSound(float volume) {
 		if (Time.time - timeOfLastHeartBeat >= heartBeatDelay) {
-			audioSource.PlayOneShot(heartBeatSound,volume);
-			timeOfLastHeartBeat = Time.time;
+			if (audioSource != null) {
+				audioSource.PlayOneShot(heartBeatSound,volume);
+				timeOfLastHeartBeat = Time.time;
+			}
 		}
 	}
  

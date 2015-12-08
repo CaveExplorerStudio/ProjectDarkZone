@@ -114,7 +114,7 @@ public class ActionBarHandler : MonoBehaviour
             unused++;
         }
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.U) || Input.GetMouseButtonDown(0))
         {
             // Use item
             if (items[selectedIndex] != null)

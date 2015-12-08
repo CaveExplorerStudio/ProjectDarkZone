@@ -8,6 +8,7 @@ public class MarkerPlacer : MonoBehaviour {
 	GameObject tempGhostMarker;
 	PlayerController playerController;
 	Coord newMarkerTile;
+	Vector2 markerPosition;
 	MapGenerator mapGenScript;
 	bool inPlacementMode = false;
 	
@@ -21,9 +22,9 @@ public class MarkerPlacer : MonoBehaviour {
 	}
 	
 	void AddMarker() {
-		Vector2 tilePos = mapGenScript.GetTilePositionInScene(newMarkerTile);
-		Vector3 markerPosition = new Vector3(tilePos.x,tilePos.y,0.01f);
-		GameObject newMarker = Instantiate(this.marker, markerPosition, Quaternion.identity) as GameObject;
+//		Vector2 tilePos = mapGenScript.GetTilePositionInScene(newMarkerTile);
+		Vector3 markerPos = new Vector3(markerPosition.x,markerPosition.y,0.01f);
+		GameObject newMarker = Instantiate(this.marker, markerPos, Quaternion.identity) as GameObject;
 		newMarker.transform.parent = this.markers.transform;
 		newMarker.transform.rotation = tempGhostMarker.transform.rotation;
 	}
@@ -45,8 +46,9 @@ public class MarkerPlacer : MonoBehaviour {
 		inPlacementMode = true;
 		playerController.disableMovement();
 		//		newMarkerTile = FindTile(); //if crouched, look at floor tiles
-		newMarkerTile = mapGenScript.GetTileFromScenePosition(this.transform.position);
-		tempGhostMarker = Instantiate(this.ghostMarker, mapGenScript.GetTilePositionInScene(newMarkerTile), Quaternion.identity) as GameObject;
+//		newMarkerTile = mapGenScript.GetTileFromScenePosition(this.transform.position);
+		markerPosition = this.transform.position;
+		tempGhostMarker = Instantiate(this.ghostMarker, markerPosition, Quaternion.identity) as GameObject;
 		tempGhostMarker.transform.parent = this.markers.transform;
 		tempGhostMarker.transform.rotation = this.markers.transform.rotation;
 	}
