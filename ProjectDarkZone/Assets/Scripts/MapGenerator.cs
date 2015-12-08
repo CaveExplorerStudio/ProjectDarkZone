@@ -1201,7 +1201,7 @@ public class MapGenerator : MonoBehaviour {
 	
 	public void PlaceItemsAndGems() {
 		PlaceEvenlyDistributed(this.gemPrefabs, this.gems, GetTilePositionInScene(this.playerSpawn), 30.0f);
-		PlaceEvenlyDistributed(this.journalPrefab, this.items, 8);
+//		PlaceEvenlyDistributed(this.journalPrefab, this.items, 8);
 		PlaceRandomly(this.unlitTorchPrefab, this.items, 20);
 		PlaceRandomly(this.ropePrefab, this.items, 10);
 		PlaceRandomly(this.flarePrefab, this.items, 20);
@@ -1230,7 +1230,7 @@ public class MapGenerator : MonoBehaviour {
 	public void PlaceEvenlyDistributed(GameObject prefab, GameObject parent, int amount) {
 		Coord[] spawnPoints =  GetSpacedOutCoords(amount,this.itemSpawnTiles);
 		for(int i = 0; i < amount; i++) {
-			Coord raisedSpawnPoint = new Coord(spawnPoints[i].tileX,spawnPoints[i].tileY+1);
+			Coord raisedSpawnPoint = new Coord(spawnPoints[i].tileX,spawnPoints[i].tileY);
 			AddObjectAt(raisedSpawnPoint,prefab,parent);
 		}
 	}

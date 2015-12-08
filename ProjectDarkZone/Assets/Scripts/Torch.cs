@@ -20,7 +20,10 @@ public class Torch : IItem
         Prefab = prefab;
         Torches = GameObject.Find("Torches");
         Player = GameObject.Find("Player");
-        MapGenScript = GameObject.Find("Map Generator").GetComponent<MapGenerator>();
+		GameObject mapGen = GameObject.Find("Map Generator");
+		if (mapGen != null) {
+			MapGenScript = mapGen.GetComponent<MapGenerator>();
+		}
     }
 
 

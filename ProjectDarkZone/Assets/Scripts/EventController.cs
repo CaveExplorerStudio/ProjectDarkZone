@@ -13,12 +13,15 @@ public class EventController : MonoBehaviour {
 	//Prefabs
 	public GameObject rock1;
 	public GameObject batSwarm;
-	
+
+	public Transform rockSpawnPoint;
+
 	//GameObjects
 	GameObject camera;
 	GameObject player;
 	GameObject mapGenerator;
 	GameObject audioDelegate;
+	GameObject exit;
 	
 	//Scripts
 	CameraController cameraController;
@@ -34,6 +37,8 @@ public class EventController : MonoBehaviour {
 		this.player = GameObject.Find ("Player");
 		this.mapGenerator = GameObject.Find ("Map Generator");
 		this.audioDelegate = GameObject.Find ("Audio Delegate");
+		this.exit = GameObject.Find ("Exit");
+//		this.rockSpawnPoint = GameObject.Find ("Rock Spawn").transform;
 		
 		this.cameraController = camera.GetComponent<CameraController>();
 		this.playerController = player.GetComponent<PlayerController>();
@@ -41,15 +46,61 @@ public class EventController : MonoBehaviour {
 		this.mapGenScript = mapGenerator.GetComponent<MapGenerator>();
 		this.audioController = audioDelegate.GetComponent<AudioController>();
 	}
-	
+
+	bool didRecieveGemUpdate = false;
+
 	// Update is called once per frame
 	void Update () {
+		if (didRecieveGemUpdate == false && PlayerController.heldGem != null) {
+			didRecieveGemUpdate = true;
+			gemsCollected = 1;
+			audioController.ChangeAmbient();
+		}
+
+
+		DoEvents();
 
 		if (enableNumberTesting) {
 			CheckTests();
 		}
 
 
+	}
+
+	bool hasShaken = false;
+	bool hasDoneSecondShake = false;
+	bool hasSweepedDim = false;
+	bool hasSweepedOut = false;
+	bool hasDoneRockSlide = false;
+
+
+	void DoEvents() {
+
+		float distFromExit = Vector2.Distance(exit.transform.position,player.transform.position);
+
+		if (hasSweepedDim == false && distFromExit > 13.0f) {
+			TorchSweepDim(40.0f,0.6f,0.05f);
+			hasSweepedDim = true;
+		}
+
+		if (gemsCollected > 0) {
+			if (hasShaken == false) {
+				hasShaken = true;
+				ShakeCamera(0.5f,5.0f);
+			}
+			else if (hasSweepedOut == false) {
+				hasSweepedOut = true;
+				TorchSweepOut(40.0f);
+			}
+			else if (hasDoneRockSlide == false && distFromExit < 30.0f) {
+				hasDoneRockSlide = true;
+				CauseCaveIn(5,rockSpawnPoint.position);
+			}
+			else if (hasDoneSecondShake == false && distFromExit < 15.0f) {
+				hasDoneSecondShake = true;
+				ShakeCamera(0.5f,5.0f);
+			}
+		}
 	}
 
 	void CheckTests() {
@@ -162,8 +213,19 @@ public class EventController : MonoBehaviour {
 			this.rock1.transform.localScale = new Vector3(randomScale,randomScale,1.0f);
 			mapGenScript.AddObjectAt(spawnTile,this.rock1,mapGenScript.rocks);
 		}
+	}
+
+	public void CauseCaveIn(int rockAmount, Vector3 originV3) {
+
+		Coord origin = mapGenScript.GetTileFromScenePosition(originV3);
+
+		List<Coord> rockSpawnTiles = mapGenScript.GetOpenTileCluster(origin,rockAmount);
 		
-		
+		foreach(Coord spawnTile in rockSpawnTiles) {
+			float randomScale = UnityEngine.Random.Range(10,60)/100.0f;
+			this.rock1.transform.localScale = new Vector3(randomScale,randomScale,1.0f);
+			mapGenScript.AddObjectAt(spawnTile,this.rock1,mapGenScript.rocks);
+		}
 	}
 	
 	public void TorchSweepDim(float speed, float dimDuration, float dimPercentage) {
