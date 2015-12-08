@@ -26,12 +26,18 @@ public class ActionBarHandler : MonoBehaviour
         }
 
         Torch torch = new Torch("Torch", Resources.Load<Sprite>("torch"), true, itemPrefabs[0]);
+		Flare flare = new Flare("Flare", Resources.Load<Sprite>("flare"),true,itemPrefabs[1]);
         addActionBarItem(torch);
+		addActionBarItem(flare);
         addActionBarItem(GameObject.Find("Player").GetComponent<GrapplingHookController>());
+
         items[0].Amount = 20;
         items[1].Amount = 20;
+		items[2].Amount = 20;
+
         images[0].GetComponentInChildren<Text>().text = items[0].Amount.ToString();
         images[1].GetComponentInChildren<Text>().text = items[1].Amount.ToString();
+		images[2].GetComponentInChildren<Text>().text = items[2].Amount.ToString();
     }
 
     void Update()

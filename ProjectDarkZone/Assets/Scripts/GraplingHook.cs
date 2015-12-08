@@ -13,6 +13,8 @@ public class GraplingHook{
     public bool facingRight = true;
     public bool isClimbable = false;
 
+	public bool hasMadeHitSound = false;
+
 
     private List<int> ropeSegmentCodes = new List<int>();
     private GameObject playerPosition;
@@ -20,6 +22,7 @@ public class GraplingHook{
     private GameObject parent;
     private GameObject referencedObject;
     private GameObject head;
+	private AudioController audioController;
 
     private DistanceJoint2D tempHinge;
     private float damper = 1;
@@ -50,6 +53,7 @@ public class GraplingHook{
         parent.name = "Grappling Hook";
         ground_layers = 1 << LayerMask.NameToLayer("Cave");
         rope_layers = 1 << LayerMask.NameToLayer("Player");
+		audioController = GameObject.Find ("Audio Delegate").GetComponent<AudioController>();
     }
 	
 	// Update is called once per frame
@@ -118,9 +122,13 @@ public class GraplingHook{
             }
         }
 
-        if (foundHead && !(Physics2D.OverlapCircle(new Vector2(head.transform.position.x, head.transform.position.y), .2f, ground_layers) == null))
+		if (hasMadeHitSound == false && foundHead && !(Physics2D.OverlapCircle(new Vector2(head.transform.position.x, head.transform.position.y), .2f, ground_layers) == null))
         {
-            head.GetComponent<Rigidbody2D>().isKinematic = true;          
+			audioController.PlayGrapplingHitSound();
+			hasMadeHitSound = true;
+
+            head.GetComponent<Rigidbody2D>().isKinematic = true;
+
         }
 
     }

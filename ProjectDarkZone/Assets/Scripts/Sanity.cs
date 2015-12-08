@@ -16,6 +16,7 @@ public class Sanity : MonoBehaviour
     private bool faded;
     private Image foreground, background;
     private Health health;
+	private AudioController audioController;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class Sanity : MonoBehaviour
         fadeTime = health.sanityTickTime;
         faded = false;
         sanity.value = value;
+		audioController = GameObject.Find ("Audio Delegate").GetComponent<AudioController>();
     }
 
     void Update()
@@ -55,6 +57,13 @@ public class Sanity : MonoBehaviour
             if (sanity.value < sanity.maxValue)
                 sanity.value += Time.deltaTime * degenPerSec;
         }
+
+		//Audio
+//		Debug.Log ("S: " + sanity.value);
+		if (sanity.value < 50) {
+			audioController.PlayHeartBeatSound((100-sanity.value)/100.0f);
+		}
+
     }
 
     public bool IsEmpty()
